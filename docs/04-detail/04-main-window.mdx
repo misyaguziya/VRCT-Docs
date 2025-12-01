@@ -1,0 +1,119 @@
+---
+sidebar_position: 4
+slug: /main-window
+title: Main Window
+description: Overview of the VRCT main window.
+sidebar_label: Main Window
+---
+
+# Main Window Overview
+
+Here is an overview of the VRCT main window and its features.
+
+![Main Window](./img/main-window-overview.png)
+
+## 1. Translation Toggle Switch
+![main-window-translate-toggle-switch.png](./img/main-window-translate-toggle-switch.png)  
+When enabled, messages will be translated.
+
+## 2. Transcription Controls
+![main-window-transcript-toggle-switch.png](./img/main-window-transcript-toggle-switch.png)  
+Controls the microphone and speaker transcription.
+- **Voice2Chatbox** Toggle Switch: Toggles microphone transcription (Voice to Text).
+- **Speaker2Log** Toggle Switch: Toggles speaker transcription (System Audio to Text).
+
+## 3. Set To Stay On Top Toggle Switch
+![main-window-keeptop-toggle-switch.png](./img/main-window-keeptop-toggle-switch.png)  
+Keeps the VRCT main window on top of other windows when enabled.
+
+## 4. Language Settings
+![main-window-language-settings.png](./img/main-window-language-settings.png)  
+Displays the currently selected languages.
+- **Your Language**: The language you are speaking or writing.
+- **Target Language**: The language you want to translate to.
+
+### 4.1 Preset Tab
+![main-window-preset-tab.png](./img/main-window-preset-tab.png)  
+You can set up to three language presets.  
+**Preset 1, 2, 3**: Click to switch between presets.
+
+### 4.2 Your Language / Target Language
+![main-window-language-select.png](./img/main-window-language-select.png)  
+Click on a language area in **Your Language** / **Target Language** to display the language selection menu.  
+Please select the language you need for communication.  
+![main-window-language-select-menu.png](./img/main-window-language-select-menu.png)
+
+### 4.3 Swap Languages
+![main-window-swap-languages.png](./img/main-window-swap-languages.png)  
+Clicking this area allows you to quickly swap or change languages.
+
+### 4.4 Additional Target Language
+![main-window-additional-target-language-step1.png](./img/main-window-additional-target-language-step1.png)  
+You can add an additional target language for translation.
+- Click the **[+]** button to add another target language.  
+- Up to 3 target languages can be added.  
+![main-window-additional-target-language-step2.png](./img/main-window-additional-target-language-step2.png)
+- Click the **[-]** button to remove the additional target language.
+
+:::tip[tip]
+When multiple target languages are set, the translated messages will be displayed in the order of the target languages set.
+:::
+
+### 4.5 Translation Engine Selection
+![main-window-translation-engine-select-step1.png](./img/main-window-translation-engine-select-step1.png)  
+You can select translation engines.
+- Click the translation engine name area to display the selection menu.  
+![main-window-translation-engine-select-step2.png](./img/main-window-translation-engine-select-step2.png)
+- Select the translation engine you want to use for that target language.
+- default engines are AI Translation(m2m100 model).
+    - Reference : https://huggingface.co/docs/transformers/model_doc/m2m_100
+
+## 5. Chat History
+Displays the conversation history.
+- **Left side**: Messages received from others.
+- **Right side**: Messages sent by you.
+Each message shows the original text and the translated text.
+
+## 6. Input Field
+![main-window-input-field.png](./img/main-window-input-field.png)  
+Type your message here to send it via chat.
+- Click Right side Button sends the message.
+- You can use the following keyboard shortcuts:
+    - Press **Enter** to send.
+    - Press **Shift + Enter** to insert a line break.
+    - Press **Shift + Up Arrow** to recall the last sent message for editing.
+
+## 7. Configuration Button
+![main-window-config.png](./img/main-window-config.png)  
+Opens the settings window where you can configure VRCT options.
+For details, refer to the [Settings Guide](./settings).
+
+## 8. Plugins Button
+![main-window-plugin.png](./img/main-window-plugins.png)  
+Opens the plugins window where you can manage VRCT plugins.
+![plugin-window](./img/main-window-plugins-window.png)  
+For details, refer to the [Plugins Guide](./plugins).
+
+## 9. VRC Mute Sync Button
+![main-window-vrc-mute-sync.png](./img/main-window-vrc-mute-sync.png)  
+Opens the VRC Mute Sync settings window.  
+![vrc-mute-sync-window](./img/main-window-vrc-mute-sync-window.png)  
+When enabled, VRCT will synchronize the mute status between VRChat and VRCT.  
+For details, refer to the [VRC Mute Sync Guide](./vrc-mute-sync).
+
+## 10. Overlay(VR) Button
+![main-window-overlay-vr-button.png](./img/main-window-overlay.png)  
+Opens the Overlay(VR) settings window.
+![overlay-vr-window](./img/main-window-overlay-window.png)  
+For details, refer to the [Overlay(VR) Guide](./overlay).
+
+## 11. Help Button
+![main-window-help-menu.png](./img/main-window-help.png)  
+Opens the help menu with links to documentation.
+
+## 12. Message Log Font Size Slider
+![main-window-quick-menu-font-size.png](./img/main-window-font-size.png)  
+Opens the font size slider window.
+![main-window-font-size-window.png](./img/main-window-font-size-window.png)
+- Slider: Adjust the Message Log font size.
+- Default size is 100.

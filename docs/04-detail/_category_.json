@@ -1,0 +1,8 @@
+{
+  "label": "Detailed Guide",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Detailed explanation of the main window features and functionalities."
+  }
+}
