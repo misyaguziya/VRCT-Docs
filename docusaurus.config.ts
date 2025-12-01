@@ -75,7 +75,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Home',
+      title: 'VRCT',
       logo: {
         alt: 'Software Icon',
         src: 'img/icon.png',
@@ -85,7 +85,22 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'Sidebar',
           position: 'left',
-          label: 'Docs',
+          label: 'Home',
+          href: '/',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'Sidebar',
+          position: 'left',
+          label: 'Tutorial',
+          href: '/docs/tutorial',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'Sidebar',
+          position: 'left',
+          label: 'UI Guide',
+          href: '/docs/ui-guide',
         },
         {
           href: 'https://github.com/misyaguziya/VRCT',
@@ -129,7 +144,7 @@ const config: Config = {
       //     ],
       //   },
       // ],
-      copyright: `Copyright © ${new Date().getFullYear()}-present m's software.`,
+      copyright: `Copyright © 2022-${new Date().getFullYear()}-present m's software.`,
     },
     prism: {
       theme: prismThemes.github,

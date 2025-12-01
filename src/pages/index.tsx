@@ -5,6 +5,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import styles from './index.module.css';
 
@@ -15,7 +17,13 @@ function HomepageHeader() {
     {/* <header className={clsx('hero hero--primary', styles.heroBanner)}> */}
       <div className="container">
         <div>
-            <img src="img/vrct_logo_white.png" alt="VRCT Logo"/>
+          <ThemedImage
+            alt="VRCT Logo"
+            sources={{
+              light: useBaseUrl('img/vrct_logo_black.png'),
+              dark: useBaseUrl('img/vrct_logo_white.png'),
+            }}
+          />
         </div>
         {/* <Heading as="h1" className="hero__title">
           {siteConfig.title}
@@ -30,7 +38,7 @@ function HomepageHeader() {
           <span style={{ margin: '0 10px' }}></span>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
+            to="/docs/tutorial">
             Tutorial
           </Link>
           <span style={{ margin: '0 10px' }}></span>
