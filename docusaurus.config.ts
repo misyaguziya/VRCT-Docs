@@ -103,6 +103,13 @@ const config: Config = {
           href: '/docs/ui-guide',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'Sidebar',
+          position: 'left',
+          label: 'FAQ',
+          href: '/docs/faq',
+        },
+        {
           href: 'https://github.com/misyaguziya/VRCT',
           label: 'GitHub',
           position: 'right',
