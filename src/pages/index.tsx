@@ -12,6 +12,7 @@ function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary-base', styles.heroBanner)}>
+    {/* <header className={clsx('hero hero--primary', styles.heroBanner)}> */}
       <div className="container">
         <div>
             <img src="img/vrct_logo_white.png" alt="VRCT Logo"/>
