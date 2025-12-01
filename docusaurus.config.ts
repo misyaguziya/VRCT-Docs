@@ -83,9 +83,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'Sidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {
           href: 'https://github.com/misyaguziya/VRCT',
