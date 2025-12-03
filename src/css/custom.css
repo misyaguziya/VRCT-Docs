@@ -269,3 +269,13 @@ html[data-theme="light"] .footer-logo-dark {
 html[data-theme="dark"] .footer-logo-light {
   display: none;
 }
+
+/* インライン画像とテキストの高さを揃える */
+.markdown img {
+  vertical-align: middle;
+}
+
+/* リスト内のインライン画像も同様に */
+.markdown li img {
+  vertical-align: middle;
+}
