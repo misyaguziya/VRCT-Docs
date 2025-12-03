@@ -101,6 +101,13 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'Sidebar',
           position: 'left',
+          label: 'Feature Guide',
+          href: '/docs/feature-guide',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'Sidebar',
+          position: 'left',
           label: 'UI Guide',
           href: '/docs/ui-guide',
         },
