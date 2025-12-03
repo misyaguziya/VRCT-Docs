@@ -120,7 +120,7 @@ const config: Config = {
         },
         {
           href: 'https://shiinasakamoto.github.io/vrct_supporters/',
-          label: '👑Supporters',
+          label: 'Supporters👑',
           position: 'right',
         },
         {
