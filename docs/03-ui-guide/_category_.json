@@ -1,6 +1,7 @@
 {
   "label": "UI Guide",
-  "position": 2,
+  "position": 3
+  ,
   "link": {
     "type": "doc",
     "id": "ui-guide/index"
