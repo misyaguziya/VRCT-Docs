@@ -6,7 +6,6 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary-base: #1b1b1d;
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
@@ -20,8 +19,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary-base: #1b1b1d;
-  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary: #48a495;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
@@ -29,4 +27,245 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="light"] .theme-layout-navbar {
+  background-color: #f9fafb;
+}
+
+/* ダーク時の背景上書き */
+html[data-theme="dark"] .theme-layout-main {
+  background-color: #2e2f32;
+}
+
+html[data-theme="dark"] .hero.hero--primary-base {
+  background: #2e2f32; /* 既存のダーク用パレットに揃える */
+  color: #f2f2f2;
+}
+
+html[data-theme="light"] .theme-layout-footer {
+  background-color: #f9fafb; /* 既存のライト用パレットに揃える */
+  color: #1f2937;
+}
+
+html[data-theme="dark"] .theme-layout-footer {
+  background-color: #242526; /* 既存のダーク用パレットに揃える */
+  color: #f2f2f2;
+}
+
+/* Search box customization for dark mode */
+html[data-theme="dark"] .aa-DetachedSearchButton {
+  background-color: #2e2f32;
+  color: #f2f2f2;
+  border-color: #374151;
+}
+
+html[data-theme="dark"] .aa-DetachedSearchButton:hover,
+html[data-theme="dark"] .aa-DetachedSearchButton:focus {
+  background-color: #2e2f32;
+  border-color: #4b5563;
+}
+
+html[data-theme="dark"] .aa-DetachedSearchButtonPlaceholder {
+  color: #9ca3af;
+}
+
+html[data-theme="dark"] .aa-DetachedSearchButton .aa-SubmitIcon {
+  color: #4b5563;
+}
+
+html[data-theme="dark"] .aa-DetachedFormContainer {
+  background-color: #2e2f32;
+  color: #f2f2f2;
+  border: 1px solid #374151;
+  border-radius: 12px;
+}
+
+/* Search window form customization for dark mode */
+html[data-theme="dark"] .aa-Form {
+  background-color: #2e2f32;
+  border: 1px solid #374151;
+  border-radius: 12px;
+}
+
+html[data-theme="dark"] .aa-Input::placeholder {
+  color: #9ca3af;
+}
+
+html[data-theme="dark"] .aa-SubmitButton {
+  color: var(--ifm-color-primary, #60a5fa);
+}
+
+html[data-theme="dark"] .aa-SubmitButton:hover {
+  color: var(--ifm-color-primary-dark, #3b82f6);
+}
+
+html[data-theme="dark"] .aa-ClearButton {
+  color: #9ca3af;
+}
+
+html[data-theme="dark"] .aa-ClearButton:hover {
+  color: #f2f2f2;
+}
+
+html[data-theme="dark"] .aa-DetachedCancelButton {
+  background-color: transparent;
+  color: #cbd5e1;
+  border: 1px solid #374151;
+  border-radius: 8px;
+}
+
+html[data-theme="dark"] .aa-DetachedCancelButton:hover {
+  background-color: #1f2937;
+  border-color: #4b5563;
+}
+
+html[data-theme="dark"] .aa-SubmitIcon,
+html[data-theme="dark"] .aa-ClearIcon,
+html[data-theme="dark"] .aa-LoadingIcon {
+  color: #cbd5e1;
+}
+
+/* Search panel container */
+html[data-theme="dark"] .aa-Panel {
+  background-color: #2e2f32;
+  color: #f2f2f2;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* Scrollable layout area */
+html[data-theme="dark"] .aa-PanelLayout {
+  background-color: #2e2f32;
+}
+
+/* Source blocks */
+html[data-theme="dark"] .aa-Source {
+  background-color: #2e2f32;
+  border-top: 1px solid #374151; /* 区切り線 */
+}
+
+/* No results / items container */
+html[data-theme="dark"] .aa-ItemContent {
+  background-color: transparent;
+  color: #f2f2f2;
+}
+
+html[data-theme="dark"] .aa-ItemContentBody {
+  color: #f2f2f2;
+}
+
+/* 各リザルトアイテムのホバー選択色 */
+html[data-theme="dark"] .aa-Item:hover,
+html[data-theme="dark"] .aa-Item[aria-selected="true"] {
+  background-color: #3a3b40;
+}
+
+/* ハイライト文字（キーワード一致部） */
+html[data-theme="dark"] mark,
+html[data-theme="dark"] .aa-Highlight {
+  background: transparent;
+  color: var(--ifm-color-primary, #25c2a0);
+  font-weight: 600;
+}
+
+/* 下端グラデーション（スクロールのヒント） */
+html[data-theme="dark"] .aa-GradientBottom {
+  background: linear-gradient(to bottom, rgba(46,47,50,0), rgba(46,47,50,0.85));
+}
+
+/* パネル内リンクの色 */
+html[data-theme="dark"] .aa-ItemLink,
+html[data-theme="dark"] .aa-ItemTitle {
+  color: #f2f2f2;
+}
+
+html[data-theme="dark"] .aa-ItemLink:hover,
+html[data-theme="dark"] .aa-ItemTitle:hover {
+  color: var(--ifm-color-primary, #48a495);
+}
+
+/* スクロールバー（任意） */
+html[data-theme="dark"] .aa-PanelLayout.aa-Panel--scrollable::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+html[data-theme="dark"] .aa-PanelLayout.aa-Panel--scrollable::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+  border-radius: 8px;
+  border: 2px solid #2e2f32;
+}
+html[data-theme="dark"] .aa-PanelLayout.aa-Panel--scrollable::-webkit-scrollbar-track {
+  background-color: #2e2f32;
+}
+
+/* Modal 全体のコンテナ（枠と背景） */
+html[data-theme="dark"] .aa-DetachedContainer {
+  background-color: #2e2f32;
+  color: #f2f2f2;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* モーダル表示時のコンテナ（念のためバリアントも指定） */
+html[data-theme="dark"] .aa-DetachedContainer.aa-DetachedContainer--modal {
+  background-color: #2e2f32;
+  border-color: #374151;
+}
+
+/* 背面のオーバーレイ（ある場合） */
+html[data-theme="light"] .aa-DetachedOverlay,
+html[data-theme="light"] .aa-Overlay {
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px); /* 任意：軽いブラーで視認性を向上 */
+}
+
+
+html[data-theme="dark"] .aa-DetachedOverlay,
+html[data-theme="dark"] .aa-Overlay {
+  background-color: rgba(46, 47, 50, 0.65);
+  backdrop-filter: blur(2px); /* 任意：軽いブラーで視認性を向上 */
+}
+
+/* 検索フォームコンテナ（既存と同色に統一） */
+html[data-theme="dark"] .aa-DetachedFormContainer {
+  background-color: #242526;
+  color: #f2f2f2;
+  border: 1px solid #374151;
+}
+
+/* 入力ラッパー・入力欄の背景を揃える */
+html[data-theme="dark"] .aa-InputWrapper,
+html[data-theme="dark"] .aa-Input {
+  color: #f2f2f2;
+}
+
+/* パネルも同色に揃える（既存と重複OK） */
+html[data-theme="dark"] .aa-Panel,
+html[data-theme="dark"] .aa-PanelLayout {
+  background-color: #242526;
+  color: #f2f2f2;
+  border-color: #374151;
+}
+
+/* セクション区切り線の統一 */
+html[data-theme="dark"] .aa-Source {
+  background-color: #242526;
+  border-top: 1px solid #374151;
+}
+
+/* 下端グラデーションの色も同系に */
+html[data-theme="dark"] .aa-GradientBottom {
+  background: linear-gradient(to bottom, rgba(36,37,38,0), rgba(36,37,38,0.85));
+}
+
+/* Footer logo theme switching */
+html[data-theme="light"] .footer-logo-dark {
+  display: none;
+}
+
+html[data-theme="dark"] .footer-logo-light {
+  display: none;
 }

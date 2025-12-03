@@ -58,6 +58,11 @@ export default function HomepageFeatures(): ReactNode {
             <Feature key={idx} {...props} />
           ))}
         </div>
+        <hr />
+        <div style={{ textAlign: 'center'}}>
+          <h1>Screenshot</h1>
+          <img src="img/screenshot.png" alt="VRCT Screenshot"/>
+        </div>
       </div>
     </section>
   );

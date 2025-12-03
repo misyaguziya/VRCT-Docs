@@ -23,6 +23,7 @@ function HomepageHeader() {
               light: useBaseUrl('img/vrct_logo_black.png'),
               dark: useBaseUrl('img/vrct_logo_white.png'),
             }}
+            style={{ width: '900px', objectFit: 'contain' }}
           />
         </div>
         {/* <Heading as="h1" className="hero__title">
@@ -49,9 +50,6 @@ function HomepageHeader() {
           </Link>
         </div>
       </div>
-        <div>
-            <img src="img/screenshot.png" alt="VRCT Screenshot"/>
-        </div>
     </header>
   );
 }

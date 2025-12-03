@@ -22,8 +22,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "m's software/misyaguziya", // Usually your GitHub org/user name.
-  projectName: 'misyaguziya/VRCT', // Usually your repo name.
+  organizationName: "m's software", // Usually your GitHub org/user name.
+  projectName: 'misyaguziya/VRCT-Docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -34,6 +34,8 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  plugins: ["@cmfcmf/docusaurus-search-local"],
 
   presets: [
     [
@@ -110,6 +112,11 @@ const config: Config = {
           href: '/docs/faq',
         },
         {
+          href: 'https://shiinasakamoto.github.io/vrct_supporters/',
+          label: '👑Supporters',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/misyaguziya/VRCT',
           label: 'GitHub',
           position: 'right',
@@ -151,7 +158,24 @@ const config: Config = {
       //     ],
       //   },
       // ],
-      copyright: `Copyright © 2022-${new Date().getFullYear()}-present m's software.`,
+      copyright: `
+        <div style="margin-bottom: 1rem;">
+          <img 
+            src="/img/M's_logo_White_yoko.png" 
+            alt="m's software" 
+            style="height: 100px;"
+            class="footer-logo-dark"
+          />
+          <img 
+            src="/img/M's_logo_Black_yoko.png" 
+            alt="m's software" 
+            style="height: 100px;"
+            class="footer-logo-light"
+          />
+        </br>
+        Copyright © 2022-${new Date().getFullYear()}-present m's software.
+        </div>
+      `,
     },
     prism: {
       theme: prismThemes.github,
