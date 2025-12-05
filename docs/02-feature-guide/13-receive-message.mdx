@@ -1,0 +1,321 @@
+---
+sidebar_position: 13
+slug: /feature-guide/receive-message
+title: Receive Message
+description: Receive and translate messages from others
+sidebar_label: Receive Message
+---
+
+# Receive Message
+
+Learn how to receive and translate messages from other players in VRChat using VRCT's speaker transcription feature.
+
+## Overview
+
+VRCT can capture audio from your speakers (VRChat voice chat) and:
+1. Transcribe the audio to text
+2. Translate the transcribed text
+3. Display in chat history for you to read
+
+This allows you to "read" what others are saying through voice chat, even in different languages.
+
+## Enable Speaker Transcription
+
+### Toggle Speaker2Log
+
+1. In the main window, locate the **Speaker2Log** toggle switch
+2. Click to enable speaker transcription
+3. Ensure your speaker/audio device is correctly selected in settings
+
+<!-- ![Speaker2Log Toggle](./img/speaker2log-toggle-receive.png) -->
+
+:::warning[Important]
+Before enabling, make sure the correct speaker/audio output device is selected in [Device Settings](/config-device).
+:::
+
+## Configuration
+
+### Select Audio Output Device
+
+1. Open Settings (click gear icon)
+2. Navigate to **Device** section
+3. Select the audio output device VRChat is using
+4. Save settings
+
+:::tip[Tip]
+Select the same device that plays VRChat voice chat audio.
+:::
+
+For detailed device configuration, see the [Device Settings Guide](/config-device).
+
+### Configure Transcription
+
+1. Open Settings
+2. Navigate to **Transcription** section
+3. Configure speaker transcription engine
+4. Adjust language settings
+5. Save changes
+
+For detailed transcription settings, see the [Transcription Settings Guide](/config-transcription).
+
+## Receiving Messages
+
+### Without Translation
+
+1. Enable **Speaker2Log** toggle
+2. When someone speaks in VRChat voice chat
+3. VRCT transcribes their voice to text
+4. Transcribed text appears in chat history (left side)
+
+<!-- ![Receive Without Translation](./img/receive-no-translation.png) -->
+
+### With Translation
+
+1. Enable both **Translation** and **Speaker2Log** toggles
+2. Set expected source language (language they're speaking)
+3. Set your preferred target language (your language)
+4. When someone speaks:
+   - Audio is transcribed to text
+   - Text is automatically translated
+   - Both original and translation appear in chat history
+
+<!-- ![Receive With Translation](./img/receive-with-translation.png) -->
+
+## Message Display
+
+### Chat History Layout
+
+Received messages appear on the **left side** of chat history:
+
+- **Original Text**: Transcribed speech in original language
+- **Translated Text**: Translation in your language
+- **Timestamp**: When the message was received (if enabled)
+- **Speaker Indicator**: (if available)
+
+<!-- ![Chat History Received](./img/chat-history-received.png) -->
+
+### Reading Messages
+
+- Messages appear in real-time as others speak
+- Scroll to view older messages
+- Search functionality (if available)
+- Export or save chat logs (if available)
+
+## Language Detection
+
+### Automatic Language Detection
+
+Some transcription/translation engines can automatically detect the spoken language:
+
+1. Set source language to "Auto-detect"
+2. VRCT will identify the language
+3. Translate to your target language
+
+:::info[Note]
+Auto-detection accuracy depends on the engine and audio quality.
+:::
+
+### Manual Language Selection
+
+For better accuracy, manually set the expected source language:
+
+1. Know which language the person is speaking
+2. Set that as the source language in VRCT
+3. More accurate transcription and translation
+
+## Multi-Speaker Scenarios
+
+### Multiple People Speaking
+
+When multiple people are talking:
+- VRCT transcribes all audio from the speaker device
+- May mix transcriptions together
+- Difficult to separate different speakers
+- Best when one person speaks at a time
+
+### Simultaneous Speech
+
+If multiple people speak simultaneously:
+- Transcription accuracy decreases
+- Mixed or garbled text may result
+- Translation may be unreliable
+- Wait for clear audio for best results
+
+## Important Warnings
+
+### Device Change Warning
+
+:::warning[Critical]
+**DO NOT change the speaker device in Windows while Speaker2Log is active.**
+
+If you need to change the speaker device:
+1. **Disable Speaker2Log in VRCT first**
+2. Change the speaker device in Windows
+3. Update the device in VRCT settings
+4. Re-enable Speaker2Log
+
+Changing devices while active may cause VRCT to freeze or crash.
+:::
+
+### Privacy Considerations
+
+Speaker transcription captures **ALL audio** from the selected device:
+- VRChat voice chat
+- Music or videos playing
+- Other application sounds
+- Desktop notifications
+
+**Use responsibly and ethically:**
+- Respect others' privacy
+- Don't share private conversations
+- Follow VRChat community guidelines
+- Use for accessibility and communication assistance only
+
+## Use Cases
+
+### Language Learning
+
+- Understand foreign language speakers in VRChat
+- Read along while listening to practice comprehension
+- Learn new vocabulary and phrases in context
+- Improve listening skills with text support
+
+### Accessibility
+
+- For players with hearing difficulties
+- Read voice chat as text
+- Don't miss important conversations
+- Participate fully in VRChat communities
+
+### Cross-Language Communication
+
+- Understand players speaking different languages
+- Bridge language barriers in international worlds
+- Communicate with global VRChat community
+- Make friends across language boundaries
+
+### Record Keeping
+
+- Keep written logs of voice conversations
+- Review important information later
+- Remember what was discussed
+- Create conversation archives
+
+## Best Practices
+
+### For Better Transcription
+
+1. **Good Audio Quality**: Ensure clear VRChat voice
+2. **Appropriate Volume**: Not too loud, not too quiet
+3. **Reduce Background Noise**: Minimize other application sounds
+4. **Correct Language Setting**: Set expected source language
+
+### For Better Translation
+
+1. **Select Appropriate Engine**: Choose engine good at the language pair
+2. **Context Awareness**: Understand conversation context
+3. **Check Multiple Translations**: Compare if accuracy is critical
+4. **Learn Common Phrases**: Recognize patterns over time
+
+### For VRChat Etiquette
+
+1. **Use Discreetly**: Don't announce you're transcribing
+2. **Respect Privacy**: Don't share transcripts without permission
+3. **Participate Actively**: Engage in conversations, don't just lurk
+4. **Help Others**: Share translations to help communication
+
+## Troubleshooting
+
+### No Transcription Appearing
+
+- Verify Speaker2Log toggle is enabled
+- Check correct audio device is selected
+- Ensure VRChat audio is playing through that device
+- Test audio output in Windows
+- Check microphone isn't capturing instead
+
+### Poor Transcription Quality
+
+- Increase VRChat voice volume
+- Reduce other application audio
+- Ensure correct source language is set
+- Try different transcription engine
+- Check audio device quality and drivers
+
+### Translation Not Accurate
+
+- Verify correct source and target languages
+- Try different translation engine
+- Check if transcription is accurate first
+- Consider context and slang usage
+- Manual translation for important messages
+
+### VRCT Freezing
+
+- Disable Speaker2Log before changing audio devices
+- Check system resources (CPU/GPU/RAM)
+- Close resource-intensive applications
+- Restart VRCT if frozen
+- Update VRCT to latest version
+
+### Can't Hear VRChat Audio
+
+- Verify audio device isn't muted
+- Check Windows volume mixer
+- Ensure VRChat is outputting to correct device
+- Test audio with other applications
+
+## Performance Optimization
+
+### System Resources
+
+Speaker transcription is resource-intensive:
+- Continuous audio processing
+- Real-time transcription
+- Translation processing
+- More demanding than microphone transcription
+
+### Optimization Tips
+
+1. **Use Lighter Models**: Select faster transcription engines
+2. **Reduce Other Apps**: Close unnecessary applications
+3. **Disable When Not Needed**: Turn off when not actively using
+4. **Optimize Settings**: Balance quality vs performance
+
+### Battery Considerations (Laptops)
+
+- Speaker transcription drains battery faster
+- Use power-saving transcription modes
+- Consider plugging in for extended sessions
+- Disable when battery is low
+
+## Privacy & Ethics
+
+### Ethical Use
+
+- Respect others' privacy and consent
+- Use for legitimate communication purposes
+- Don't record or share without permission
+- Follow VRChat Terms of Service
+
+### Data Handling
+
+- Transcriptions stored locally in VRCT
+- Cloud engines may send audio to external servers
+- Choose local engines for privacy
+- Clear chat history regularly if needed
+
+### Legal Considerations
+
+- Check local laws regarding recording conversations
+- Some regions require consent for recording
+- VRCT transcription may be subject to these laws
+- Use responsibly and legally
+
+## Related Features
+
+- [Send Message](./send-message) - Learn about sending messages
+- [Speaker to Text](./speaker-to-text) - Detailed speaker transcription guide
+- [Real-time Translation](./translation) - Translation feature overview
+- [Device Settings](/config-device) - Configure audio devices
+- [Transcription Settings](/config-transcription) - Configure transcription engine

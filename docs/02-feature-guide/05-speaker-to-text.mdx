@@ -1,0 +1,215 @@
+---
+sidebar_position: 5
+slug: /feature-guide/speaker-to-text
+title: Speaker to Text (Speaker2Log)
+description: Transcribe system audio to text
+sidebar_label: Speaker to Text
+---
+
+# Speaker to Text (Speaker2Log)
+
+The Speaker to Text feature (Speaker2Log) allows you to transcribe system audio output to text. This is perfect for capturing and translating what other players are saying in VRChat voice chat.
+
+## Overview
+
+Speaker2Log captures audio from your selected speaker/audio output device and:
+1. Transcribes the audio to text
+2. Translates the transcribed text (if translation is enabled)
+3. Displays the results in the chat history
+
+This allows you to "read" what others are saying through voice chat.
+
+## How to Enable
+
+### Toggle Speaker2Log
+
+1. In the main window, locate the **Speaker2Log** toggle switch
+2. Click to enable speaker transcription
+3. The toggle will turn on when active
+
+<!-- ![Speaker2Log Toggle](./img/speaker2log-toggle.png) -->
+
+:::warning[Important]
+Make sure you have selected the correct speaker/audio output device in VRCT settings before enabling this feature.
+:::
+
+## Configuration
+
+### Select Speaker Device
+
+1. Open the Settings window (click the gear icon)
+2. Navigate to the **Device** section
+3. Select your audio output device from the speaker dropdown list
+4. Click Save
+
+:::tip[Tip]
+Select the same device that VRChat is using for audio output.
+:::
+
+For detailed device configuration, see the [Device Settings Guide](/config-device).
+
+### Adjust Transcription Settings
+
+1. Open the Settings window
+2. Navigate to the **Transcription** section
+3. Configure speaker transcription settings
+
+For detailed transcription settings, see the [Transcription Settings Guide](/config-transcription).
+
+## How to Use
+
+### Basic Usage
+
+1. Enable Speaker2Log toggle
+2. When others speak in VRChat voice chat
+3. VRCT captures and transcribes the audio
+4. Transcribed text appears in the chat history (left side)
+
+### With Translation
+
+1. Enable both Translation and Speaker2Log toggles
+2. Set the expected source language
+3. Set your preferred target language
+4. When others speak, their speech will be transcribed and translated
+5. View both original and translated text in the chat history
+
+<!-- ![Speaker with Translation](./img/speaker-translation-flow.png) -->
+
+## Features
+
+### Real-time Transcription
+
+Audio is transcribed in near real-time as people speak.
+
+### Multi-speaker Support
+
+The system can transcribe multiple people speaking (though simultaneous speech may reduce accuracy).
+
+### Translation Integration
+
+Seamlessly integrates with translation features to help you understand foreign languages.
+
+## Important Warnings
+
+### Device Changes
+
+:::warning[Critical]
+If you change the speaker device in Windows while VRCT is transcribing the speaker, VRCT may freeze or crash.
+
+**To safely change the speaker device:**
+1. Disable Speaker2Log in VRCT first
+2. Change the speaker device in Windows
+3. Update the speaker device in VRCT settings
+4. Re-enable Speaker2Log
+:::
+
+### Privacy Considerations
+
+Be aware that Speaker2Log transcribes ALL audio from the selected device, including:
+- VRChat voice chat
+- Desktop audio
+- Music, videos, or other applications using that audio device
+
+## Best Practices
+
+### For Better Accuracy
+
+1. **Clear Audio Source**: Ensure good audio quality from VRChat
+2. **Reduce Background Noise**: Minimize desktop audio from other applications
+3. **Proper Volume Levels**: Set VRChat voice volume to appropriate levels
+4. **Select Correct Language**: Configure the expected language in settings
+
+### For VRChat Usage
+
+1. **Volume Balance**: Adjust VRChat voice volume for optimal transcription
+2. **Reduce Echo**: Disable audio output to speakers when using VR headset
+3. **Monitor System Resources**: Speaker transcription can be resource-intensive
+
+## Use Cases
+
+### Language Learning
+
+- Understand foreign language conversations in VRChat
+- Practice by reading transcriptions while listening
+- Learn new vocabulary and phrases
+
+### Accessibility
+
+- For players with hearing difficulties
+- Read voice chat as text
+- Keep conversation logs
+
+### Communication Support
+
+- Bridge language barriers in international worlds
+- Understand conversations in worlds where you don't speak the language
+- Keep written records of voice conversations
+
+## Troubleshooting
+
+### Speaker Transcription Not Working
+
+- Verify the correct audio device is selected in settings
+- Check that the device is not muted in Windows
+- Ensure VRChat audio is playing through the selected device
+- Test audio playback in Windows
+
+### Poor Transcription Accuracy
+
+- Increase VRChat voice volume
+- Reduce background application audio
+- Select the correct source language
+- Try a different transcription engine
+- Check audio output quality
+
+### VRCT Freezing
+
+- Disable Speaker2Log before changing Windows audio devices
+- Restart VRCT if frozen
+- Check system resources (CPU/GPU/RAM)
+
+### Cannot Hear Audio
+
+- Make sure you're not monitoring the audio device
+- Check Windows audio settings
+- Verify VRChat audio output device
+- Check application mixer volumes
+
+## Performance Considerations
+
+### System Resources
+
+Speaker transcription requires:
+- Continuous CPU/GPU processing
+- RAM for audio buffering
+- More resources than microphone transcription (processes all desktop audio)
+
+### Optimization Tips
+
+1. Use lighter transcription models
+2. Close unnecessary audio applications
+3. Disable when not needed
+4. Adjust transcription quality vs performance in settings
+
+## Privacy & Ethics
+
+### Respect Others' Privacy
+
+- Be mindful that you're transcribing others' conversations
+- Use this feature responsibly and ethically
+- Follow VRChat Terms of Service and community guidelines
+- Don't share transcribed private conversations without permission
+
+### Data Handling
+
+- Transcribed text is stored locally in VRCT
+- Cloud-based engines may send audio data to external servers
+- Choose local engines if privacy is a concern
+
+## Related Features
+
+- [Voice to Text](./voice-to-text) - Transcribe your own voice
+- [Receive Message](./receive-message) - Learn about receiving messages
+- [Real-time Translation](./translation) - Translate transcribed text
+- [Device Settings](/config-device) - Configure speaker device
+- [Transcription Settings](/config-transcription) - Configure transcription engine

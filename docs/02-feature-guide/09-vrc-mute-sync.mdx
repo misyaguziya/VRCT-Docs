@@ -1,0 +1,248 @@
+---
+sidebar_position: 9
+slug: /feature-guide/vrc-mute-sync
+title: VRC Mute Sync
+description: Synchronize mute status with VRChat
+sidebar_label: VRC Mute Sync
+---
+
+# VRC Mute Sync
+
+VRC Mute Sync automatically synchronizes the microphone mute status between VRChat and VRCT, ensuring both applications stay in sync when you mute or unmute.
+
+## Overview
+
+When enabled, VRC Mute Sync:
+- Detects when you mute/unmute in VRChat
+- Automatically mutes/unmutes VRCT transcription
+- Prevents sending transcribed text when muted in VRChat
+- Keeps both applications in sync
+
+This ensures you don't accidentally send transcribed messages when you think you're muted.
+
+## How to Enable
+
+### Open VRC Mute Sync Settings
+
+1. In the VRCT main window, click the **VRC Mute Sync** button
+2. The VRC Mute Sync settings window will open
+3. Toggle the sync feature on/off
+
+<!-- ![VRC Mute Sync Button](./img/vrc-mute-sync-button.png) -->
+
+### Enable Sync
+
+1. In the VRC Mute Sync window, enable the **Sync** toggle
+2. VRCT will now monitor VRChat's mute status
+3. When you mute in VRChat, VRCT Voice2Chatbox will also mute
+
+<!-- ![VRC Mute Sync Settings](./img/vrc-mute-sync-settings.png) -->
+
+## How It Works
+
+### Detection
+
+VRC Mute Sync monitors VRChat's mute status through:
+- OSC parameters
+- VRChat avatar parameters
+- System audio monitoring
+
+### Synchronization
+
+When you mute in VRChat:
+1. VRChat sends mute status via OSC
+2. VRCT detects the status change
+3. VRCT automatically disables Voice2Chatbox
+4. No transcribed text is sent while muted
+
+When you unmute in VRChat:
+1. VRChat sends unmute status
+2. VRCT detects the change
+3. VRCT automatically re-enables Voice2Chatbox
+4. Transcription resumes
+
+## Configuration
+
+### Sync Modes
+
+**VRChat → VRCT (One-way)**:
+- VRChat mute controls VRCT
+- Muting in VRChat mutes VRCT
+- Default and recommended mode
+
+**Bidirectional (Two-way)**:
+- Muting in either application affects both
+- More complex setup
+- May require additional configuration
+
+### Delay Settings
+
+Configure sync delay to avoid false triggers:
+- **Instant**: No delay, immediate sync
+- **Short Delay**: 100-300ms delay
+- **Long Delay**: 500ms+ delay
+
+Adjust based on your preference and system performance.
+
+## Use Cases
+
+### Privacy Protection
+
+Prevent accidentally sending transcribed text when you think you're muted:
+- Muted for private conversations
+- Muted during breaks
+- Muted in inappropriate situations
+
+### Workflow Optimization
+
+Automatically manage transcription based on your VRChat state:
+- Talk in VRChat → VRCT transcribes
+- Mute in VRChat → VRCT stops transcribing
+- No manual toggling needed
+
+### Resource Management
+
+Save system resources when muted:
+- Transcription stops when not needed
+- Reduces CPU/GPU usage
+- Extends battery life (for laptops)
+
+## Mute Indicators
+
+### Visual Feedback
+
+VRCT shows mute status:
+- **Muted**: Red indicator or muted icon
+- **Unmuted**: Green indicator or active icon
+- Status visible in main window
+
+### Audio Feedback (Optional)
+
+Configure audio cues:
+- Beep when muted
+- Beep when unmuted
+- Helps confirm sync status
+
+## Best Practices
+
+### Initial Setup
+
+1. Enable VRC Mute Sync before starting VRChat
+2. Test mute/unmute in VRChat
+3. Verify VRCT responds correctly
+4. Adjust delay if needed
+
+### During Use
+
+1. Use VRChat's mute button normally
+2. VRCT will follow automatically
+3. Monitor sync status occasionally
+4. If out of sync, toggle VRChat mute to resync
+
+### Troubleshooting Sync
+
+If sync isn't working:
+1. Check OSC is enabled in VRChat
+2. Verify VRC Mute Sync is enabled in VRCT
+3. Test mute/unmute several times
+4. Check VRCT logs for errors
+
+## Advanced Features
+
+### Custom Mute Bindings
+
+Configure custom VRChat avatar parameters:
+- Non-standard mute parameters
+- Custom avatar-specific settings
+- Advanced OSC parameter mapping
+
+See [Advanced Settings](/config-advanced) for configuration.
+
+### Sync Status API
+
+For advanced users:
+- Access mute status via VRCT API
+- Integrate with other applications
+- Create custom automation
+
+## Troubleshooting
+
+### Sync Not Working
+
+**Check OSC Configuration**:
+- Ensure VRChat OSC is enabled
+- Verify OSC port settings match
+- Reset OSC config in VRChat
+
+**Verify VRCT Settings**:
+- VRC Mute Sync is enabled
+- Correct sync mode selected
+- No conflicting settings
+
+**Restart Applications**:
+1. Close both VRChat and VRCT
+2. Start VRCT first
+3. Then start VRChat
+4. Enable OSC in VRChat
+
+### Delayed Sync
+
+- Adjust sync delay settings
+- Check system performance (CPU usage)
+- Verify network/OSC latency is minimal
+- Reduce other application load
+
+### False Triggers
+
+If mute sync triggers incorrectly:
+- Increase sync delay
+- Check for OSC parameter conflicts
+- Verify avatar mute parameter is standard
+
+### One-Way Sync Only
+
+If bidirectional sync doesn't work:
+- Ensure both applications support two-way OSC
+- Check OSC parameter permissions
+- May require custom avatar setup
+
+## Limitations
+
+### Avatar Requirements
+
+- Avatar must have standard VRChat mute parameter
+- Custom avatars may need configuration
+- Some avatars may not support sync
+
+### OSC Dependency
+
+- Requires VRChat OSC to be enabled
+- Network/firewall issues can affect sync
+- Local OSC communication only
+
+### Detection Accuracy
+
+- Sync may not be instant (slight delay)
+- False positives/negatives possible
+- Depends on OSC message reliability
+
+## Privacy & Security
+
+### Local Communication
+
+- Sync uses local OSC only (127.0.0.1)
+- No external network communication
+- Safe and secure
+
+### No Data Sent
+
+- Mute status is not logged externally
+- Only used for local synchronization
+- Privacy-friendly feature
+
+## Related Features
+
+- [Voice to Text](./voice-to-text) - Microphone transcription
+- [OSC Integration](./osc-integration) - Learn about OSC
+- [Other Settings](/config-other) - Additional sync options
+- [Advanced Settings](/config-advanced) - Custom OSC parameters

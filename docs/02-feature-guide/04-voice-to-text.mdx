@@ -1,0 +1,180 @@
+---
+sidebar_position: 4
+slug: /feature-guide/voice-to-text
+title: Voice to Text (Voice2Chatbox)
+description: Convert your voice to text with microphone transcription
+sidebar_label: Voice to Text
+---
+
+# Voice to Text (Voice2Chatbox)
+
+The Voice to Text feature (Voice2Chatbox) allows you to speak into your microphone and have VRCT convert your speech to text, which can then be translated and sent to VRChat chatbox.
+
+## Overview
+
+Instead of typing messages, you can simply speak into your microphone. VRCT will:
+1. Capture your voice through the selected microphone
+2. Transcribe the speech to text
+3. Translate the text (if translation is enabled)
+4. Send the message to VRChat chatbox via OSC
+
+## How to Enable
+
+### Toggle Voice2Chatbox
+
+1. In the main window, locate the **Voice2Chatbox** toggle switch
+2. Click to enable microphone transcription
+3. The toggle will turn on when active
+
+<!-- ![Voice2Chatbox Toggle](./img/voice2chatbox-toggle.png) -->
+
+:::warning[Important]
+Make sure you have selected the correct microphone device in VRCT settings before enabling this feature.
+:::
+
+## Configuration
+
+### Select Microphone Device
+
+1. Open the Settings window (click the gear icon)
+2. Navigate to the **Device** section
+3. Select your preferred microphone from the dropdown list
+4. Click Save
+
+For detailed device configuration, see the [Device Settings Guide](/config-device).
+
+### Adjust Transcription Settings
+
+1. Open the Settings window
+2. Navigate to the **Transcription** section
+3. Configure settings such as:
+   - Transcription engine
+   - Language model
+   - Sensitivity
+   - Noise reduction
+
+For detailed transcription settings, see the [Transcription Settings Guide](/config-transcription).
+
+## How to Use
+
+### Basic Usage
+
+1. Enable Voice2Chatbox toggle
+2. Speak into your microphone
+3. Your speech will be transcribed to text in real-time
+4. The transcribed text appears in the chat input field
+5. When you finish speaking, the message is automatically processed
+
+### With Translation
+
+1. Enable both Translation and Voice2Chatbox toggles
+2. Set your speaking language as "Your Language"
+3. Set the desired target language
+4. Speak into your microphone
+5. Your speech will be transcribed and translated automatically
+
+<!-- ![Voice with Translation](./img/voice-translation-flow.png) -->
+
+## Features
+
+### Real-time Transcription
+
+As you speak, you can see the text being transcribed in real-time in the input field.
+
+### Automatic Punctuation
+
+The transcription engine automatically adds punctuation based on your speech patterns and pauses.
+
+### Multiple Language Support
+
+Voice2Chatbox supports transcription in multiple languages:
+- English
+- Japanese
+- Chinese
+- Korean
+- Spanish
+- French
+- German
+- And many more...
+
+:::tip[Tip]
+Select your speaking language in the transcription settings for better accuracy.
+:::
+
+## Best Practices
+
+### For Better Accuracy
+
+1. **Speak Clearly**: Enunciate words clearly at a moderate pace
+2. **Reduce Background Noise**: Use in a quiet environment or use a noise-cancelling microphone
+3. **Proper Microphone Position**: Keep the microphone at an appropriate distance from your mouth
+4. **Use Good Quality Microphone**: Better hardware improves transcription accuracy
+
+### For VRChat Usage
+
+1. **Configure VRChat OSC**: Ensure VRChat OSC is enabled
+2. **Check Microphone Mute**: Don't confuse VRCT microphone with VRChat voice chat
+3. **Monitor Character Limit**: VRChat chatbox has a 144-character limit
+4. **Use Push-to-Talk (Optional)**: Configure hotkeys for controlled message sending
+
+## Troubleshooting
+
+### Microphone Not Working
+
+- Check if the correct microphone is selected in settings
+- Verify microphone is not muted in Windows
+- Check microphone permissions
+- Test microphone in Windows settings
+
+### Poor Transcription Accuracy
+
+- Select the correct language in transcription settings
+- Reduce background noise
+- Speak more clearly and at moderate pace
+- Try a different transcription engine
+- Check microphone quality and position
+
+### Delay in Transcription
+
+- Check system resources (CPU/GPU usage)
+- Close unnecessary applications
+- Try a lighter transcription model
+- Ensure stable internet connection (for cloud-based engines)
+
+### Message Not Sent to VRChat
+
+- Verify VRChat OSC is enabled
+- Check OSC settings in VRCT
+- Restart VRChat and VRCT
+- See [OSC Integration Guide](./osc-integration)
+
+## Privacy Considerations
+
+### Local vs Cloud Processing
+
+- **Local Engines**: Processing happens on your computer, more private
+- **Cloud Engines**: Audio may be sent to external servers for processing
+
+Choose the appropriate engine based on your privacy preferences in the transcription settings.
+
+## Performance Tips
+
+### Reduce CPU/GPU Usage
+
+- Use lighter transcription models
+- Disable when not needed
+- Close other resource-intensive applications
+
+### Improve Response Time
+
+- Use cloud-based engines (requires internet)
+- Ensure sufficient system resources
+- Optimize Windows audio settings
+
+## Related Features
+
+- [Speaker to Text](./speaker-to-text) - Transcribe system audio
+- [Send Message](./send-message) - Learn about sending messages
+- [Real-time Translation](./translation) - Combine with translation
+- [Device Settings](/config-device) - Configure microphone
+- [Transcription Settings](/config-transcription) - Configure transcription engine

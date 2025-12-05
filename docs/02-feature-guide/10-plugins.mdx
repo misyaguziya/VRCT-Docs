@@ -1,0 +1,281 @@
+---
+sidebar_position: 10
+slug: /feature-guide/plugins
+title: Plugins
+description: Extend VRCT functionality with plugins
+sidebar_label: Plugins
+---
+
+# Plugins
+
+VRCT supports plugins that extend functionality and add new features. The plugin system allows developers and users to customize VRCT to their specific needs.
+
+## Overview
+
+Plugins can:
+- Add new translation engines
+- Integrate with external services
+- Customize message processing
+- Add new UI elements
+- Extend VRCT functionality in various ways
+
+## How to Access Plugins
+
+### Open Plugin Manager
+
+1. In the VRCT main window, click the **Plugins** button
+2. The Plugin Manager window will open
+3. View installed plugins and available options
+
+<!-- ![Plugins Button](./img/plugins-button.png) -->
+<!-- ![Plugin Manager](./img/plugin-manager.png) -->
+
+## Managing Plugins
+
+### View Installed Plugins
+
+The Plugin Manager shows:
+- **Plugin Name**: Name of the plugin
+- **Version**: Current version installed
+- **Status**: Enabled/Disabled
+- **Description**: Brief description of functionality
+- **Author**: Plugin developer
+
+### Enable/Disable Plugins
+
+1. Locate the plugin in the list
+2. Click the toggle switch to enable/disable
+3. Some plugins may require VRCT restart to take effect
+
+:::warning[Important]
+Disabling a plugin may remove its features from VRCT. Make sure you understand what the plugin does before disabling it.
+:::
+
+### Install New Plugins
+
+**Method 1: From Plugin Store** (if available)
+1. Click **Browse Plugins** or similar button
+2. Select a plugin from the store
+3. Click **Install**
+4. Restart VRCT if prompted
+
+**Method 2: Manual Installation**
+1. Download the plugin file (.vrct-plugin or similar format)
+2. In Plugin Manager, click **Install from File**
+3. Select the downloaded plugin file
+4. Restart VRCT if prompted
+
+### Update Plugins
+
+1. Plugin Manager will show if updates are available
+2. Click **Update** next to the plugin
+3. Wait for download and installation
+4. Restart VRCT if prompted
+
+### Uninstall Plugins
+
+1. Locate the plugin in the list
+2. Click **Uninstall** or the trash icon
+3. Confirm the uninstallation
+4. Restart VRCT if prompted
+
+## Plugin Types
+
+### Translation Engine Plugins
+
+Add new translation services:
+- Custom AI models
+- Third-party translation APIs
+- Specialized translation engines
+- Language-specific translators
+
+### Integration Plugins
+
+Connect VRCT with other services:
+- Discord integration
+- Twitch chat integration
+- OBS integration
+- Custom webhooks
+
+### UI Enhancement Plugins
+
+Customize the interface:
+- Custom themes
+- Additional UI elements
+- Layout modifications
+- New windows or panels
+
+### Utility Plugins
+
+Add helpful utilities:
+- Message logging
+- Statistics tracking
+- Auto-responses
+- Custom hotkeys
+
+### Audio Plugins
+
+Enhance audio processing:
+- Custom transcription engines
+- Audio filters
+- Voice effects
+- Enhanced speech recognition
+
+## Popular Plugins
+
+:::info[Note]
+This section will be updated with popular community plugins as they become available.
+:::
+
+### Example Plugin Categories
+
+- **Translation Enhancers**: Improve translation quality
+- **VRChat Integrations**: Deeper VRChat integration
+- **Accessibility Tools**: Features for accessibility
+- **Developer Tools**: Debugging and development utilities
+
+## Developing Plugins
+
+### For Developers
+
+VRCT provides a plugin API for developers to create custom plugins.
+
+**Resources**:
+- Plugin API documentation
+- Example plugin templates
+- Developer community
+- Plugin development guide
+
+**Getting Started**:
+1. Review the Plugin API documentation
+2. Set up development environment
+3. Create plugin from template
+4. Test with VRCT
+5. Publish to community
+
+:::tip[Tip]
+Check the VRCT GitHub repository or official documentation for plugin development guides.
+:::
+
+## Plugin Security
+
+### Safety Considerations
+
+- **Official Plugins**: Verified by VRCT developers, safe to use
+- **Community Plugins**: Review carefully before installing
+- **Unknown Sources**: Use caution with plugins from unknown developers
+
+### Best Practices
+
+1. **Check Plugin Source**: Only install from trusted sources
+2. **Read Reviews**: Check community feedback
+3. **Verify Permissions**: Understand what the plugin can access
+4. **Keep Updated**: Update plugins regularly for security fixes
+5. **Backup Settings**: Backup VRCT settings before installing plugins
+
+### Warning Signs
+
+Be cautious of plugins that:
+- Request excessive permissions
+- Are from unknown/untrusted developers
+- Have no description or documentation
+- Show suspicious behavior
+- Modify core VRCT files
+
+## Plugin Configuration
+
+### Plugin Settings
+
+Many plugins have their own settings:
+
+1. In Plugin Manager, click on a plugin
+2. Click **Settings** or **Configure**
+3. Adjust plugin-specific options
+4. Save changes
+
+### Plugin Data
+
+Plugins may store:
+- Configuration files
+- Cache data
+- Logs
+- User preferences
+
+Usually located in: `VRCT/plugins/[plugin-name]/`
+
+## Troubleshooting
+
+### Plugin Not Working
+
+1. **Check if Enabled**: Verify plugin is enabled in Plugin Manager
+2. **Restart VRCT**: Some plugins require restart
+3. **Check Compatibility**: Ensure plugin is compatible with your VRCT version
+4. **Review Logs**: Check VRCT logs for plugin errors
+5. **Update Plugin**: Try updating to the latest version
+
+### VRCT Crashes After Plugin Installation
+
+1. **Start in Safe Mode**: Launch VRCT without loading plugins
+2. **Disable Problematic Plugin**: Identify and disable the causing plugin
+3. **Report Issue**: Contact plugin developer or VRCT support
+4. **Uninstall Plugin**: Remove if issue persists
+
+### Plugin Conflicts
+
+If multiple plugins conflict:
+1. Disable all plugins
+2. Enable one at a time to identify conflict
+3. Check plugin compatibility information
+4. Report conflict to developers
+
+### Performance Issues
+
+If plugins slow down VRCT:
+- Disable unused plugins
+- Check plugin resource usage
+- Update to optimized versions
+- Limit number of active plugins
+
+## Plugin Directory Structure
+
+Typical plugin installation location:
+```
+VRCT/
+  plugins/
+    plugin-name/
+      plugin.json (metadata)
+      index.js (main code)
+      assets/ (resources)
+      config.json (settings)
+```
+
+## Community Resources
+
+### Finding Plugins
+
+- Official VRCT plugin repository
+- Community forums
+- GitHub repositories
+- Discord communities
+
+### Getting Help
+
+- Plugin documentation
+- Developer contact information
+- Community support channels
+- VRCT support team
+
+## Future Plugin Features
+
+Planned enhancements:
+- Plugin marketplace
+- Automatic updates
+- Plugin recommendations
+- Enhanced security scanning
+- Plugin sandboxing
+
+## Related Features
+
+- [Main Window Overview](/main-window) - Access Plugin Manager
+- [Plugins Settings](/config-plugins) - Configure plugin behavior
+- [Advanced Settings](/config-advanced) - Advanced plugin options
