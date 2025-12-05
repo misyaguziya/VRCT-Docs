@@ -18,9 +18,7 @@ OSC (Open Sound Control) is a protocol for networking sound synthesizers, comput
 
 Through OSC integration, VRCT can:
 - Send translated messages to VRChat chatbox
-- Display text above your avatar
-- Interact with VRChat parameters
-- Enable real-time communication features
+- Interact with VRChat parameters for mic mute status
 
 ## VRChat OSC Setup
 
@@ -28,11 +26,11 @@ Through OSC integration, VRCT can:
 
 1. Launch VRChat
 2. Open the Action Menu (R key on keyboard, or hold B on Quest controllers)
-3. Navigate to **Options** → **OSC**
-4. Enable **OSC**
-5. Enable **Chatbox** (for message display)
+3. Navigate to **Options** → **OSC**  
+![VRChat OSC Settings 1](./img/vrchat-osc-settings-1.png)  
+4. Enable **OSC**  
+![VRChat OSC Settings 2](./img/vrchat-osc-settings-2.png)  
 
-<!-- ![VRChat OSC Settings](./img/vrchat-osc-settings.png) -->
 
 :::info[Info]
 OSC settings persist between VRChat sessions, so you only need to enable it once.
@@ -44,7 +42,7 @@ If you experience issues:
 1. In VRChat Action Menu, go to **Options** → **OSC**
 2. Click **Reset Config**
 3. Restart VRChat
-4. Re-enable OSC and Chatbox
+4. Re-enable OSC
 
 ## VRCT OSC Configuration
 
@@ -56,6 +54,10 @@ VRCT is pre-configured to work with VRChat's default OSC settings.
 - **OSC Port**: 9000 (VRChat default receive port)
 - **OSC Protocol**: UDP
 
+:::warning[warning ]
+Based on standard usage, you typically do not need to change these settings.
+:::
+
 ### Custom Configuration
 
 If you need to change OSC settings:
@@ -65,50 +67,7 @@ If you need to change OSC settings:
 3. Configure OSC parameters
 4. Save and restart VRCT
 
-For detailed OSC configuration, see the [Advanced Settings Guide](/config-advanced).
-
-## How It Works
-
-### Sending Messages to Chatbox
-
-1. You type or speak a message in VRCT
-2. VRCT translates the message (if translation is enabled)
-3. VRCT sends the message via OSC to VRChat
-4. VRChat displays the message in the chatbox above your avatar
-
-```
-VRCT → OSC (Port 9000) → VRChat → Chatbox Display
-```
-
-### Message Flow
-
-```mermaid
-graph LR
-    A[User Input] --> B[VRCT Processing]
-    B --> C[Translation]
-    C --> D[OSC Message]
-    D --> E[VRChat]
-    E --> F[Chatbox Display]
-```
-
-## Chatbox Features
-
-### Character Limit
-
-VRChat chatbox has a **144-character limit** per message.
-
-VRCT handles this by:
-- Truncating long messages
-- Splitting into multiple messages (if configured)
-- Prioritizing translated text
-
-### Message Display
-
-Messages sent via OSC:
-- Appear above your avatar
-- Visible to nearby players
-- Automatically disappear after a few seconds
-- Can be toggled on/off in VRChat
+For detailed OSC configuration, see the [Advanced Settings Guide](/docs/config-advanced).
 
 ## Troubleshooting
 
@@ -128,8 +87,8 @@ Messages sent via OSC:
 
 4. **Restart Both Applications**
    - Close VRChat and VRCT
-   - Start VRCT first
-   - Then start VRChat
+   - Start VRChat first
+   - Then start VRCT
    - Re-enable OSC in VRChat
 
 5. **Reset OSC Configuration**
@@ -138,10 +97,6 @@ Messages sent via OSC:
 
 ### OSC Connection Issues
 
-**Check Port Conflicts**
-- Ensure no other application is using port 9000
-- Try changing the port in both VRChat and VRCT
-
 **Verify Network Settings**
 - Check if antivirus/security software is blocking OSC
 - Temporarily disable firewall for testing
@@ -149,52 +104,6 @@ Messages sent via OSC:
 **Test OSC Connection**
 - Use OSC debugging tools to verify connectivity
 - Check VRCT logs for OSC errors
-
-### Delayed Messages
-
-- **Network latency**: Usually OSC is very fast on localhost
-- **System resources**: Check CPU/GPU usage
-- **VRChat performance**: Ensure VRChat is running smoothly
-
-## Advanced Usage
-
-### Custom OSC Parameters
-
-VRCT can send custom OSC parameters to VRChat avatars if configured:
-- Avatar parameters
-- Custom expressions
-- Gesture controls
-- Other avatar features
-
-See the [Advanced OSC Guide](/config-advanced) for more information.
-
-### Multiple VRCT Instances
-
-Generally, only one VRCT instance should send OSC to VRChat:
-- Multiple instances may conflict
-- Can cause message duplication or loss
-
-### OSC Debugging
-
-Enable OSC debugging in VRCT settings to:
-- See OSC messages being sent
-- Diagnose connection issues
-- Monitor OSC traffic
-
-## Security Considerations
-
-### Local Network Only
-
-By default, OSC uses localhost (127.0.0.1):
-- Only your computer can communicate
-- Safe from external network access
-
-### Remote OSC (Advanced)
-
-If using remote OSC:
-- Be aware of network security risks
-- Use firewall rules to restrict access
-- Only use on trusted networks
 
 ## Performance
 
