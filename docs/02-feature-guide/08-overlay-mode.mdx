@@ -16,58 +16,41 @@ When using VRChat in VR, you can:
 - View VRCT interface inside your VR headset
 - Position and resize the overlay window
 - Read translations without leaving VR
-- Interact with VRCT while in-game
+
+### Single line Mode and Multiple lines Mode
+- **Single line Mode**: Displays one line of text at a time for quick glances (only show received messages)  
+![Single Line Overlay](./img/overlay-single.png)
+- **Multiple lines Mode**: Displays several lines of text for more context  
+![Multiple Lines Overlay](./img/overlay-multi.png)
 
 ## How to Enable
 
-### Open Overlay Settings
-
-1. In the VRCT main window, click the **Overlay(VR)** button
-2. The Overlay settings window will open
-3. Configure your overlay preferences
-
-<!-- ![Overlay Button](./img/overlay-button.png) -->
-
 ### Enable Overlay
 
-1. In the Overlay settings window, toggle **Enable Overlay**
-2. The VRCT interface will appear in your VR headset
+1. In the Overlay settings window, **Single line** or **Multiple lines** click the **Enable** toggle
+2. Click **Send Sample Texts To Overlay** button to test the overlay in VR
 3. Adjust position and settings as needed
 
-<!-- ![Overlay Settings](./img/overlay-settings.png) -->
+refer to the docs on [VR Settings Guide](/docs/config-vr) or [VR Overlay Settings in Main Window](/docs/main-window#overlayvr-button) for more details on accessing overlay settings.
 
 ## Overlay Configuration
 
 ### Position and Size
 
 **Position**:
-- Move the overlay by grabbing and dragging
-- Position relative to your play space or head
-- Save position for future sessions
+- x, y, z coordinates to set overlay location in VR space
 
-**Size**:
-- Adjust overlay scale/size
-- Make it larger for better readability
-- Smaller for less obstruction
+**Rotation**:
+- Adjust pitch, yaw, roll to orient overlay
 
-**Distance**:
-- Set how far the overlay appears from you
-- Closer for better readability
-- Further away to avoid obstruction
+### Tracking
 
-### Attachment Mode
-
-**World-Locked**:
-- Overlay stays in a fixed position in the world
-- Doesn't move when you turn your head
-- Good for stationary reading
-
-**Head-Locked**:
+**Head-Locked (HMD)**:
 - Overlay follows your head movement
 - Always visible in your field of view
 - Good for constant monitoring
 
-**Wrist-Locked**:
+**Wrist-Locked (Left Hand or Right Hand)**:
 - Overlay attached to your wrist
 - Visible when you raise your hand
 - Convenient for quick glances
@@ -79,28 +62,15 @@ When using VRChat in VR, you can:
 - Lower opacity: Less obstructive, harder to read
 - Find the balance that works for you
 
-## Display Options
+## UI Scaling
+- Adjust size of overlay elements for readability
 
-### What to Show
+## Display Duration
+- Set how long overlay remains visible after interaction
 
-Configure which elements appear in the overlay:
-- Chat history
-- Input field
-- Translation controls
-- Language settings
-- Minimal UI (chat only)
-
-### Font Size
-
-- Adjust text size for VR readability
-- Larger text is easier to read in VR
-- Balance size with available space
-
-### Color Theme
-
-- Choose colors optimized for VR
-- High contrast for better readability
-- Dark mode to reduce eye strain
+## Fadeout Duration
+- Set time for overlay to fade out when not in use
+- If set to 0, overlay stays visible unless you change it to a non-zero number
 
 ## Using Overlay in VR
 
@@ -112,35 +82,17 @@ Configure which elements appear in the overlay:
 
 ### Sending Messages
 
-**Method 1: Voice Input**
-- Enable Voice2Chatbox
-- Speak into your microphone
-- Message automatically sent to chatbox
-
-**Method 2: VR Keyboard** (if supported)
-- Use VR keyboard to type
-- Select input field in overlay
-- Type and send messages
-
-### Interaction
-
-Use VR controllers to:
-- Point and click on overlay elements
-- Scroll through chat history
-- Toggle settings
-- Adjust overlay position
+1. Enable Voice2Chatbox
+2. Speak into your microphone
+3. Message automatically sent to chatbox
 
 ## VR Headset Compatibility
 
 ### Tested Headsets
 
-- Meta Quest (Link/Air Link)
 - Meta Quest 2
 - Meta Quest 3
-- Valve Index
-- HTC Vive / Vive Pro
-- Windows Mixed Reality headsets
-- Other SteamVR-compatible headsets
+- Pico 4
 
 :::info[Info]
 Overlay feature requires SteamVR or compatible VR runtime.
@@ -155,13 +107,6 @@ Overlay mode requires additional resources:
 - SteamVR overlay system
 - May impact VRChat performance slightly
 
-### Optimization Tips
-
-1. Use minimal UI mode (show only chat)
-2. Reduce overlay size if not needed
-3. Lower opacity when not actively reading
-4. Disable overlay when not using VR
-
 ## Best Practices
 
 ### Positioning
@@ -173,14 +118,12 @@ Overlay mode requires additional resources:
 ### Readability
 
 1. **Sufficient Size**: Make text large enough to read comfortably
-2. **High Contrast**: Use colors that stand out
-3. **Proper Distance**: Not too close (hard to focus) or too far (hard to read)
+2. **Proper Distance**: Not too close (hard to focus) or too far (hard to read)
 
 ### Workflow
 
 1. **Enable When Needed**: Turn on overlay for conversations
 2. **Disable When Not**: Turn off during activities or events
-3. **Quick Toggle**: Set up hotkey for quick enable/disable
 
 ## Troubleshooting
 
@@ -198,44 +141,10 @@ Overlay mode requires additional resources:
 - Try resetting overlay position
 - Check SteamVR overlay permissions
 
-### Performance Issues
-
-- Reduce overlay size
-- Use minimal UI mode
-- Close unnecessary applications
-- Lower VRChat graphics settings
-- Check GPU usage and temperature
-
-### Can't Interact with Overlay
-
-- Verify controller tracking is working
-- Check SteamVR controller bindings
-- Try pointing from different angles
-- Restart SteamVR
-
 ### Text Hard to Read
 
 - Increase font size
 - Adjust overlay distance (bring closer)
-- Increase contrast
-- Use high-contrast color theme
-- Clean VR lenses
-
-## Advanced Settings
-
-### Multiple Overlays
-
-- Display multiple VRCT elements as separate overlays
-- Position each independently
-- Show different information in different locations
-
-### Custom Layouts
-
-- Create custom overlay layouts
-- Save different configurations
-- Switch between layouts for different purposes
-
-For advanced overlay configuration, see the [VR Settings Guide](/config-vr).
 
 ## Related Features
 
