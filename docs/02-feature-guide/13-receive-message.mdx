@@ -12,7 +12,7 @@ Learn how to receive and translate messages from other players in VRChat using V
 
 ## Overview
 
-VRCT can capture audio from your speakers (VRChat voice chat) and:
+VRCT can capture audio from your speakers and:
 1. Transcribe the audio to text
 2. Translate the transcribed text
 3. Display in chat history for you to read
@@ -27,10 +27,8 @@ This allows you to "read" what others are saying through voice chat, even in dif
 2. Click to enable speaker transcription
 3. Ensure your speaker/audio device is correctly selected in settings
 
-<!-- ![Speaker2Log Toggle](./img/speaker2log-toggle-receive.png) -->
-
 :::warning[Important]
-Before enabling, make sure the correct speaker/audio output device is selected in [Device Settings](/config-device).
+Before enabling, make sure the correct speaker/audio output device is selected in [Device Settings](/docs/config-device).
 :::
 
 ## Configuration
@@ -38,7 +36,7 @@ Before enabling, make sure the correct speaker/audio output device is selected i
 ### Select Audio Output Device
 
 1. Open Settings (click gear icon)
-2. Navigate to **Device** section
+2. Navigate to **Device** Tab
 3. Select the audio output device VRChat is using
 4. Save settings
 
@@ -46,17 +44,17 @@ Before enabling, make sure the correct speaker/audio output device is selected i
 Select the same device that plays VRChat voice chat audio.
 :::
 
-For detailed device configuration, see the [Device Settings Guide](/config-device).
+For detailed device configuration, see the [Device Settings Guide](/docs/config-device).
 
 ### Configure Transcription
 
 1. Open Settings
-2. Navigate to **Transcription** section
+2. Navigate to **Transcription** tab
 3. Configure speaker transcription engine
 4. Adjust language settings
 5. Save changes
 
-For detailed transcription settings, see the [Transcription Settings Guide](/config-transcription).
+For detailed transcription settings, see the [Transcription Settings Guide](/docs/config-transcription).
 
 ## Receiving Messages
 
@@ -66,8 +64,6 @@ For detailed transcription settings, see the [Transcription Settings Guide](/con
 2. When someone speaks in VRChat voice chat
 3. VRCT transcribes their voice to text
 4. Transcribed text appears in chat history (left side)
-
-<!-- ![Receive Without Translation](./img/receive-no-translation.png) -->
 
 ### With Translation
 
@@ -79,8 +75,6 @@ For detailed transcription settings, see the [Transcription Settings Guide](/con
    - Text is automatically translated
    - Both original and translation appear in chat history
 
-<!-- ![Receive With Translation](./img/receive-with-translation.png) -->
-
 ## Message Display
 
 ### Chat History Layout
@@ -90,32 +84,15 @@ Received messages appear on the **left side** of chat history:
 - **Original Text**: Transcribed speech in original language
 - **Translated Text**: Translation in your language
 - **Timestamp**: When the message was received (if enabled)
-- **Speaker Indicator**: (if available)
 
-<!-- ![Chat History Received](./img/chat-history-received.png) -->
+![Receive With Translation](./img/receive-with-translation.png)
 
 ### Reading Messages
 
 - Messages appear in real-time as others speak
 - Scroll to view older messages
-- Search functionality (if available)
-- Export or save chat logs (if available)
 
-## Language Detection
-
-### Automatic Language Detection
-
-Some transcription/translation engines can automatically detect the spoken language:
-
-1. Set source language to "Auto-detect"
-2. VRCT will identify the language
-3. Translate to your target language
-
-:::info[Note]
-Auto-detection accuracy depends on the engine and audio quality.
-:::
-
-### Manual Language Selection
+## Manual Language Selection
 
 For better accuracy, manually set the expected source language:
 
@@ -128,7 +105,8 @@ For better accuracy, manually set the expected source language:
 ### Multiple People Speaking
 
 When multiple people are talking:
-- VRCT transcribes all audio from the speaker device
+- select multiple target languages if needed
+- VRCT transcribes all audio from the speaker device (when audio is available for the selected languages)
 - May mix transcriptions together
 - Difficult to separate different speakers
 - Best when one person speaks at a time
@@ -173,13 +151,6 @@ Speaker transcription captures **ALL audio** from the selected device:
 
 ## Use Cases
 
-### Language Learning
-
-- Understand foreign language speakers in VRChat
-- Read along while listening to practice comprehension
-- Learn new vocabulary and phrases in context
-- Improve listening skills with text support
-
 ### Accessibility
 
 - For players with hearing difficulties
@@ -214,14 +185,11 @@ Speaker transcription captures **ALL audio** from the selected device:
 
 1. **Select Appropriate Engine**: Choose engine good at the language pair
 2. **Context Awareness**: Understand conversation context
-3. **Check Multiple Translations**: Compare if accuracy is critical
-4. **Learn Common Phrases**: Recognize patterns over time
 
 ### For VRChat Etiquette
 
 1. **Use Discreetly**: Don't announce you're transcribing
 2. **Respect Privacy**: Don't share transcripts without permission
-3. **Participate Actively**: Engage in conversations, don't just lurk
 4. **Help Others**: Share translations to help communication
 
 ## Troubleshooting
@@ -282,13 +250,6 @@ Speaker transcription is resource-intensive:
 3. **Disable When Not Needed**: Turn off when not actively using
 4. **Optimize Settings**: Balance quality vs performance
 
-### Battery Considerations (Laptops)
-
-- Speaker transcription drains battery faster
-- Use power-saving transcription modes
-- Consider plugging in for extended sessions
-- Disable when battery is low
-
 ## Privacy & Ethics
 
 ### Ethical Use
@@ -303,7 +264,6 @@ Speaker transcription is resource-intensive:
 - Transcriptions stored locally in VRCT
 - Cloud engines may send audio to external servers
 - Choose local engines for privacy
-- Clear chat history regularly if needed
 
 ### Legal Considerations
 
@@ -317,5 +277,5 @@ Speaker transcription is resource-intensive:
 - [Send Message](./send-message) - Learn about sending messages
 - [Speaker to Text](./speaker-to-text) - Detailed speaker transcription guide
 - [Real-time Translation](./translation) - Translation feature overview
-- [Device Settings](/config-device) - Configure audio devices
-- [Transcription Settings](/config-transcription) - Configure transcription engine
+- [Device Settings](/docs/config-device) - Configure audio devices
+- [Transcription Settings](/docs/config-transcription) - Configure transcription engine

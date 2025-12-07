@@ -8,7 +8,8 @@ sidebar_label: Send Message
 
 # Send Message
 
-Learn how to send messages with translation using VRCT. Messages can be sent via text input or voice input, and will be translated and sent to VRChat chatbox.
+Learn how to send messages with translation using VRCT.  
+Messages can be sent via text input or voice input, and will be translated and sent to VRChat chatbox.
 
 ## Overview
 
@@ -22,17 +23,18 @@ VRCT offers multiple ways to send messages:
 ### Basic Text Sending
 
 1. Locate the input field at the bottom of the main window
-2. Click inside the input field
+2. Click inside the input field  
+![Text Input](./img/text-input-field.png)
 3. Type your message
-4. Press **Enter** or click the **Send** button
-
-<!-- ![Text Input](./img/text-input.png) -->
+4. Press **Enter key** or click the **Send Message** button  
+![Text Send Button](./img/text-send-button.png)
 
 ### Keyboard Shortcuts
 
 - **Enter**: Send the message
 - **Shift + Enter**: Insert a line break (multi-line message)
 - **Shift + Up Arrow**: Recall the last sent message for editing
+- **Shift + Down Arrow**: Navigate forward in message history (if available)
 
 :::tip[Tip]
 You can edit previously sent messages by pressing Shift + Up Arrow, making changes, and sending again.
@@ -47,12 +49,12 @@ You can edit previously sent messages by pressing Shift + Up Arrow, making chang
 5. Press Enter to send
 6. Your message will be translated and sent to VRChat
 
-<!-- ![Text with Translation](./img/text-translation.png) -->
-
 **What You'll See**:
 - Original message (right side of chat history)
 - Translated message (also displayed)
 - Both original and translation sent to VRChat chatbox
+
+![Text with Translation](./img/text-translation.png)
 
 ## Voice Input Method
 
@@ -64,10 +66,8 @@ You can edit previously sent messages by pressing Shift + Up Arrow, making chang
 4. Your speech will be transcribed to text
 5. The message is automatically processed and sent
 
-<!-- ![Voice Input](./img/voice-input.png) -->
-
 :::warning[Important]
-Before using voice input, configure your microphone in [Device Settings](/config-device).
+Before using voice input, configure your microphone in [Device Settings](/docs/config-device).
 :::
 
 ### Voice Input with Translation
@@ -78,8 +78,6 @@ Before using voice input, configure your microphone in [Device Settings](/config
 4. Set **Target Language** to desired translation language
 5. Speak into your microphone
 6. Your speech → transcribed → translated → sent to VRChat
-
-<!-- ![Voice with Translation](./img/voice-translation-complete.png) -->
 
 ### Voice Input Tips
 
@@ -101,8 +99,6 @@ Send translations in multiple languages simultaneously:
 3. Type or speak your message
 4. All translations will be sent together
 
-<!-- ![Multiple Languages](./img/multi-language-send.png) -->
-
 For more details, see the [Multiple Target Languages Guide](./multi-target-language).
 
 ### Select Translation Engine
@@ -112,8 +108,6 @@ Choose the best translation engine for your needs:
 1. Click on the translation engine name below the target language
 2. Select from available engines (Google, DeepL, AI Translation, etc.)
 3. Your messages will use the selected engine
-
-<!-- ![Engine Selection](./img/engine-select-send.png) -->
 
 For more details, see the [Translation Engines Guide](./translation-engines).
 
@@ -126,8 +120,6 @@ After sending, messages appear in the chat history:
 - Original text shown
 - Translated text shown below
 - Timestamp (if enabled)
-
-<!-- ![Chat History](./img/chat-history-sent.png) -->
 
 ### VRChat Chatbox
 
@@ -146,13 +138,6 @@ Create multi-line messages:
 3. Type next line
 4. Repeat as needed
 5. Press **Enter** to send
-
-### Special Characters
-
-VRCT supports:
-- Unicode characters (emoji, symbols)
-- Multiple languages in one message
-- Special punctuation
 
 :::info[Note]
 VRChat chatbox has limited character display. Very long messages may be truncated.
@@ -174,38 +159,8 @@ For OSC setup, see the [OSC Integration Guide](./osc-integration).
 
 VRChat chatbox has a **144-character limit**:
 - VRCT automatically handles truncation
-- Long messages may be split
-- Prioritizes translated text
-
-### Chatbox Display Duration
-
-VRChat chatbox displays messages for a few seconds:
-- Standard display time
-- Automatically disappears
-- Send new message to update
-
-## Advanced Features
-
-### Message Templates
-
-Save frequently used messages:
-1. Create templates in settings
-2. Quickly insert templates
-3. Customize before sending
-
-### Auto-send Options
-
-Configure automatic sending:
-- Voice input auto-send after pause
-- Timed auto-send
-- Confirmation before send
-
-### Message History
-
-Access previous messages:
-- Scroll through chat history
-- Use Shift + Up Arrow for last message
-- Search message history (if available)
+- Long messages may be cut off
+- Prioritizes original text (You can also display only the translated text)
 
 ## Best Practices
 
@@ -213,8 +168,7 @@ Access previous messages:
 
 1. **Use Simple Sentences**: Easier to translate accurately
 2. **Avoid Slang**: May not translate well
-3. **Check Translation**: Review before sending important messages
-4. **Choose Appropriate Engine**: Different engines for different quality
+3. **Choose Appropriate Engine**: Different engines for different quality
 
 ### For VRChat Communication
 
@@ -227,8 +181,7 @@ Access previous messages:
 
 1. **Speak Naturally**: Natural speech works best
 2. **Pause Between Messages**: Allows processing time
-3. **Monitor Transcription**: Check text before it sends
-4. **Adjust Microphone**: Proper distance and volume
+3. **Adjust Microphone**: Proper distance and volume
 
 ## Troubleshooting
 
@@ -260,7 +213,7 @@ Access previous messages:
 - Restart both VRChat and VRCT
 - Verify OSC port is correct (default 9000)
 
-For more troubleshooting, see the [FAQ](/faq).
+For more troubleshooting, see the [FAQ](/docs/faq).
 
 ## Related Features
 
