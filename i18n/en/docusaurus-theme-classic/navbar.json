@@ -1,0 +1,54 @@
+{
+  "title": {
+    "message": "VRCT",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Software Icon",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Home": {
+    "message": "Home",
+    "description": "Navbar item with label Home"
+  },
+  "item.label.Tutorial": {
+    "message": "Tutorial",
+    "description": "Navbar item with label Tutorial"
+  },
+  "item.label.Feature Guide": {
+    "message": "Feature Guide",
+    "description": "Navbar item with label Feature Guide"
+  },
+  "item.label.UI Guide": {
+    "message": "UI Guide",
+    "description": "Navbar item with label UI Guide"
+  },
+  "item.label.FAQ": {
+    "message": "FAQ",
+    "description": "Navbar item with label FAQ"
+  },
+  "item.label.Supporters👑": {
+    "message": "Supporters👑",
+    "description": "Navbar item with label Supporters👑"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.VRCT Supporters": {
+    "message": "VRCT Supporters",
+    "description": "Navbar item with label VRCT Supporters"
+  },
+  "item.label.PIXIV FANBOX": {
+    "message": "PIXIV FANBOX",
+    "description": "Navbar item with label PIXIV FANBOX"
+  },
+  "item.label.Patreon": {
+    "message": "Patreon",
+    "description": "Navbar item with label Patreon"
+  },
+  "item.label.Ko-fi": {
+    "message": "Ko-fi",
+    "description": "Navbar item with label Ko-fi"
+  }
+}

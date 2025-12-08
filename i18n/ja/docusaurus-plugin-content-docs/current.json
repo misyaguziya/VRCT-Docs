@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "最新版",
+    "description": "The label for version current"
+  },
+  "sidebar.Sidebar.category.Tutorial": {
+    "message": "チュートリアル",
+    "description": "The label for category 'Tutorial' in sidebar 'Sidebar'"
+  },
+  "sidebar.Sidebar.category.Feature Guide": {
+    "message": "機能ガイド",
+    "description": "The label for category 'Feature Guide' in sidebar 'Sidebar'"
+  },
+  "sidebar.Sidebar.category.UI Guide": {
+    "message": "UIガイド",
+    "description": "The label for category 'UI Guide' in sidebar 'Sidebar'"
+  },
+  "sidebar.Sidebar.category.Configuration Window": {
+    "message": "設定ウィンドウ",
+    "description": "The label for category 'Configuration Window' in sidebar 'Sidebar'"
+  }
+}
