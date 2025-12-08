@@ -151,7 +151,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Documentation',
+          title: 'Documents',
           items: [
             {
               label: 'Tutorial',
@@ -185,7 +185,7 @@ const config: Config = {
           ],
         },
         {
-          title: 'Repositorys',
+          title: 'Repositories',
           items: [
             {
               label: 'GitHub (Main Repo)',
@@ -202,7 +202,7 @@ const config: Config = {
           ],
         },
         {
-          title: 'Supporters👑',
+          title: 'Supporters',
           items: [
             {
               label: 'VRCT Supporters',
