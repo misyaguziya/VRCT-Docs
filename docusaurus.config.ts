@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "VRCT-Docs",
+  title: "Docs | VRCT",
   tagline: 'VRCT is software that supports VRChat conversations with translation and transcription.',
   favicon: 'img/favicon.ico',
 
