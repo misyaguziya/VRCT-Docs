@@ -48,6 +48,11 @@ html[data-theme="light"] .theme-layout-footer {
   color: #1f2937;
 }
 
+html[data-theme="light"] .footer__title,
+html[data-theme="light"] .footer__link-item {
+  color: #1f2937;
+}
+
 html[data-theme="dark"] .theme-layout-footer {
   background-color: #242526; /* 既存のダーク用パレットに揃える */
   color: #f2f2f2;
@@ -278,4 +283,14 @@ html[data-theme="dark"] .footer-logo-light {
 /* リスト内のインライン画像も同様に */
 .markdown li img {
   vertical-align: middle;
+}
+
+/* フッターのすべてのカラムをリスト中央寄せ */
+.footer__col .footer__title {
+  text-align: center;
+}
+
+.footer__col .footer__items {
+  text-align: center;
+  justify-content: center;
 }

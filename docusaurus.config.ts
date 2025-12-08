@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "VRCT",
+  title: "VRCT-Docs",
   tagline: 'VRCT is software that supports VRChat conversations with translation and transcription.',
   favicon: 'img/favicon.ico',
 
@@ -119,9 +119,26 @@ const config: Config = {
           href: '/docs/faq',
         },
         {
-          href: 'https://shiinasakamoto.github.io/vrct_supporters/',
           label: 'Supporters👑',
           position: 'right',
+          items: [
+            {
+              label: 'VRCT Supporters',
+              href: 'https://shiinasakamoto.github.io/vrct_supporters/',
+            },
+            {
+              label: 'PIXIV FANBOX',
+              href: 'https://vrct-dev.fanbox.cc',
+            },
+            {
+              label: 'Patreon',
+              href: 'https://patreon.com/vrct_dev',
+            },
+            {
+              label: 'Ko-fi',
+              href: 'https://ko-fi.com/vrct_dev',
+            },
+          ],
         },
         {
           href: 'https://github.com/misyaguziya/VRCT',
@@ -132,39 +149,80 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      // links: [
-      //   {
-      //     title: 'Documentation',
-      //     items: [
-      //       {
-      //         label: 'Tutorial',
-      //         to: '/docs/intro',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: 'Community',
-      //     items: [
-      //       {
-      //         label: 'X(Main Development)',
-      //         href: 'https://x.com/misya_ai',
-      //       },
-      //       {
-      //         label: 'X(UI/UX Design)',
-      //         href: 'https://x.com/Shiina_12siy',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: 'More',
-      //     items: [
-      //       {
-      //         label: 'GitHub',
-      //         href: 'https://github.com/misyaguziya/VRCT',
-      //       },
-      //     ],
-      //   },
-      // ],
+      links: [
+        {
+          title: 'Documentation',
+          items: [
+            {
+              label: 'Tutorial',
+              to: '/docs/tutorial',
+            },
+            {
+              label: 'Feature Guide',
+              to: '/docs/feature-guide',
+            },
+            {
+              label: 'UI Guide',
+              to: '/docs/ui-guide',
+            },
+            {
+              label: 'FAQ',
+              to: '/docs/faq',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'X(Main Development)',
+              href: 'https://x.com/misya_ai',
+            },
+            {
+              label: 'X(UI/UX Design)',
+              href: 'https://x.com/Shiina_12siy',
+            },
+          ],
+        },
+        {
+          title: 'Repositorys',
+          items: [
+            {
+              label: 'GitHub (Main Repo)',
+              href: 'https://github.com/misyaguziya/VRCT',
+            },
+            {
+              label: 'GitHub (Docs)',
+              href: 'https://github.com/misyaguziya/VRCT-Docs',
+            },
+            {
+              label: 'GitHub (VRCT-TTS)',
+              href: 'https://github.com/misyaguziya/VRCT-TTS',
+            }
+          ],
+        },
+        {
+          title: 'Supporters👑',
+          items: [
+            {
+              label: 'VRCT Supporters',
+              href: 'https://shiinasakamoto.github.io/vrct_supporters/',
+            },
+            {
+              label: 'PIXIV FANBOX',
+              href: 'https://vrct-dev.fanbox.cc',
+            },
+            {
+              label: 'Patreon',
+              href: 'https://patreon.com/vrct_dev',
+            },
+            {
+              label: 'Ko-fi',
+              href: 'https://ko-fi.com/vrct_dev',
+            },
+          ],
+        }
+      ],
       copyright: `
         <div style="margin-bottom: 1rem;">
           <img 

@@ -1,6 +1,7 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 type FeatureItem = {
@@ -50,6 +51,8 @@ function Feature({title, description}: FeatureItem) {
 }
 
 export default function HomepageFeatures(): ReactNode {
+  const screenshot = useBaseUrl('img/screenshot.png');
+
   return (
     <section className={styles.features}>
       <div className="container">
@@ -61,7 +64,7 @@ export default function HomepageFeatures(): ReactNode {
         <hr />
         <div style={{ textAlign: 'center'}}>
           <h1>Screenshot</h1>
-          <img src="img/screenshot.png" alt="VRCT Screenshot"/>
+          <img src={screenshot} alt="VRCT Screenshot" />
         </div>
       </div>
     </section>
