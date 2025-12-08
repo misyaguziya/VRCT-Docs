@@ -168,13 +168,13 @@ const config: Config = {
       copyright: `
         <div style="margin-bottom: 1rem;">
           <img 
-            src="/img/M's_logo_White_yoko.png" 
+            src="/VRCT-Docs/img/M's_logo_White_yoko.png" 
             alt="m's software" 
             style="height: 100px;"
             class="footer-logo-dark"
           />
           <img 
-            src="/img/M's_logo_Black_yoko.png" 
+            src="/VRCT-Docs/img/M's_logo_Black_yoko.png" 
             alt="m's software" 
             style="height: 100px;"
             class="footer-logo-light"
