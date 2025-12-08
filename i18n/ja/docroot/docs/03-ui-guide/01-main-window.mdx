@@ -1,0 +1,123 @@
+---
+sidebar_position: 1
+slug: /main-window
+title: メインウィンドウ
+description: Overview of the VRCT main window.
+sidebar_label: メインウィンドウ
+---
+
+# メインウィンドウの概要
+
+ここはVRCTメインウィンドウとその機能の概要です。
+
+![Main Window](./img/main-window-overview.png)
+
+## 翻訳トグルスイッチ
+![main-window-translate-toggle-switch.png](./img/main-window-translate-toggle-switch.png)  
+有効にすると、メッセージが翻訳されます。
+
+## 文字起こしコントロール
+![main-window-transcript-toggle-switch.png](./img/main-window-transcript-toggle-switch.png)  
+マイクおよびスピーカー文字起こしを制御します。
+- **Voice2Chatbox**トグルスイッチ：マイク文字起こし（音声からテキスト）を切り替えます。
+- **Speaker2Log**トグルスイッチ：スピーカー文字起こし（システムオーディオからテキスト）を切り替えます。
+
+## 常に前面に保つトグルスイッチ
+![main-window-keeptop-toggle-switch.png](./img/main-window-keeptop-toggle-switch.png)  
+有効にすると、VRCTメインウィンドウを他のウィンドウの前に保ちます。
+
+## 言語設定
+![main-window-language-settings.png](./img/main-window-language-settings.png)  
+現在選択されている言語を表示します。
+- **あなたの言語**：あなたが話すまたは書いている言語。
+- **対象言語**：翻訳したい言語。
+
+### プリセットタブ
+![main-window-preset-tab.png](./img/main-window-preset-tab.png)  
+最大3つの言語プリセットを設定できます。  
+**プリセット1、2、3**：クリックしてプリセット間を切り替えます。
+
+### あなたの言語 / 対象言語
+![main-window-language-select.png](./img/main-window-language-select.png)  
+**あなたの言語** / **対象言語**の言語領域をクリックして言語選択メニューを表示します。  
+コミュニケーションに必要な言語を選択してください。  
+![main-window-language-select-menu.png](./img/main-window-language-select-menu.png)
+
+### 言語を交換
+![main-window-swap-languages.png](./img/main-window-swap-languages.png)  
+この領域をクリックすると、言語を素早く交換または変更できます。
+
+### 追加の対象言語
+![main-window-additional-target-language-step1.png](./img/main-window-additional-target-language-step1.png)  
+翻訳用に追加の対象言語を追加できます。
+- **[+]**ボタンをクリックして別の対象言語を追加します。  
+- 最大3つの対象言語を追加できます。  
+![main-window-additional-target-language-step2.png](./img/main-window-additional-target-language-step2.png)
+- **[-]**ボタンをクリックして追加の対象言語を削除します。
+
+:::tip[ヒント]
+複数の対象言語が設定されている場合、翻訳されたメッセージは設定した対象言語の順序で表示されます。
+:::
+
+### 翻訳エンジン選択
+![main-window-translation-engine-select-step1.png](./img/main-window-translation-engine-select-step1.png)  
+翻訳エンジンを選択できます。
+- 翻訳エンジン名領域をクリックして選択メニューを表示します。  
+![main-window-translation-engine-select-step2.png](./img/main-window-translation-engine-select-step2.png)
+- その対象言語に使用したい翻訳エンジンを選択します。
+    - Google、DeepL、Bing、Papago など
+    - APIベースのエンジン
+    - AIベースのエンジン
+    - その他（継続的に追加中...）
+- デフォルトエンジンはAI翻訳（m2m100モデル）です。
+    - 参照：https://huggingface.co/docs/transformers/model_doc/m2m_100
+    - コンフィグウィンドウで異なるAIモデルを選択できます。[翻訳ガイド](./config-translation)を参照してください。
+
+## チャット履歴
+会話履歴を表示します。
+- **左側**：他のプレイヤーからのメッセージ。
+- **右側**：あなたが送信したメッセージ。
+各メッセージは元のテキストと翻訳されたテキストを表示します。
+
+## 入力フィールド
+![main-window-input-field.png](./img/main-window-input-field.png)  
+チャット経由でメッセージを送信するためにここにメッセージをタイプします。
+- 右側のボタンをクリックしてメッセージを送信します。
+- 以下のキーボードショートカットを使用できます：
+    - **Enter**を押して送信します。
+    - **Shift + Enter**を押して行改行を挿入します。
+    - **Shift + 上矢印**を押して前回送信したメッセージを編集用に呼び出します。
+
+## コンフィグボタン
+![main-window-config.png](./img/main-window-config.png)  
+VRCTオプションを構成できるコンフィグウィンドウを開きます。
+詳細については、[コンフィグウィンドウガイド](./config-window)を参照してください。
+
+## プラグインボタン
+![main-window-plugin.png](./img/main-window-plugins.png)  
+VRCTプラグインを管理できるプラグインコンフィグウィンドウを開きます。
+![plugin-window](./img/main-window-plugins-window.png)  
+
+## VRC ミュート同期ボタン
+![main-window-vrc-mute-sync.png](./img/main-window-vrc-mute-sync.png)  
+VRC ミュート同期コンフィグウィンドウを開きます。  
+![vrc-mute-sync-window](./img/main-window-vrc-mute-sync-window.png)  
+有効にすると、VRCTはVRChatとVRCT間のミュートステータスを同期します。  
+詳細については、[VRC ミュート同期ガイド](./config-other#general)を参照してください。
+
+## オーバーレイ（VR）ボタン
+![main-window-overlay-vr-button.png](./img/main-window-overlay.png)  
+オーバーレイ（VR）コンフィグウィンドウを開きます。
+![overlay-vr-window](./img/main-window-overlay-window.png)  
+詳細については、[オーバーレイ（VR）ガイド](./config-vr)を参照してください。
+
+## ヘルプボタン
+![main-window-help-menu.png](./img/main-window-help.png)  
+ドキュメントリンク付きのヘルプメニューを開きます。
+
+## メッセージログフォントサイズスライダー
+![main-window-quick-menu-font-size.png](./img/main-window-font-size.png)  
+フォントサイズスライダーウィンドウを開きます。
+![main-window-font-size-window.png](./img/main-window-font-size-window.png)
+- スライダー：メッセージログのフォントサイズを調整します。
+- デフォルトサイズは100です。

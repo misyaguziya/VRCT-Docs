@@ -1,0 +1,57 @@
+---
+sidebar_position: 5
+slug: /config-vr
+title: VRタブ
+description: Overview of the VRCT configuration VR settings.
+sidebar_label: VRタブ
+---
+
+# VRタブ
+コンフィグウィンドウのVRタブでVR設定をカスタマイズします。
+
+## オーバーレイ概要
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '8px' }}>
+  <iframe
+    src="https://www.youtube.com/embed/uR6cHKFnjSQ"
+    title="Overlay Video"
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowFullScreen
+  />
+</div>
+
+### オーバーレイを有効化
+![config-vr-overlay-01.png](./img/config-vr-overlay-01.png)
+- **シングルライン / マルチライン**: シングルラインまたはマルチラインオーバーレイ表示を選択します。
+    - **シングルライン**: 一度に1行のテキストを表示します。
+    - **マルチライン**: 複数行のテキストを同時に表示します。
+
+### オーバーレイ位置と回転コントロール
+- **位置コントロール**: 画面上のオーバーレイ位置を調整します。
+    - 矢印ボタンを使用してオーバーレイを上、下、左、または右に移動します。
+
+![config-vr-overlay-02.png](./img/config-vr-overlay-02.png)
+- **回転コントロール**: オーバーレイ表示を回転します。
+    - 回転ボタンを使用してオーバーレイを時計回りまたは反時計回りに回転します。
+
+![config-vr-overlay-03.png](./img/config-vr-overlay-03.png)
+
+### オーバーレイウィンドウ設定
+![config-vr-overlay-04.png](./img/config-vr-overlay-04.png)
+- **不透明度**: オーバーレイの透明度を調整します。
+    - スライダーを移動して、目的の不透明度レベルを設定します（0%～100%）。
+- **UIスケーリング**: オーバーレイUI要素のサイズを調整します。
+    - スライダーを移動してUI スケーリング割合を増加または減少させます。
+- **表示時間** ：オーバーレイが表示されたままの期間を設定します。
+    - スライダーを移動して表示期間を秒単位で設定します。
+- **フェードアウト時間** ：オーバーレイがフェードアウトする期間を設定します。
+    - スライダーを移動してフェードアウト期間を秒単位で設定します。
+- **トラッカー**: オーバーレイウィンドウトラッキング設定。
+    - **HMD**: 選択すると、オーバーレイはHead-Mounted Display（HMD）の位置に従います。
+    - **左手**: 選択すると、オーバーレイは左コントローラーの位置に従います。
+    - **右手**: 選択すると、オーバーレイは右コントローラーの位置に従います。
+
+### 共通設定
+![config-vr-overlay-05.png](./img/config-vr-overlay-05.png)
+- **翻訳されたメッセージのみを表示**: 有効にすると、翻訳されたメッセージのみがオーバーレイに表示されます。
