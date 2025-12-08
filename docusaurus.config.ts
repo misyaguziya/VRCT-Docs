@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://misyaguziya.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/VRCT-Docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "m's software", // Usually your GitHub org/user name.
-  projectName: 'misyaguziya/VRCT-Docs', // Usually your repo name.
+  organizationName: "misyaguziya", // Usually your GitHub org/user name.
+  projectName: 'VRCT-Docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -46,7 +46,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/misyaguziya/VRCT/tree/main/',
+            'https://github.com/misyaguziya/VRCT-Docs/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -57,7 +57,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/misyaguziya/VRCT/tree/main/',
+            'https://github.com/misyaguziya/VRCT-Docs/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
