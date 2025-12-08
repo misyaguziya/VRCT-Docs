@@ -1,0 +1,74 @@
+{
+  "link.title.Documents": {
+    "message": "ドキュメント",
+    "description": "The title of the footer links column with title=Documents in the footer"
+  },
+  "link.title.Community": {
+    "message": "コミュニティ",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.Repositories": {
+    "message": "リポジトリ",
+    "description": "The title of the footer links column with title=Repositories in the footer"
+  },
+  "link.title.Supporters": {
+    "message": "サポーター",
+    "description": "The title of the footer links column with title=Supporters in the footer"
+  },
+  "link.item.label.Tutorial": {
+    "message": "チュートリアル",
+    "description": "The label of footer link with label=Tutorial linking to /docs/tutorial"
+  },
+  "link.item.label.Feature Guide": {
+    "message": "機能ガイド",
+    "description": "The label of footer link with label=Feature Guide linking to /docs/feature-guide"
+  },
+  "link.item.label.UI Guide": {
+    "message": "UIガイド",
+    "description": "The label of footer link with label=UI Guide linking to /docs/ui-guide"
+  },
+  "link.item.label.FAQ": {
+    "message": "よくある質問",
+    "description": "The label of footer link with label=FAQ linking to /docs/faq"
+  },
+  "link.item.label.X(Main Development)": {
+    "message": "X(メイン開発)",
+    "description": "The label of footer link with label=X(Main Development) linking to https://x.com/misya_ai"
+  },
+  "link.item.label.X(UI/UX Design)": {
+    "message": "X(UI/UXデザイン)",
+    "description": "The label of footer link with label=X(UI/UX Design) linking to https://x.com/Shiina_12siy"
+  },
+  "link.item.label.GitHub (Main Repo)": {
+    "message": "GitHub (メインリポジトリ)",
+    "description": "The label of footer link with label=GitHub (Main Repo) linking to https://github.com/misyaguziya/VRCT"
+  },
+  "link.item.label.GitHub (Docs)": {
+    "message": "GitHub (ドキュメント)",
+    "description": "The label of footer link with label=GitHub (Docs) linking to https://github.com/misyaguziya/VRCT-Docs"
+  },
+  "link.item.label.GitHub (VRCT-TTS)": {
+    "message": "GitHub (VRCT-TTS)",
+    "description": "The label of footer link with label=GitHub (VRCT-TTS) linking to https://github.com/misyaguziya/VRCT-TTS"
+  },
+  "link.item.label.VRCT Supporters": {
+    "message": "VRCTサポーター",
+    "description": "The label of footer link with label=VRCT Supporters linking to https://shiinasakamoto.github.io/vrct_supporters/"
+  },
+  "link.item.label.PIXIV FANBOX": {
+    "message": "PIXIV FANBOX",
+    "description": "The label of footer link with label=PIXIV FANBOX linking to https://vrct-dev.fanbox.cc"
+  },
+  "link.item.label.Patreon": {
+    "message": "Patreon",
+    "description": "The label of footer link with label=Patreon linking to https://patreon.com/vrct_dev"
+  },
+  "link.item.label.Ko-fi": {
+    "message": "Ko-fi",
+    "description": "The label of footer link with label=Ko-fi linking to https://ko-fi.com/vrct_dev"
+  },
+  "copyright": {
+    "message": "\n        <div style=\"margin-bottom: 1rem;\">\n          <img \n            src=\"/VRCT-Docs/img/M's_logo_White_yoko.png\" \n            alt=\"m's software\" \n            style=\"height: 100px;\"\n            class=\"footer-logo-dark\"\n          />\n          <img \n            src=\"/VRCT-Docs/img/M's_logo_Black_yoko.png\" \n            alt=\"m's software\" \n            style=\"height: 100px;\"\n            class=\"footer-logo-light\"\n          />\n        </br>\n        Copyright © 2022-2025-present m's software.\n        </div>\n      ",
+    "description": "The footer copyright"
+  }
+}

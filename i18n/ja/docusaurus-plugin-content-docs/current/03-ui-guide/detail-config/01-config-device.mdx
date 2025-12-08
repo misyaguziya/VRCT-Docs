@@ -1,0 +1,42 @@
+---
+sidebar_position: 2
+slug: /config-device
+title: デバイスタブ
+description: Overview of the VRCT configuration device settings.
+sidebar_label: デバイスタブ
+---
+
+# デバイスタブ
+オーディオ入力および出力デバイスをカスタマイズします。  
+![config-device-overview.png](./img/config-device-overview.png)
+
+## マイクデバイス
+音声入力用のマイクを選択します。
+
+![config-device-mic-01.png](./img/config-device-mic-01.png)
+- **自動選択**：デフォルトのシステムマイクを自動的に選択します。
+- **ホスト/ドライバ**：リストから特定のマイクを手動で選択します。
+    - **ホスト**：オーディオホスト（例：MME、WASAPI、DirectSound）。
+- **デバイス**：選択されたホスト下で利用可能な特定のマイクデバイス。
+
+![config-device-mic-02.png](./img/config-device-mic-02.png)
+- **トグルスイッチ**：自動マイク感度調整を有効または無効にします。
+- **音量を確認**：マイクの現在の感度レベルを表示します。
+    ![config-device-mic-02.png](./img/config-device-mic-03.png)
+- **音量スライダー**：マイク感度レベルを手動で調整します。
+    - 自動調整が有効な場合、このスライダーは無効になります。
+
+## スピーカーデバイス
+翻訳する音声を受信するためにスピーカーまたはヘッドフォンを選択します。
+
+![config-device-speaker-01.png](./img/config-device-speaker-01.png)
+- **自動選択**：デフォルトのシステムスピーカーを自動的に選択します。
+- **デバイス**：選択されたホスト下で利用可能な特定のスピーカーデバイス。
+    - スピーカーホスト/ドライバはWASAPIのみです。変更できません。
+
+![config-device-speaker-02.png](./img/config-device-speaker-02.png)
+- **トグルスイッチ**：自動スピーカー音量調整を有効または無効にします。
+- **音量を確認**：スピーカーの現在の音量レベルを表示します。
+    ![config-device-speaker-03.png](./img/config-device-speaker-03.png)
+- **音量スライダー**：スピーカー音量レベルを手動で調整します。
+    - 自動調整が有効な場合、このスライダーは無効になります。
