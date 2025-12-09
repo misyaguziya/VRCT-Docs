@@ -45,7 +45,6 @@ const config: Config = {
     },
   },
 
-  plugins: ["@cmfcmf/docusaurus-search-local"],
 
   presets: [
     [
@@ -83,6 +82,13 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/vrct-social-card.png',
+    // Algolia DocSearch configuration
+    algolia: {
+      appId: 'JOD2ZYO8ZY',
+      apiKey: '55d904ec5ef717d6a9e9e1f0b0caf0f4',
+      indexName: 'Documents website',
+      // Optional: see doc section below for more options
+    },
     colorMode: {
       respectPrefersColorScheme: true,
     },
