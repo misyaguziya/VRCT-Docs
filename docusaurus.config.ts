@@ -87,7 +87,7 @@ const config: Config = {
       appId: 'JOD2ZYO8ZY',
       apiKey: '55d904ec5ef717d6a9e9e1f0b0caf0f4',
       indexName: 'Documents website',
-      // Optional: see doc section below for more options
+      contextualSearch: true,
     },
     colorMode: {
       respectPrefersColorScheme: true,
