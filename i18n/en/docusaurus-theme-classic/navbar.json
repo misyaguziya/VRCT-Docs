@@ -46,9 +46,5 @@
   "item.label.Patreon": {
     "message": "Patreon",
     "description": "Navbar item with label Patreon"
-  },
-  "item.label.Ko-fi": {
-    "message": "Ko-fi",
-    "description": "Navbar item with label Ko-fi"
   }
 }

@@ -150,10 +150,6 @@ const config: Config = {
               label: 'Patreon',
               href: 'https://patreon.com/vrct_dev',
             },
-            {
-              label: 'Ko-fi',
-              href: 'https://ko-fi.com/vrct_dev',
-            },
           ],
         },
         {
@@ -235,10 +231,6 @@ const config: Config = {
             {
               label: 'Patreon',
               href: 'https://patreon.com/vrct_dev',
-            },
-            {
-              label: 'Ko-fi',
-              href: 'https://ko-fi.com/vrct_dev',
             },
           ],
         }
