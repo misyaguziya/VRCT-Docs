@@ -93,7 +93,7 @@ i18n/ja/docroot/docs/
 - [ ] 03-multi-target-language.mdx - 複数対象言語
 - [ ] 04-voice-to-text.mdx - 音声からテキスト
 - [ ] 05-speaker-to-text.mdx - スピーカーからテキスト
-- [ ] 06-osc-integration.mdx - OSC統合
+- [ ] 06-osc-integration.mdx - OSC連携
 - [ ] 07-language-presets.mdx - 言語プリセット
 - [ ] 08-overlay-mode.mdx - オーバーレイモード
 - [ ] 09-vrc-mute-sync.mdx - VRCミュート同期
