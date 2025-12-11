@@ -150,20 +150,17 @@ const config: Config = {
               label: 'Patreon',
               href: 'https://patreon.com/vrct_dev',
             },
-            {
-              label: 'Ko-fi',
-              href: 'https://ko-fi.com/vrct_dev',
-            },
           ],
-        },
-        {
-          href: 'https://github.com/misyaguziya/VRCT',
-          label: 'GitHub',
-          position: 'right',
         },
         {
           type: 'localeDropdown',
           position: 'right',
+        },
+        {
+          href: 'https://github.com/misyaguziya/VRCT',
+          position: 'right',
+          className: 'navbar-icon-link navbar-github-icon',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
@@ -235,10 +232,6 @@ const config: Config = {
             {
               label: 'Patreon',
               href: 'https://patreon.com/vrct_dev',
-            },
-            {
-              label: 'Ko-fi',
-              href: 'https://ko-fi.com/vrct_dev',
             },
           ],
         }

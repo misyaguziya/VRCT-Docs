@@ -1,0 +1,156 @@
+---
+sidebar_position: 10
+---
+
+# WebSocket Integration
+
+VRCT provides a WebSocket server that allows external applications to receive real-time transcription and translation data. This enables integration with various third-party tools and custom applications.
+
+## Overview
+
+VRCT's WebSocket server broadcasts transcription and translation results to connected clients in real-time. This is particularly useful for:
+
+- **Text-to-Speech (TTS) Applications**: Applications like [VRCT-TTS](https://github.com/misyaguziya/VRCT-TTS) that convert transcribed text to speech using VOICEVOX or gTTS
+- **Custom Overlays**: Building custom overlay displays for streaming or recording
+- **External Monitoring**: Monitoring transcription results from other applications
+- **Integration with Other Tools**: Connecting VRCT to your own scripts or applications
+
+## Connection Details
+
+The WebSocket server runs on the following default settings:
+
+- **Address**: `127.0.0.1` (localhost)
+- **Port**: `2231`
+- **Connection URL**: `ws://127.0.0.1:2231`
+
+:::info
+VRCT acts as the WebSocket **server**, and external applications connect as **clients**.
+:::
+
+## How to Enable
+
+1. Open VRCT
+2. Navigate to **Config** → **Other Settings**
+3. Enable the **WebSocket Server** option
+4. The server will start automatically and listen for client connections
+
+## Data Format
+
+When VRCT sends a message (transcription result), it broadcasts data in the following JSON format.
+
+:::note
+The language settings (`src_languages` and `dst_languages`) depend on your VRCT configuration. The example below shows translation from Japanese to English, Korean, and Chinese Simplified.
+:::
+
+```json
+{
+  "type": "CHAT",
+  "src_languages": {
+    "1": {
+      "language": "Japanese",
+      "country": "Japan",
+      "enable": true
+    }
+  },
+  "dst_languages": {
+    "1": {
+      "language": "English",
+      "country": "United States",
+      "enable": true
+    },
+    "2": {
+      "language": "Korean",
+      "country": "South Korea",
+      "enable": true
+    },
+    "3": {
+      "language": "Chinese Simplified",
+      "country": "China",
+      "enable": true
+    }
+  },
+  "message": "こんにちは",
+  "translation": ["Hello", "안녕하세요", "你好"],
+  "transliteration": [[], [], []]
+}
+```
+
+### Field Descriptions
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `type` | string | Message type. `"CHAT"` or `"SENT"` indicates a transcription/translation result |
+| `src_languages` | object | Source language details. Keys are language numbers, values are objects containing language name, country, and enable status (depends on VRCT configuration) |
+| `dst_languages` | object | Target language details. Multiple translation target languages can be configured (depends on VRCT configuration) |
+| `message` | string | Original transcribed text in the source language |
+| `translation` | array | Array of translated texts for each target language |
+| `transliteration` | array | Array of transliteration data for each translation (may be empty) |
+
+## Use Case: VRCT-TTS
+
+[VRCT-TTS](https://github.com/misyaguziya/VRCT-TTS) is a companion application that connects to VRCT via WebSocket and provides text-to-speech functionality.
+
+**Workflow:**
+1. You speak into your microphone
+2. VRCT performs voice recognition and transcribes your speech
+3. VRCT translates the transcribed text (if enabled)
+4. VRCT sends the data via WebSocket
+5. VRCT-TTS receives the data and generates speech using VOICEVOX or gTTS
+6. The synthesized voice is played back
+
+This enables real-time voice translation in VRChat conversations.
+
+## Custom Integration Example
+
+You can create your own client application to receive VRCT data. Here's a basic example in Python:
+
+```python
+import asyncio
+import websockets
+import json
+
+async def connect_to_vrct():
+    uri = "ws://127.0.0.1:2231"
+    async with websockets.connect(uri) as websocket:
+        print("Connected to VRCT WebSocket server")
+        
+        while True:
+            message = await websocket.recv()
+            data = json.loads(message)
+            
+            if data["type"] in ["CHAT", "SENT"]:
+                print(f"Original: {data['message']}")
+                print(f"Translations: {data['translation']}")
+                
+                # Get source language
+                src_lang = list(data['src_languages'].values())[0]['language']
+                print(f"Source language: {src_lang}")
+                
+                # Display translations for each target language
+                for idx, (key, lang_info) in enumerate(data['dst_languages'].items()):
+                    if lang_info['enable']:
+                        print(f"{lang_info['language']}: {data['translation'][idx]}")
+
+asyncio.run(connect_to_vrct())
+```
+
+## Troubleshooting
+
+### Cannot Connect to WebSocket Server
+
+- Verify that the WebSocket server is enabled in VRCT settings
+- Check that no other application is using port 2231
+- Ensure your firewall is not blocking the connection
+- Confirm you're using the correct address and port (`ws://127.0.0.1:2231`)
+
+### No Data Being Received
+
+- Make sure VRCT is actively performing voice recognition
+- Verify that transcription is working properly in VRCT
+- Check that your client application is properly handling incoming messages
+
+## Related Features
+
+- [Voice-to-Text (Speech Recognition)](/docs/feature-guide/voice-to-text)
+- [Translation](/docs/feature-guide/translation)
+- [OSC Integration](/docs/feature-guide/osc-integration)

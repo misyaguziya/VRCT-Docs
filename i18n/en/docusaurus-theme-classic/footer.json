@@ -63,10 +63,6 @@
     "message": "Patreon",
     "description": "The label of footer link with label=Patreon linking to https://patreon.com/vrct_dev"
   },
-  "link.item.label.Ko-fi": {
-    "message": "Ko-fi",
-    "description": "The label of footer link with label=Ko-fi linking to https://ko-fi.com/vrct_dev"
-  },
   "copyright": {
     "message": "\n        <div style=\"margin-bottom: 1rem;\">\n          <img \n            src=\"/VRCT-Docs/img/M's_logo_White_yoko.png\" \n            alt=\"m's software\" \n            style=\"height: 100px;\"\n            class=\"footer-logo-dark\"\n          />\n          <img \n            src=\"/VRCT-Docs/img/M's_logo_Black_yoko.png\" \n            alt=\"m's software\" \n            style=\"height: 100px;\"\n            class=\"footer-logo-light\"\n          />\n        </br>\n        Copyright © 2022-2025-present m's software.\n        </div>\n      ",
     "description": "The footer copyright"
