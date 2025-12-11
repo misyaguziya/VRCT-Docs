@@ -153,13 +153,14 @@ const config: Config = {
           ],
         },
         {
-          href: 'https://github.com/misyaguziya/VRCT',
-          label: 'GitHub',
+          type: 'localeDropdown',
           position: 'right',
         },
         {
-          type: 'localeDropdown',
+          href: 'https://github.com/misyaguziya/VRCT',
           position: 'right',
+          className: 'navbar-icon-link navbar-github-icon',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
