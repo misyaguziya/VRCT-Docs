@@ -6,7 +6,107 @@ description: VRCTについてのよくある質問です。
 sidebar_label: よくある質問
 ---
 
-# よくある質問へようこそ
-このFAQセクションでは、VRCTに関する一般的な質問と問題に対応しています。
+# FAQ - よくある質問
 
-(工事中...)
+VRCTの利用でよく寄せられる質問をまとめています。
+
+## はじめに
+
+### Q: どの文字起こしエンジンを使えばよいですか？
+
+VRCTには2種類の文字起こしエンジンがあります。
+
+- **Whisper**: ほとんどのユーザーに推奨
+	- 完全オフラインで動作
+	- 安定性が高い
+	- ネットワークが不安定な環境に強い
+	- 外部APIアクセス不要
+
+- **Google**: 代替オプション
+	- 安定したインターネット接続が必要
+	- Googleへのアクセスが制限される地域では動作しない場合あり
+	- ネットワーク状況の影響を受けやすい
+
+**おすすめ**: まずはWhisperでの利用を推奨します。
+
+詳細は [文字起こしエンジンガイド](/docs/feature-guide/transcription-engines) を参照してください。
+---
+
+### Q: どの翻訳エンジンが最適ですか？
+
+用途に応じて選択してください。
+
+- **DeepL**: 特に欧州言語で高品質
+- **Google Translate**: 言語数が多く汎用的
+- **LLM APIs**: 文脈に沿った自然な翻訳
+
+それぞれ特長が異なるため、言語ペアに合わせて試してみてください。
+
+詳細は [翻訳エンジンガイド](/docs/feature-guide/translation-engines) を参照してください。
+---
+
+### Q: 管理者権限で実行する必要はありますか？
+
+通常は不要ですが、以下の場合は管理者権限での実行を試してください。
+
+- Speaker2Log機能が正常に動作しない
+- オーディオデバイスへアクセスできない
+- 権限関連のエラーが出る
+
+---
+
+### Q: 文字起こしが動作しない場合の対処は？
+
+1. Windowsのマイク/スピーカー設定を確認する
+2. 文字起こしエンジンを切り替える（Whisperがより安定）
+3. VRCTのオーディオデバイス選択を確認する
+4. 同名のオーディオデバイスが複数ある場合は未使用のものを無効化
+5. 設定変更が反映されないときはVRCTを再起動
+
+---
+
+## 機能と活用
+
+### Q: 複数言語への同時翻訳はできますか？
+
+はい。1つのメッセージを複数のターゲット言語へ同時に翻訳できます。
+
+詳細は [Multi-Target Language Guide](/docs/feature-guide/multi-target-language) を参照してください。
+
+---
+
+### Q: VRChatと連携できますか？
+
+はい。OSC(Open Sound Control)経由で以下が可能です。
+- ゲーム内に翻訳テキストを表示
+- ミュート状態の同期
+
+セットアップ方法は [OSC Integration Guide](/docs/feature-guide/osc-integration) を参照してください。
+
+また、Overlayを使用してVRChat内での表示も可能です。
+セットアップ方法は [Overlay Mode Guide](/docs/feature-guide/overlay-mode) を参照してください。
+
+---
+
+### Q: 今後の予定機能は？
+
+最新情報は [GitHub Issues](https://github.com/misyaguziya/VRCT/issues) を確認してください。
+
+---
+
+## VRCT status
+
+現在発生中の問題をgoogleスプレットシートで管理しています。
+- [VRCT Status (Google Sheets)](https://docs.google.com/spreadsheets/d/1_L5i-1U6PB1dnaPPTE_5uKMfqOpkLziPyRkiMLi4mqU/edit?gid=0#gid=0)
+
+---
+
+## さらにサポートが必要ですか？
+
+もしここで解決しない場合は次を試してください。
+1. 詳細なドキュメント: [Feature Guide](/docs/feature-guide)
+2. GitHubで検索・新規Issueを作成: [GitHub Issues](https://github.com/misyaguziya/VRCT/issues)
+3. 問い合わせ時に含める情報:
+    - VRCTのバージョン
+    - OS（Windowsのバージョン）
+    - 必要に応じてログ（[ログの添付方法](https://github.com/misyaguziya/VRCT/wiki/Attach-Logs-&-Settings-Data-%5BEnglish%5D)を参照）

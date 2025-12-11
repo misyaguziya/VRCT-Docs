@@ -6,7 +6,112 @@ description: Frequently Asked Questions about VRCT.
 sidebar_label: FAQ
 ---
 
-# Welcome to the FAQ
-This FAQ section addresses common questions and issues related to VRCT.
+# FAQ - Frequently Asked Questions
 
-(Under Construction...)
+This section addresses common questions about using VRCT.
+
+## Getting Started
+
+### Q: Which transcription engine should I use?
+
+VRCT offers two main transcription engines:
+
+- **Whisper**: Recommended for most users
+  - Works completely offline
+  - More stable and reliable
+  - Best for unstable network connections
+  - Does not require external API access
+
+- **Google**: Alternative option
+  - Requires stable internet connection
+  - May not work in some regions with limited Google access
+  - Can be affected by network issues
+
+**Recommendation**: Start with Whisper for the most reliable experience.
+
+See the [Transcription Engine Guide](/docs/feature-guide/transcription-engines) for more details.
+---
+
+### Q: Which translation engine is best?
+
+The choice depends on your needs:
+
+- **DeepL**: High-quality translations, especially for European languages
+- **Google Translate**: Wide language support, good for general use
+- **LLM APIs**: More natural and context-aware translations
+
+Each engine has different strengths. Try a few to see which works best for your language pair.
+
+See the [Translation Engine Guide](/docs/feature-guide/translation-engines) for more details.
+---
+
+### Q: Do I need to run VRCT as administrator?
+
+In most cases, no. However, you may need administrator privileges if:
+
+- Speaker2Log feature doesn't work properly
+- VRCT cannot access audio devices
+- You encounter permission-related errors
+
+Try running as administrator if you experience issues with audio device detection.
+
+---
+
+### Q: Why isn't my transcription working?
+
+Common solutions:
+
+1. **Check your microphone/speaker settings** in Windows
+2. **Try switching transcription engines** (Whisper is more reliable)
+3. **Verify audio device selection** in VRCT settings
+4. **Check if multiple audio devices** with the same name exist - disable unused ones
+5. **Restart VRCT** if settings changes don't take effect
+
+---
+
+## Features & Capabilities
+
+### Q: Can I translate between multiple languages?
+
+Yes! VRCT supports multi-target language translation. You can send messages in one language and have them translated to multiple target languages simultaneously.
+
+See the [Multi-Target Language Guide](/docs/feature-guide/multi-target-language) for details.
+
+---
+
+### Q: Can I use VRCT with VRChat?
+
+Yes, VRCT integrates with VRChat through OSC (Open Sound Control). This allows you to:
+- Display translated text in-game
+- Sync mute status with VRChat
+
+See the [OSC Integration Guide](/docs/feature-guide/osc-integration) for setup instructions.
+
+You can also display overlays inside VRChat.
+
+See the [Overlay Mode Guide](/docs/feature-guide/overlay-mode) for setup instructions.
+
+---
+
+### Q: What upcoming features are planned?
+
+Check the [GitHub Issues page](https://github.com/misyaguziya/VRCT/issues) for the latest updates.
+
+---
+
+## VRCT status
+
+We are managing current issues using a Google Spreadsheet.
+- [VRCT Status (Google Sheets)](https://docs.google.com/spreadsheets/d/1_L5i-1U6PB1dnaPPTE_5uKMfqOpkLziPyRkiMLi4mqU/edit?gid=0#gid=0)
+
+---
+
+## Need More Help?
+
+If your question isn't answered here, please:
+1. Check the [Feature Guide](/docs/feature-guide) for detailed documentation
+2. Search or create a new issue on [GitHub Issues](https://github.com/misyaguziya/VRCT/issues)
+3. Make sure to include:
+   - Your VRCT version
+   - Operating System (Windows version)
+   - Error logs if applicable (see [How to Attach Logs](https://github.com/misyaguziya/VRCT/wiki/Attach-Logs-&-Settings-Data-%5BEnglish%5D))
