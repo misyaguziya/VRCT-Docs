@@ -286,11 +286,22 @@ html[data-theme="dark"] .footer-logo-light {
 }
 
 /* フッターのすべてのカラムをリスト中央寄せ */
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 150px;
+}
+
 .footer__col .footer__title {
   text-align: center;
 }
 
 .footer__col .footer__items {
   text-align: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
