@@ -1,0 +1,249 @@
+---
+sidebar_position: 2.5
+title: LLM Translation Engines — Deep Dive & Customization
+description: How to use and customize prompts and languages for LLM-based translation engines (OpenAI, Ollama, LM Studio, Gemini, Plamo, Groq, Open Router).
+slug: /feature-guide/llm-translation
+---
+
+# LLM Translation Engines — Deep Dive & Customization
+
+This guide explains how to use Large Language Models (LLMs) as translation engines, why prompts are necessary, and how you can customize both prompts and supported languages. It applies to the following APIs: OpenAI, Ollama, LM Studio, Gemini, Plamo, Groq, and Open Router.
+
+## Why prompts are required
+- Precision and style: LLMs follow detailed instructions. To consistently control translation quality, tone, terminology, formatting, and error handling, you should define prompts explicitly.
+- User-editable: Prompts are fully customizable by users to match different scenarios (in‑game chat, technical documentation, casual conversation, etc.).
+
+## Where to edit prompts (per API)
+- Location: `_Internal/translation_settings/prompt`
+- Files (one per API):
+  - OpenAI: `translation_openai.yml`
+  - Ollama: `translation_ollama.yml`
+  - LM Studio: `translation_lmstudio.yml`
+  - Gemini: `translation_gemini.yml`
+  - Plamo: `translation_plamo.yml`
+  - Groq: `translation_groq.yml`
+  - Open Router: `translation_openrouter.yml`
+- What to adjust:
+  - Instruction roles (system/user), tone/style directives
+  - Output format (plain text vs JSON), newline handling
+  - Terminology locking (keep proper nouns/technical terms), emoji removal
+  - Basic error-handling guidance (retry hints, minimal hallucination)
+
+## Default supported languages and customization
+- Default basis: The initial language list is based on ChatGPT (OpenAI) defaults.
+- User-editable: You can add or remove languages freely to suit your audience or multi-target translation needs.
+- Location: `_Internal/translation_settings/languages`
+- File note: `languages.yml` uses **display names as keys** (e.g., `Japanese`, `English`) mapped to backend language codes as values. Follow existing naming patterns per backend.
+
+## How to Customize Prompts
+
+### Prompt File Structure
+
+Each API's YAML file (e.g., `translation_openai.yml`) contains the following main configuration sections:
+
+```yaml
+system_prompt: |
+  You are a helpful translation assistant.
+  Supported languages:
+  {supported_languages}
+
+  Translate the user provided text from {input_lang} to {output_lang}.
+  Return ONLY the translated text. Do not add quotes or extra commentary.
+history:
+  use_history: true
+  sources: [chat, mic, speaker]
+  max_messages: 5
+  max_chars: 4000
+  header_template: |
+    Conversation context (recent {max_messages} messages):
+    {history}
+  item_template: "[{timestamp}][{source}] {text}"
+```
+
+### Editing system_prompt
+
+`system_prompt` defines the core translation behavior. The following variables are automatically replaced:
+
+- **{supported_languages}**: Auto-populated with the supported language list
+- **{input_lang}**: Source language (e.g., `Japanese`)
+- **{output_lang}**: Target language (e.g., `English`)
+
+### Prompt Customization Examples
+
+#### 1. Casual Translation Style
+```yaml
+system_prompt: |
+  You are a friendly translation assistant for casual conversation.
+  Supported languages:
+  {supported_languages}
+
+  Translate from {input_lang} to {output_lang} in a casual, natural tone.
+  Keep emojis and slang. Return only the translation.
+```
+
+#### 2. Formal Translation Style
+```yaml
+system_prompt: |
+  You are a professional translation assistant.
+  Supported languages:
+  {supported_languages}
+
+  Translate from {input_lang} to {output_lang} using formal language.
+  Maintain professional terminology and remove emojis.
+  Return only the translated text.
+```
+
+#### 3. Gaming-Focused with Term Preservation
+```yaml
+system_prompt: |
+  You are a gaming translation assistant.
+  Supported languages:
+  {supported_languages}
+
+  Translate from {input_lang} to {output_lang}.
+  Keep game-specific terms and player names in their original form.
+  Preserve emojis and emoticons.
+  Return only the translated text.
+```
+
+#### 4. Technical Documentation Style
+```yaml
+system_prompt: |
+  You are a technical translation assistant.
+  Supported languages:
+  {supported_languages}
+
+  Translate technical content from {input_lang} to {output_lang}.
+  Preserve technical terms, code snippets, and formatting.
+  Use precise, unambiguous language.
+  Return only the translated text.
+```
+
+### Customization Tips
+
+1. **Translation Style Specification**
+   - Use keywords like "casual," "formal," or "natural" to control tone
+   - Specify target audience (gamers, business, technical users, etc.)
+
+2. **Term Handling**
+   - Explicitly instruct preservation or translation of proper nouns and technical terms
+   - Examples: "Keep player names unchanged," "Preserve technical terms"
+
+3. **Formatting Rules**
+   - Specify emoji handling (preserve/remove)
+   - Clarify line break and symbol handling
+   - Examples: "Preserve line breaks," "Remove emojis"
+
+4. **Output Format**
+   - Use "Return ONLY the translated text" to prevent extra commentary
+   - Specify JSON format or other structures if needed
+
+## Step-by-step examples
+1. Adjust a prompt
+   - Open `_Internal/translation_settings/prompt/translation_openai.yml`.
+   - Edit the `system_prompt` section to modify translation style and instructions.
+   - Refer to the customization examples above and adjust for your use case.
+2. Update language list
+   - Open `_Internal/translation_settings/languages/languages.yml`.
+   - Add or remove entries. **Use display names as keys** (e.g., `Japanese`) and backend codes as values (e.g., `ja`). Copy nearby examples for formatting.
+3. Apply changes
+   - Save your edits and restart the application. Confirm updates in the translation engine settings and language picker.
+   - Test actual translation results and fine-tune the prompt as needed.
+
+## Context History Injection
+
+LLM translation can improve quality by understanding recent conversation context. VRCT provides automatic history injection into system prompts from Chat/Mic/Speaker messages.
+
+### Feature Overview
+- **Automatic history management**: Chat sends, mic inputs, and speaker receives are automatically saved as history.
+- **Selective injection**: Choose which history types (chat/mic/speaker) to inject.
+- **Token control**: Set limits on message count and character length to prevent excessive token consumption.
+- **Original messages only**: History stores only pre-translation original messages; translations are not included.
+
+### Configuration
+
+Each API's YAML file contains a `history` section. For example, in `translation_openai.yml`:
+
+```yaml
+history:
+  use_history: true               # Enable history injection
+  sources: [chat, mic, speaker]   # Sources to include (select from chat/mic/speaker)
+  max_messages: 10                # Maximum number of recent messages to inject
+  max_chars: 4000                 # Maximum character length after formatting
+  header_template: |
+    Conversation context (recent {max_messages} messages):
+    {history}
+  item_template: "[{timestamp}][{source}] {text}"
+```
+
+### Parameter Details
+
+- **use_history**: Enable or disable history injection.
+- **sources**: Specify which history types to include:
+  - `chat`: Chat send messages
+  - `mic`: Microphone voice recognition results
+  - `speaker`: Speaker receive messages
+- **max_messages**: Maximum number of messages to inject (retrieved in reverse chronological order).
+- **max_chars**: Maximum length of formatted history string. Oldest messages are trimmed if exceeded.
+- **header_template**: Format for the entire history block. `{max_messages}` and `{history}` are available.
+- **item_template**: Format for each history item. `{timestamp}` (HH:MM format), `{source}`, and `{text}` are available.
+
+### Usage Examples
+
+#### In-game chat focused
+```yaml
+history:
+  use_history: true
+  sources: [chat]              # Chat only
+  max_messages: 5
+  max_chars: 2000
+```
+
+#### Voice conversation focused
+```yaml
+history:
+  use_history: true
+  sources: [mic, speaker]      # Mic and speaker only
+  max_messages: 15
+  max_chars: 5000
+```
+
+#### All history sources
+```yaml
+history:
+  use_history: true
+  sources: [chat, mic, speaker]
+  max_messages: 20
+  max_chars: 6000
+```
+
+### Supported Engines
+
+History injection is available in all LLM clients:
+- OpenAI
+- Gemini
+- Groq
+- OpenRouter
+- LM Studio
+- Ollama
+- Plamo
+
+### Important Notes
+
+- More history increases token consumption; set `max_messages` and `max_chars` appropriately.
+- Be mindful of model context length limits. Excessive history may cause translation failures.
+- History is managed automatically; no special operations are typically required.
+
+## Operational tips
+- Consistency: If multiple people edit prompts/languages, add brief comments and a change log to keep a shared understanding.
+- API differences: Models have unique output tendencies; fine-tune prompts per API to stabilize results.
+- Evaluation: Define metrics (terminology accuracy, naturalness, latency) and periodically compare before/after changes.
+- History optimization: Adjust history types and counts based on your use case to balance translation quality and token consumption.
+
+## FAQ
+- My prompt changes don’t appear
+  - Restart the application or trigger a settings reload if available.
+- What format should I use for languages?
+  - Keep the existing display-name keys (e.g., `Japanese`, `English`) and set the backend code as the value (e.g., `ja`, `en`, `zh-Hans`). Mirror nearby entries to stay consistent.
+- Which API should I choose?
+  - Depends on your environment and cost/performance needs. Cloud-first: OpenAI/Gemini. Local-first: Ollama/LM Studio. Domestic models: consider Plamo. Groq/Open Router are available depending on your infra and models.
