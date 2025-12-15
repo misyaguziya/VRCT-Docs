@@ -1,0 +1,249 @@
+---
+sidebar_position: 2.5
+title: LLM翻訳エンジン — 詳細とカスタマイズ
+description: OpenAI / Ollama / LM Studio / Gemini / Plamo / Groq / Open Router などのLLM翻訳で、プロンプトと対応言語を編集・運用する方法。
+slug: /feature-guide/llm-translation
+---
+
+# LLM翻訳エンジン — 詳細とカスタマイズ
+
+このガイドでは、LLM（大規模言語モデル）を翻訳エンジンとして利用する際に、なぜプロンプトが必要か、そしてプロンプトや翻訳可能言語をどのようにカスタマイズできるかを説明します。対象APIは OpenAI / Ollama / LM Studio / Gemini / Plamo / Groq / Open Router です。
+
+## なぜプロンプトが必要か
+- 精度とスタイル: LLMは明確な指示に従って出力します。翻訳品質・語調・用語統一・整形・エラーハンドリングを安定させるには、プロンプトの設計が重要です。
+- ユーザー編集可能: 用途（ゲーム内チャット、技術文、カジュアル会話など）に応じて、ユーザーが自由にプロンプトを編集できます。
+
+## API別プロンプトの編集場所
+- 場所: `_Internal/translation_settings/prompt`
+- ファイル（APIごと）:
+  - OpenAI: `translation_openai.yml`
+  - Ollama: `translation_ollama.yml`
+  - LM Studio: `translation_lmstudio.yml`
+  - Gemini: `translation_gemini.yml`
+  - Plamo: `translation_plamo.yml`
+  - Groq: `translation_groq.yml`
+  - Open Router: `translation_openrouter.yml`
+- 調整ポイント:
+  - 指示ロール（system/user）、語調・スタイル指定
+  - 出力形式（プレーンテキスト/JSON）、改行の扱い
+  - 固有名詞・専門用語の保持、絵文字の除去
+  - 簡易的なエラーハンドリング指示（過剰生成の抑制 など）
+
+## 翻訳可能言語のデフォルトと変更
+- デフォルト基準: 初期の対応言語は ChatGPT（OpenAI）基準のリストです。
+- ユーザー編集可能: 対象コミュニティや配信先に合わせて、言語の追加・削除が可能です。
+- 場所: `_Internal/translation_settings/languages`
+- ファイル注意: `languages.yml` では **言語名（例: `Japanese`, `English`）がキー** で、値にバックエンドの言語コードを設定します。既存の書式に従ってください。
+
+## プロンプトのカスタマイズ方法
+
+### プロンプトファイルの構造
+
+各API用のYAMLファイル（例: `translation_openai.yml`）には、主に以下の設定項目があります：
+
+```yaml
+system_prompt: |
+  You are a helpful translation assistant.
+  Supported languages:
+  {supported_languages}
+
+  Translate the user provided text from {input_lang} to {output_lang}.
+  Return ONLY the translated text. Do not add quotes or extra commentary.
+history:
+  use_history: true
+  sources: [chat, mic, speaker]
+  max_messages: 5
+  max_chars: 4000
+  header_template: |
+    Conversation context (recent {max_messages} messages):
+    {history}
+  item_template: "[{timestamp}][{source}] {text}"
+```
+
+### system_prompt の編集
+
+`system_prompt` は翻訳の基本動作を定義する最も重要な部分です。以下の変数が自動的に置き換えられます：
+
+- **`{supported_languages}`**: 対応言語リストが自動挿入されます
+- **`{input_lang}`**: 翻訳元言語（例: `Japanese`）
+- **`{output_lang}`**: 翻訳先言語（例: `English`）
+
+### プロンプトカスタマイズ例
+
+#### 1. カジュアルな翻訳スタイル
+```yaml
+system_prompt: |
+  You are a friendly translation assistant for casual conversation.
+  Supported languages:
+  {supported_languages}
+
+  Translate from {input_lang} to {output_lang} in a casual, natural tone.
+  Keep emojis and slang. Return only the translation.
+```
+
+#### 2. フォーマルな翻訳スタイル
+```yaml
+system_prompt: |
+  You are a professional translation assistant.
+  Supported languages:
+  {supported_languages}
+
+  Translate from {input_lang} to {output_lang} using formal language.
+  Maintain professional terminology and remove emojis.
+  Return only the translated text.
+```
+
+#### 3. ゲーム用語を保持
+```yaml
+system_prompt: |
+  You are a gaming translation assistant.
+  Supported languages:
+  {supported_languages}
+
+  Translate from {input_lang} to {output_lang}.
+  Keep game-specific terms and player names in their original form.
+  Preserve emojis and emoticons.
+  Return only the translated text.
+```
+
+#### 4. 技術文書スタイル
+```yaml
+system_prompt: |
+  You are a technical translation assistant.
+  Supported languages:
+  {supported_languages}
+
+  Translate technical content from {input_lang} to {output_lang}.
+  Preserve technical terms, code snippets, and formatting.
+  Use precise, unambiguous language.
+  Return only the translated text.
+```
+
+### カスタマイズのポイント
+
+1. **翻訳スタイルの指定**
+   - 「casual」「formal」「natural」などのキーワードで語調を制御
+   - 対象読者層（ゲーマー、ビジネス、技術者など）を明示
+
+2. **用語の扱い**
+   - 固有名詞や専門用語の保持/翻訳を明示的に指示
+   - 例: "Keep player names unchanged" "Preserve technical terms"
+
+3. **整形ルール**
+   - 絵文字の扱い（保持/削除）を指定
+   - 改行や記号の扱いを明示
+   - 例: "Preserve line breaks" "Remove emojis"
+
+4. **出力形式**
+   - "Return ONLY the translated text" で余計な説明を防止
+   - 必要に応じてJSON形式などを指定可能
+
+## 具体的な手順例
+1. プロンプトの調整
+   - `_Internal/translation_settings/prompt/translation_openai.yml` を開きます。
+   - `system_prompt` セクションを編集し、翻訳スタイルや指示を変更します。
+   - 上記のカスタマイズ例を参考に、用途に合わせて調整してください。
+2. 言語リストの更新
+   - `_Internal/translation_settings/languages/languages.yml` を開き、必要なエントリを追加・削除します。
+   - **キーは言語名（例: `Japanese`）**、値はバックエンドコード（例: `ja`）です。近い例をコピーしてフォーマットを合わせてください。
+3. 反映確認
+   - 編集を保存してアプリを再起動し、翻訳エンジン設定や言語選択で変更を確認します。
+   - 実際の翻訳結果を確認して、必要に応じてプロンプトを微調整します。
+
+## 履歴注入機能（Context History）
+
+LLM翻訳では、直前までの会話文脈を理解することで翻訳品質を向上させることができます。VRCT では、Chat/Mic/Speaker の最近の履歴をシステムプロンプトに自動注入する機能を提供しています。
+
+### 機能概要
+- **自動履歴管理**: Chat送信、マイク入力、スピーカー受信のメッセージを自動的に履歴として保存します。
+- **選択的注入**: 履歴種別（chat/mic/speaker）ごとに注入の有無を選択できます。
+- **トークン制御**: 履歴件数と文字数の上限を設定し、過剰なトークン消費を防ぎます。
+- **オリジナルメッセージのみ保存**: 履歴には翻訳前のオリジナルメッセージのみが保存され、翻訳結果は含まれません。
+
+### 設定方法
+
+各APIのYAMLファイルに `history` セクションがあります。例えば `translation_openai.yml` の場合：
+
+```yaml
+history:
+  use_history: true               # 履歴注入を有効化
+  sources: [chat, mic, speaker]   # 取り込み対象（chat/mic/speaker から選択）
+  max_messages: 10                # 注入する履歴件数の上限（新しい順）
+  max_chars: 4000                 # 履歴整形後の最大文字数
+  header_template: |
+    Conversation context (recent {max_messages} messages):
+    {history}
+  item_template: "[{timestamp}][{source}] {text}"
+```
+
+### パラメータ説明
+
+- **use_history**: 履歴注入機能の有効/無効を切り替えます。
+- **sources**: 取り込む履歴の種類を指定します。
+  - `chat`: チャット送信メッセージ
+  - `mic`: マイク音声認識結果
+  - `speaker`: スピーカー受信メッセージ
+- **max_messages**: 注入する履歴の最大件数（新しい順に取得）。
+- **max_chars**: 整形後の履歴文字列の最大長。超過時は古い履歴から切り捨てられます。
+- **header_template**: 履歴ブロック全体のヘッダー形式。`{max_messages}` と `{history}` が利用可能。
+- **item_template**: 各履歴アイテムの形式。`{timestamp}`（HH:MM形式）、`{source}`、`{text}` が利用可能。
+
+### 使用例
+
+#### ゲーム内チャット重視の設定
+```yaml
+history:
+  use_history: true
+  sources: [chat]              # チャットのみ
+  max_messages: 5
+  max_chars: 2000
+```
+
+#### 音声会話重視の設定
+```yaml
+history:
+  use_history: true
+  sources: [mic, speaker]      # マイクとスピーカーのみ
+  max_messages: 15
+  max_chars: 5000
+```
+
+#### すべての履歴を使う設定
+```yaml
+history:
+  use_history: true
+  sources: [chat, mic, speaker]
+  max_messages: 20
+  max_chars: 6000
+```
+
+### 対応状況
+
+履歴注入機能は以下のすべてのLLMクライアントで利用可能です：
+- OpenAI
+- Gemini
+- Groq
+- OpenRouter
+- LM Studio
+- Ollama
+- Plamo
+
+### 注意点
+
+- 履歴が増えるほどトークン消費が増えます。`max_messages` と `max_chars` を適切に設定してください。
+- モデルのコンテキスト長に注意してください。履歴が大きすぎると翻訳が失敗する場合があります。
+- 履歴は自動管理されるため、特別な操作は基本的に不要です。
+
+## 運用のヒント
+- 編集者が複数いる場合は、短いコメントや変更履歴を残して認識を共有してください。
+- モデルごとに出力傾向が異なるため、APIごとにプロンプトを微調整して安定化させてください。
+- 評価指標（用語正確性、自然さ、レイテンシなど）を決め、変更前後で定期的に比較してください。
+- 用途に応じて履歴の種類や件数を調整し、翻訳品質とトークン消費のバランスを取ってください。
+
+## FAQ
+- プロンプト変更が反映されない
+  - アプリを再起動するか、設定リロード機能があれば実行してください。
+- 言語はどう書けばいい？
+  - 既存と同様に、キーに言語名（例: `Japanese`, `English`）、値にバックエンドのコード（例: `ja`, `en`, `zh-Hans`）を設定してください。近くの例を参考に書式を合わせてください。
+- どのAPIを使うべき？
+  - 環境やコスト・性能要件によります。クラウド中心なら OpenAI/Gemini、ローカル重視なら Ollama/LM Studio、国内モデルなら Plamo。インフラや利用モデルに応じて Groq / Open Router も選択できます。
