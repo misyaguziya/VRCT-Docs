@@ -242,8 +242,10 @@ History injection is available in all LLM clients:
 
 ## FAQ
 - My prompt changes don’t appear
-  - Restart the application or trigger a settings reload if available.
+  - You need to restart the application. Save your edits and then restart.
+- I want to disable history injection
+  - Set `history.use_history` to `false` in each API's YAML file.
 - What format should I use for languages?
-  - Keep the existing display-name keys (e.g., `Japanese`, `English`) and set the backend code as the value (e.g., `ja`, `en`, `zh-Hans`). Mirror nearby entries to stay consistent.
+  - Same as existing entries: use the language name as the key (e.g., `Japanese`, `English`) and set the backend code as the value (e.g., `ja`, `en`). Follow the format of nearby examples.
 - Which API should I choose?
-  - Depends on your environment and cost/performance needs. Cloud-first: OpenAI/Gemini. Local-first: Ollama/LM Studio. Domestic models: consider Plamo. Groq/Open Router are available depending on your infra and models.
+  - Depends on your environment and cost/performance needs. Cloud-first: OpenAI/Gemini. Local-first: Ollama/LM Studio. Domestic models: Plamo. Groq/Open Router are available depending on your infra and models.
