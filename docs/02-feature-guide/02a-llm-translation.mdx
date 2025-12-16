@@ -168,7 +168,7 @@ Each API's YAML file contains a `history` section. For example, in `translation_
 history:
   use_history: true               # Enable history injection
   sources: [chat, mic, speaker]   # Sources to include (select from chat/mic/speaker)
-  max_messages: 10                # Maximum number of recent messages to inject
+  max_messages: 5                 # Maximum number of recent messages to inject
   max_chars: 4000                 # Maximum character length after formatting
   header_template: |
     Conversation context (recent {max_messages} messages):
@@ -183,7 +183,7 @@ history:
   - `chat`: Chat send messages
   - `mic`: Microphone voice recognition results
   - `speaker`: Speaker receive messages
-- **max_messages**: Maximum number of messages to inject (retrieved in reverse chronological order).
+- **max_messages**: Maximum number of latest messages to inject (Maximum 50).
 - **max_chars**: Maximum length of formatted history string. Oldest messages are trimmed if exceeded.
 - **header_template**: Format for the entire history block. `{max_messages}` and `{history}` are available.
 - **item_template**: Format for each history item. `{timestamp}` (HH:MM format), `{source}`, and `{text}` are available.
@@ -213,7 +213,7 @@ history:
 history:
   use_history: true
   sources: [chat, mic, speaker]
-  max_messages: 20
+  max_messages: 50
   max_chars: 6000
 ```
 
@@ -242,8 +242,10 @@ History injection is available in all LLM clients:
 
 ## FAQ
 - My prompt changes don’t appear
-  - Restart the application or trigger a settings reload if available.
+  - You need to restart the application. Save your edits and then restart.
+- I want to disable history injection
+  - Set `history.use_history` to `false` in each API's YAML file.
 - What format should I use for languages?
-  - Keep the existing display-name keys (e.g., `Japanese`, `English`) and set the backend code as the value (e.g., `ja`, `en`, `zh-Hans`). Mirror nearby entries to stay consistent.
+  - Same as existing entries: use the language name as the key (e.g., `Japanese`, `English`) and set the backend code as the value (e.g., `ja`, `en`). Follow the format of nearby examples.
 - Which API should I choose?
-  - Depends on your environment and cost/performance needs. Cloud-first: OpenAI/Gemini. Local-first: Ollama/LM Studio. Domestic models: consider Plamo. Groq/Open Router are available depending on your infra and models.
+  - Depends on your environment and cost/performance needs. Cloud-first: OpenAI/Gemini. Local-first: Ollama/LM Studio. Domestic models: Plamo. Groq/Open Router are available depending on your infra and models.

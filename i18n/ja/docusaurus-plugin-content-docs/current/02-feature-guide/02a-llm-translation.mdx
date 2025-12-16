@@ -122,33 +122,33 @@ system_prompt: |
 ### カスタマイズのポイント
 
 1. **翻訳スタイルの指定**
-   - 「casual」「formal」「natural」などのキーワードで語調を制御
-   - 対象読者層（ゲーマー、ビジネス、技術者など）を明示
+  - 「casual」「formal」「natural」などのキーワードで語調を制御
+  - 対象読者層（ゲーマー、ビジネス、技術者など）を明示
 
 2. **用語の扱い**
-   - 固有名詞や専門用語の保持/翻訳を明示的に指示
-   - 例: "Keep player names unchanged" "Preserve technical terms"
+  - 固有名詞や専門用語の保持/翻訳を明示的に指示
+  - 例: "Keep player names unchanged" "Preserve technical terms"
 
 3. **整形ルール**
-   - 絵文字の扱い（保持/削除）を指定
-   - 改行や記号の扱いを明示
-   - 例: "Preserve line breaks" "Remove emojis"
+  - 絵文字の扱い（保持/削除）を指定
+  - 改行や記号の扱いを明示
+  - 例: "Preserve line breaks" "Remove emojis"
 
 4. **出力形式**
-   - "Return ONLY the translated text" で余計な説明を防止
-   - 必要に応じてJSON形式などを指定可能
+  - "Return ONLY the translated text" で余計な説明を防止
+  - 必要に応じてJSON形式などを指定可能
 
 ## 具体的な手順例
 1. プロンプトの調整
-   - `_Internal/translation_settings/prompt/translation_openai.yml` を開きます。
-   - `system_prompt` セクションを編集し、翻訳スタイルや指示を変更します。
-   - 上記のカスタマイズ例を参考に、用途に合わせて調整してください。
+  - `_Internal/translation_settings/prompt/translation_openai.yml` を開きます。
+  - `system_prompt` セクションを編集し、翻訳スタイルや指示を変更します。
+  - 上記のカスタマイズ例を参考に、用途に合わせて調整してください。
 2. 言語リストの更新
-   - `_Internal/translation_settings/languages/languages.yml` を開き、必要なエントリを追加・削除します。
-   - **キーは言語名（例: `Japanese`）**、値はバックエンドコード（例: `ja`）です。近い例をコピーしてフォーマットを合わせてください。
+  - `_Internal/translation_settings/languages/languages.yml` を開き、必要なエントリを追加・削除します。
+  - **キーは言語名（例: `Japanese`）**、値はバックエンドコード（例: `ja`）です。近い例をコピーしてフォーマットを合わせてください。
 3. 反映確認
-   - 編集を保存してアプリを再起動し、翻訳エンジン設定や言語選択で変更を確認します。
-   - 実際の翻訳結果を確認して、必要に応じてプロンプトを微調整します。
+  - 編集を保存してアプリを再起動し、翻訳エンジン設定や言語選択で変更を確認します。
+  - 実際の翻訳結果を確認して、必要に応じてプロンプトを微調整します。
 
 ## 履歴注入機能（Context History）
 
@@ -168,7 +168,7 @@ LLM翻訳では、直前までの会話文脈を理解することで翻訳品�
 history:
   use_history: true               # 履歴注入を有効化
   sources: [chat, mic, speaker]   # 取り込み対象（chat/mic/speaker から選択）
-  max_messages: 10                # 注入する履歴件数の上限（新しい順）
+  max_messages: 5                 # 注入する履歴件数の上限（新しい順）
   max_chars: 4000                 # 履歴整形後の最大文字数
   header_template: |
     Conversation context (recent {max_messages} messages):
@@ -183,7 +183,7 @@ history:
   - `chat`: チャット送信メッセージ
   - `mic`: マイク音声認識結果
   - `speaker`: スピーカー受信メッセージ
-- **max_messages**: 注入する履歴の最大件数（新しい順に取得）。
+- **max_messages**: 注入する最新の履歴の最大件数(最大50件)。
 - **max_chars**: 整形後の履歴文字列の最大長。超過時は古い履歴から切り捨てられます。
 - **header_template**: 履歴ブロック全体のヘッダー形式。`{max_messages}` と `{history}` が利用可能。
 - **item_template**: 各履歴アイテムの形式。`{timestamp}`（HH:MM形式）、`{source}`、`{text}` が利用可能。
@@ -213,7 +213,7 @@ history:
 history:
   use_history: true
   sources: [chat, mic, speaker]
-  max_messages: 20
+  max_messages: 50
   max_chars: 6000
 ```
 
@@ -242,8 +242,10 @@ history:
 
 ## FAQ
 - プロンプト変更が反映されない
-  - アプリを再起動するか、設定リロード機能があれば実行してください。
+  - アプリを再起動する必要があります。編集後に保存してから再起動してください。
+- 履歴注入を無効にしたい
+  - 各APIのYAMLファイルで `history.use_history` を `false` に設定してください。
 - 言語はどう書けばいい？
-  - 既存と同様に、キーに言語名（例: `Japanese`, `English`）、値にバックエンドのコード（例: `ja`, `en`, `zh-Hans`）を設定してください。近くの例を参考に書式を合わせてください。
+  - 既存と同様に、キーに言語名（例: `Japanese`, `English`）、値にバックエンドのコード（例: `ja`, `en`）を設定してください。近くの例を参考に書式を合わせてください。
 - どのAPIを使うべき？
   - 環境やコスト・性能要件によります。クラウド中心なら OpenAI/Gemini、ローカル重視なら Ollama/LM Studio、国内モデルなら Plamo。インフラや利用モデルに応じて Groq / Open Router も選択できます。
