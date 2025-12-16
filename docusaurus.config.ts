@@ -87,7 +87,7 @@ const config: Config = {
       appId: '0ZWDIDH143',
       apiKey: '037dca1f2424efcfe6b7f15d0d6ec0b5',
       indexName: 'vrct_documents',
-      contextualSearch: true,
+      contextualSearch: false,
     },
     colorMode: {
       respectPrefersColorScheme: true,
