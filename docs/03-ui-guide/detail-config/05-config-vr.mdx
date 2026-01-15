@@ -55,3 +55,42 @@ Customize the VR settings in the VR Tab of the Config Window.
 ### Common Settings
 ![config-vr-overlay-05.png](./img/config-vr-overlay-05.png)
 - **Show Only Translated Messages**: When enabled, only translated messages will be displayed in the overlay.
+
+## Voice Typing Mode
+
+Voice Typing Mode enables hands-free text input into VR applications by automatically pasting transcribed voice into the active application.
+
+### Enable Voice Typing Mode
+
+![config-vr-voice-typing.png](./img/config-vr-voice-typing.png)
+
+- **Enable Voice Typing Mode** (checkbox)
+- Voice transcription is automatically copied to clipboard and pasted into active VR applications
+
+:::note[Note]
+Voice Typing Mode only functions when running in VR. Desktop mode will not copy to clipboard or paste.
+:::
+
+### How Voice Typing Mode Works
+
+1. You speak into your microphone (with Voice2Chatbox enabled)
+2. Your speech is transcribed to text
+3. The text is automatically copied to the system clipboard and pasted into the active VR application's focused text field
+
+### Requirements
+
+- Active VR session (SteamVR or compatible VR runtime)
+- Voice2Chatbox enabled (microphone transcription active)
+- Target VR application must support clipboard paste
+- Microphone properly configured in [Device Config](/docs/config-device)
+
+### Use Cases
+
+Voice Typing Mode is useful for:
+- **VRChat World Search**: Search for worlds by speaking world names
+- **Japanese Input**: Input Japanese text without complex IME setup
+- **VRChat Settings**: Text input in configuration menus
+- **Multiplayer Games**: Chat without removing your headset
+- **Any VR App**: Works with any application supporting clipboard paste
+
+See the [Voice Typing Mode Guide](/docs/feature-guide/voice-typing-mode) for detailed usage instructions and troubleshooting.

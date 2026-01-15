@@ -109,6 +109,109 @@ Check the [GitHub Issues page](https://github.com/misyaguziya/VRCT/issues) for t
 
 ---
 
+## Telemetry & Privacy
+
+### Q: What is telemetry in VRCT?
+
+VRCT collects anonymous usage statistics through [Aptabase](https://aptabase.com) to help improve the application. The collected data includes:
+- When you start and close the app
+- Session duration (via heartbeat every 5 minutes)
+- Which features you use (translation, transcription, etc.)
+
+**Important**: No personally identifiable information, input content, or voice data is ever collected or transmitted.
+
+---
+
+### Q: Can I disable telemetry?
+
+Yes! You can opt out of telemetry at any time:
+1. Open the Config Window
+2. Navigate to the **Other** tab
+3. Toggle **Help improve the product** off
+4. Click Save
+
+When telemetry is disabled, **no data is collected or transmitted** at all.
+
+---
+
+### Q: What privacy guarantees does VRCT provide?
+
+VRCT guarantees:
+- ✅ No personal identification data collected
+- ✅ No message content or input data transmitted
+- ✅ No voice audio data recorded or sent
+- ✅ No UI state information tracked
+- ✅ Immediate stop of all communication when disabled
+- ✅ HTTPS-only encrypted transmission via Aptabase
+
+See the [Telemetry Guide](/docs/feature-guide/telemetry) for detailed privacy information.
+
+---
+
+## Voice Typing Mode (VR)
+
+### Q: What is Voice Typing Mode?
+
+Voice Typing Mode allows you to input text into VR applications by speaking. When enabled:
+1. Your voice is transcribed in real-time
+2. The transcribed text is automatically copied to clipboard
+3. The text is pasted into the active VR application
+
+This works **without using OSC**, so it supports any VR application that accepts clipboard input.
+
+---
+
+### Q: Which VR applications support Voice Typing Mode?
+
+Voice Typing Mode works with any VR application that supports clipboard paste input, including:
+- **VRChat**: World search, settings, any text input
+- **VR Games**: Chat, configuration menus
+- **Productivity Apps**: Text input in VR office applications
+
+---
+
+### Q: How do I enable Voice Typing Mode?
+
+1. Put on your VR headset
+2. Open VRCT Config Window
+3. Go to **VR Tab**
+4. Check the **Enable Voice Typing Mode** checkbox
+5. Click Save
+6. Ensure Voice2Chatbox transcription is enabled
+7. Speak into your microphone
+
+---
+
+### Q: Can I use Voice Typing Mode on desktop?
+
+No, Voice Typing Mode only works when you're in VR (using SteamVR or compatible runtime). In desktop mode, transcribed text will not be pasted into applications.
+
+---
+
+### Q: What languages does Voice Typing Mode support?
+
+Voice Typing Mode supports all languages supported by your selected transcription engine:
+- **Whisper**: 99+ languages including Japanese, Chinese, Korean, etc.
+- **Google**: Depends on Google's language support
+
+The language used for transcription depends on your Voice2Chatbox language settings.
+
+---
+
+### Q: Why isn't Voice Typing Mode working?
+
+Common solutions:
+1. **Verify you're in VR**: Voice Typing Mode only works in VR mode (SteamVR active)
+2. **Check Voice2Chatbox**: Enable the Voice2Chatbox toggle to start transcription
+3. **Ensure VR app is active**: The target VR application must be in focus
+4. **Verify clipboard support**: Target application must support paste operations
+5. **Check microphone settings**: Ensure your microphone is properly configured
+6. **Restart VRCT**: If settings changes don't take effect
+
+See the [Voice Typing Mode Guide](/docs/feature-guide/voice-typing-mode) for more details.
+
+---
+
 ## VRCT status
 
 We are managing current issues using a Google Spreadsheet.
