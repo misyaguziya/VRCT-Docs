@@ -24,6 +24,11 @@
   gap: 10px;
 }
 
+.buttons a {
+  min-width: 170px;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .buttons {
     flex-direction: column;

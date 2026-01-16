@@ -31,13 +31,11 @@ function HomepageHeader() {
             to="https://misyaguziya.booth.pm/items/5155325">
             ダウンロード
           </Link>
-          <span style={{ margin: '0 10px' }}></span>
           <Link
             className="button button--secondary button--lg"
             to="/docs/tutorial">
             チュートリアル
           </Link>
-          <span style={{ margin: '0 10px' }}></span>
           <Link
             className="button button--secondary button--lg"
             to="https://github.com/misyaguziya/VRCT">
