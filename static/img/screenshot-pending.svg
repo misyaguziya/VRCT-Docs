@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Screenshot pending for VRCT v3.5.0">
+  <rect width="640" height="360" fill="#1e2029"/>
+  <rect x="8" y="8" width="624" height="344" fill="none" stroke="#5a5f73" stroke-width="2" stroke-dasharray="10 8" rx="10"/>
+  <text x="320" y="170" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans JP', sans-serif" font-size="34" fill="#e6e7ee">Screenshot pending</text>
+  <text x="320" y="212" text-anchor="middle" font-family="'Segoe UI', 'Noto Sans JP', sans-serif" font-size="20" fill="#9aa0b4">VRCT v3.5.0 — image to be added</text>
+</svg>
