@@ -86,6 +86,11 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        // Google Analytics 4. Only active in production builds (not `npm run start`).
+        gtag: {
+          trackingID: 'G-VJNDYDMJLF',
+          anonymizeIP: true,
+        },
       } satisfies Preset.Options,
     ],
   ],
