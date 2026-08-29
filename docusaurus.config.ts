@@ -146,6 +146,11 @@ const config: Config = {
           href: '/docs/faq',
         },
         {
+          to: '/blog',
+          label: 'Blog',
+          position: 'left',
+        },
+        {
           label: 'Supporters👑',
           position: 'right',
           items: [
@@ -200,6 +205,10 @@ const config: Config = {
             {
               label: 'FAQ',
               to: '/docs/faq',
+            },
+            {
+              label: 'Blog',
+              to: '/blog',
             },
           ],
         },
