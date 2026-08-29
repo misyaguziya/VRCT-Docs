@@ -32,11 +32,24 @@ setup.exeファイルを実行すると、セキュリティ警告が表示さ�
     UI言語は後で変更できます。
     :::
 
+    :::info[v3.5.0〜: GPU版 / CPU版の選択]
+    インストーラで **GPU版** と **CPU版** を選択できるようになりました。選択した版に必要なファイルのみがダウンロードされます。
+    - **CPU版**：どの環境でも動作します。GPUを使わない場合はこちら。
+    - **GPU版（CUDA）**：対応するNVIDIA GPUがある場合、文字起こし・翻訳を高速化できます。
+    版はインストール後でも[詳細設定タブ](/docs/config-advanced)の「VRCTをCPU/GPUバージョンに切り替え」で変更できます。
+    :::
+
+    {/* TODO(v3.5.0): replace with ./img/installation_step_edition_select.png */}
+    ![Screenshot pending](/img/screenshot-pending.svg)
+
     **ステップ4**  
     ![step4](./img/installation_step4.png)  
     **ステップ5**  
     ![step5](./img/installation_step5.png)  
     既にアプリケーションをインストールしている場合は、既存のインストールを上書きするかどうかの確認が求められます。  
+    :::tip[v3.5.0〜]
+    アップグレード時に設定ファイル（`config.json`）が引き継がれるようになりました。以前のように設定がすべて初期化されることはありません。
+    :::
     **ステップ6**  
     ![step6](./img/installation_step6.png)  
     **ステップ7**  

@@ -56,6 +56,17 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/misyaguziya/VRCT-Docs/tree/master/',
+          // Versioning: the `docs/` folder ("current") tracks the latest VRCT
+          // release; older releases are frozen snapshots under `versioned_docs/`.
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: '3.5.0',
+              // Keep the latest docs at the default path (/docs/...) so existing
+              // URLs stay stable. Frozen versions get a /docs/<version>/ prefix.
+              path: '',
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -74,6 +85,11 @@ const config: Config = {
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        // Google Analytics 4. Only active in production builds (not `npm run start`).
+        gtag: {
+          trackingID: 'G-VJNDYDMJLF',
+          anonymizeIP: true,
         },
       } satisfies Preset.Options,
     ],
@@ -135,6 +151,11 @@ const config: Config = {
           href: '/docs/faq',
         },
         {
+          to: '/blog',
+          label: 'Blog',
+          position: 'left',
+        },
+        {
           label: 'Supporters👑',
           position: 'right',
           items: [
@@ -151,6 +172,10 @@ const config: Config = {
               href: 'https://patreon.com/vrct_dev',
             },
           ],
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
         },
         {
           type: 'localeDropdown',
@@ -185,6 +210,10 @@ const config: Config = {
             {
               label: 'FAQ',
               to: '/docs/faq',
+            },
+            {
+              label: 'Blog',
+              to: '/blog',
             },
           ],
         },

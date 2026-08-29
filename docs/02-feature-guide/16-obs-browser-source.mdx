@@ -1,0 +1,82 @@
+---
+sidebar_position: 16
+slug: /feature-guide/obs-browser-source
+title: OBS Browser Source
+description: Show VRCT subtitles in OBS with the built-in HTTP server
+sidebar_label: OBS Browser Source
+---
+
+# OBS Browser Source
+
+Since **v3.5.0**, VRCT runs a small built-in HTTP server that serves a subtitle
+page for OBS. You add a single **Browser Source** in OBS pointing at VRCT's
+local URL, and your transcription / translation results are rendered on top of
+your stream or recording — no external overlay tool required.
+
+## Overview
+
+- VRCT hosts the subtitle page locally (HTTP server on `127.0.0.1`).
+- The page is driven by the same real-time data as the
+  [WebSocket Integration](/docs/feature-guide/websocket-integration) feature, so
+  what appears in OBS matches what VRCT transcribes and translates.
+- Text color and the server port are configurable.
+
+:::info
+This replaces the previous approach of building your own overlay from the raw
+WebSocket stream. That method still works — see
+[WebSocket Integration](/docs/feature-guide/websocket-integration) — but for OBS
+the built-in page is the simplest option.
+:::
+
+## How to Enable
+
+1. Open VRCT and go to **Config Window**.
+2. In the **Advanced** (or **Other**) settings, find the OBS / HTTP server
+   section and enable it. The WebSocket server is used to feed the page, so keep
+   it enabled as well.
+3. Note the URL and port shown in the settings (default host `127.0.0.1`).
+
+{/* TODO(v3.5.0): replace with ./img/obs-browser-source-config.png */}
+![Screenshot pending](/img/screenshot-pending.svg)
+
+## Add the Browser Source in OBS
+
+1. In OBS, under **Sources**, click **+** → **Browser**.
+2. Set **URL** to the address shown in VRCT's settings
+   (for example `http://127.0.0.1:<port>/`).
+3. Set **Width** / **Height** to match the region where you want subtitles.
+4. Click **OK**. Subtitles appear whenever VRCT produces a transcription or
+   translation result.
+
+{/* TODO(v3.5.0): replace with ./img/obs-browser-source-in-obs.png */}
+![Screenshot pending](/img/screenshot-pending.svg)
+
+## Configuration
+
+| Setting | Description |
+|---|---|
+| Enable OBS browser source | Starts / stops the built-in HTTP server. |
+| Port | TCP port the page is served on. Change it if the default is already in use. |
+| Text color | Color of the subtitle text rendered in the browser source. |
+| WebSocket server | Must be enabled — it supplies the real-time data to the page. |
+
+:::note
+Exact labels and the default port are shown in the Config Window. If OBS shows a
+blank source, confirm the HTTP server and the WebSocket server are both enabled
+and that the port matches the URL in OBS.
+:::
+
+## Troubleshooting
+
+- **Blank browser source**: make sure both the HTTP server and the WebSocket
+  server are enabled, and that no other app is using the configured port.
+- **No text appears**: VRCT must be actively transcribing/translating. Test with
+  Voice2Chatbox or Speaker2Log enabled.
+- **Text hard to read**: adjust the text color in VRCT, or add an OBS filter /
+  background behind the source.
+
+## Related Features
+
+- [WebSocket Integration](/docs/feature-guide/websocket-integration)
+- [Speaker to Text (Speaker2Log)](/docs/feature-guide/speaker-to-text)
+- [Real-time Translation](/docs/feature-guide/translation)

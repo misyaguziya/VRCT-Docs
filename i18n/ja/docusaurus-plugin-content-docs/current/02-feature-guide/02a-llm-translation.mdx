@@ -7,7 +7,7 @@ slug: /feature-guide/llm-translation
 
 # LLM翻訳エンジン — 詳細とカスタマイズ
 
-このガイドでは、LLM（大規模言語モデル）を翻訳エンジンとして利用する際に、なぜプロンプトが必要か、そしてプロンプトや翻訳可能言語をどのようにカスタマイズできるかを説明します。対象APIは OpenAI / Ollama / LM Studio / Gemini / Plamo / Groq / Open Router です。
+このガイドでは、LLM（大規模言語モデル）を翻訳エンジンとして利用する際に、なぜプロンプトが必要か、そしてプロンプトや翻訳可能言語をどのようにカスタマイズできるかを説明します。対象APIは OpenAI / OpenAI互換エンドポイント（v3.5.0〜）/ Ollama / LM Studio / Gemini / Plamo / Groq / Open Router です。
 
 ## なぜプロンプトが必要か
 - 精度とスタイル: LLMは明確な指示に従って出力します。翻訳品質・語調・用語統一・整形・エラーハンドリングを安定させるには、プロンプトの設計が重要です。
@@ -17,6 +17,7 @@ slug: /feature-guide/llm-translation
 - 場所: `_Internal/translation_settings/prompt`
 - ファイル（APIごと）:
   - OpenAI: `translation_openai.yml`
+  - OpenAI互換エンドポイント: OpenAIと同じ書式のYAML（フォルダ内のファイル名を確認してください）
   - Ollama: `translation_ollama.yml`
   - LM Studio: `translation_lmstudio.yml`
   - Gemini: `translation_gemini.yml`
@@ -221,6 +222,7 @@ history:
 
 履歴注入機能は以下のすべてのLLMクライアントで利用可能です：
 - OpenAI
+- OpenAI互換エンドポイント
 - Gemini
 - Groq
 - OpenRouter
