@@ -1,22 +1,22 @@
 {
   "version.label": {
-    "message": "3.5.0",
-    "description": "The label for version current"
+    "message": "3.4.3",
+    "description": "The label for version 3.4.3"
   },
   "sidebar.Sidebar.category.Tutorial": {
-    "message": "チュートリアル",
+    "message": "Tutorial",
     "description": "The label for category 'Tutorial' in sidebar 'Sidebar'"
   },
   "sidebar.Sidebar.category.Feature Guide": {
-    "message": "機能ガイド",
+    "message": "Feature Guide",
     "description": "The label for category 'Feature Guide' in sidebar 'Sidebar'"
   },
   "sidebar.Sidebar.category.UI Guide": {
-    "message": "UIガイド",
+    "message": "UI Guide",
     "description": "The label for category 'UI Guide' in sidebar 'Sidebar'"
   },
   "sidebar.Sidebar.category.Configuration Window": {
-    "message": "設定ウィンドウ",
+    "message": "Configuration Window",
     "description": "The label for category 'Configuration Window' in sidebar 'Sidebar'"
   }
 }

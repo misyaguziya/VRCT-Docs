@@ -1,7 +1,7 @@
 {
   "version.label": {
-    "message": "3.5.0",
-    "description": "The label for version current"
+    "message": "3.4.3",
+    "description": "The label for version 3.4.3"
   },
   "sidebar.Sidebar.category.Tutorial": {
     "message": "チュートリアル",

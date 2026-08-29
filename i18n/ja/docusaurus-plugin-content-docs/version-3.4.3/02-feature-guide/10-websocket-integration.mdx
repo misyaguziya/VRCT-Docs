@@ -1,0 +1,156 @@
+---
+sidebar_position: 10
+---
+
+# WebSocket連携
+
+VRCTはWebSocketサーバー機能を提供し、外部アプリケーションがリアルタイムで文字起こしや翻訳のデータを受信できるようにします。これにより、さまざまなサードパーティツールやカスタムアプリケーションとの連携が可能になります。
+
+## 概要
+
+VRCTのWebSocketサーバーは、文字起こしと翻訳の結果を接続されたクライアントにリアルタイムで配信します。これは以下のような用途に特に便利です：
+
+- **音声合成（TTS）アプリケーション**: VOICEVOXやgTTSを使用して文字起こしされたテキストを音声に変換する[VRCT-TTS](https://github.com/misyaguziya/VRCT-TTS)のようなアプリケーション
+- **カスタムオーバーレイ**: 配信や録画用のカスタムオーバーレイ表示の構築
+- **外部モニタリング**: 他のアプリケーションから文字起こし結果を監視
+- **その他のツールとの連携**: VRCTを独自のスクリプトやアプリケーションに接続
+
+## 接続詳細
+
+WebSocketサーバーは以下のデフォルト設定で動作します：
+
+- **アドレス**: `127.0.0.1` (localhost)
+- **ポート**: `2231`
+- **接続URL**: `ws://127.0.0.1:2231`
+
+:::info
+VRCTはWebSocket**サーバー**として動作し、外部アプリケーションは**クライアント**として接続します。
+:::
+
+## 有効化方法
+
+1. VRCTを開く
+2. **Config** → **その他の設定**に移動
+3. **WebSocketサーバー**オプションを有効にする
+4. サーバーが自動的に起動し、クライアント接続を待機します
+
+## データフォーマット
+
+VRCTがメッセージ（文字起こし結果）を送信する際、以下のJSON形式でデータを配信します。
+
+:::note
+言語設定（`src_languages`と`dst_languages`）はVRCTの設定によって変わります。以下は日本語から英語・韓国語・中国語簡体字への翻訳の例です。
+:::
+
+```json
+{
+  "type": "CHAT",
+  "src_languages": {
+    "1": {
+      "language": "Japanese",
+      "country": "Japan",
+      "enable": true
+    }
+  },
+  "dst_languages": {
+    "1": {
+      "language": "English",
+      "country": "United States",
+      "enable": true
+    },
+    "2": {
+      "language": "Korean",
+      "country": "South Korea",
+      "enable": true
+    },
+    "3": {
+      "language": "Chinese Simplified",
+      "country": "China",
+      "enable": true
+    }
+  },
+  "message": "こんにちは",
+  "translation": ["Hello", "안녕하세요", "你好"],
+  "transliteration": [[], [], []]
+}
+```
+
+### フィールド説明
+
+| フィールド | 型 | 説明 |
+|-------|------|-------------|
+| `type` | string | メッセージタイプ。`"CHAT"`または`"SENT"`は文字起こし/翻訳結果を示します |
+| `src_languages` | object | ソース言語の詳細情報。キーは言語番号、値は言語名・国・有効状態を含むオブジェクト（VRCTの設定に依存） |
+| `dst_languages` | object | ターゲット言語の詳細情報。複数の翻訳先言語を設定可能（VRCTの設定に依存） |
+| `message` | string | ソース言語で文字起こしされた元のテキスト |
+| `translation` | array | 各ターゲット言語に翻訳されたテキストの配列 |
+| `transliteration` | array | 各翻訳の音訳データの配列（空の場合もあります） |
+
+## ユースケース：VRCT-TTS
+
+[VRCT-TTS](https://github.com/misyaguziya/VRCT-TTS)は、WebSocket経由でVRCTに接続し、音声合成機能を提供する連携アプリケーションです。
+
+**ワークフロー：**
+1. マイクに向かって話す
+2. VRCTが音声認識を行い、音声を文字起こしする
+3. VRCT が文字起こしされたテキストを翻訳する（有効な場合）
+4. VRCTがWebSocket経由でデータを送信する
+5. VRCT-TTSがデータを受信し、VOICEVOXまたはgTTSを使用して音声を生成する
+6. 合成された音声が再生される
+
+これにより、VRChatでの会話でリアルタイムの音声翻訳が可能になります。
+
+## カスタム連携の例
+
+独自のクライアントアプリケーションを作成してVRCTのデータを受信できます。以下はPythonでの基本的な例です：
+
+```python
+import asyncio
+import websockets
+import json
+
+async def connect_to_vrct():
+    uri = "ws://127.0.0.1:2231"
+    async with websockets.connect(uri) as websocket:
+        print("VRCTのWebSocketサーバーに接続しました")
+        
+        while True:
+            message = await websocket.recv()
+            data = json.loads(message)
+            
+            if data["type"] in ["CHAT", "SENT"]:
+                print(f"元のテキスト: {data['message']}")
+                print(f"翻訳結果: {data['translation']}")
+                
+                # ソース言語を取得
+                src_lang = list(data['src_languages'].values())[0]['language']
+                print(f"ソース言語: {src_lang}")
+                
+                # 各ターゲット言語の翻訳を表示
+                for idx, (key, lang_info) in enumerate(data['dst_languages'].items()):
+                    if lang_info['enable']:
+                        print(f"{lang_info['language']}: {data['translation'][idx]}")
+
+asyncio.run(connect_to_vrct())
+```
+
+## トラブルシューティング
+
+### WebSocketサーバーに接続できない
+
+- VRCT設定でWebSocketサーバーが有効になっているか確認してください
+- 他のアプリケーションがポート2231を使用していないか確認してください
+- ファイアウォールが接続をブロックしていないか確認してください
+- 正しいアドレスとポート（`ws://127.0.0.1:2231`）を使用しているか確認してください
+
+### データが受信されない
+
+- VRCTが音声認識を実行中であることを確認してください
+- VRCTで文字起こしが正常に機能しているか確認してください
+- クライアントアプリケーションが受信メッセージを適切に処理しているか確認してください
+
+## 関連機能
+
+- [音声からテキスト（Voice2Chatbox）](/docs/feature-guide/voice-to-text)
+- [リアルタイム翻訳](/docs/feature-guide/translation)
+- [OSC連携](/docs/feature-guide/osc-integration)

@@ -1,0 +1,8 @@
+{
+  "label": "よくある質問",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "FAQ/index"
+  }
+}
