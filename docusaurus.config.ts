@@ -61,7 +61,7 @@ const config: Config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: '3.5.0',
+              label: '3.5.1',
               // Keep the latest docs at the default path (/docs/...) so existing
               // URLs stay stable. Frozen versions get a /docs/<version>/ prefix.
               path: '',

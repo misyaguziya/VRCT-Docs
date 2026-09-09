@@ -13,6 +13,7 @@ Customize the transcription settings for microphone and speaker audio in the Tra
 ![config-transcription-mic-overview.png](./img/config-transcription-mic-overview.png)
 - **Mic Record Timeout** : Set the timeout duration for microphone recording.
     - Detects silence and, when the specified number of seconds passes, the system considers the voice input to have ended. (Second(s))
+    - Set it to **0** to disable the recording timeout (unlimited recording). Phrase boundaries are still determined by silence detection and **Mic Phrase Timeout**.
 - **Mic Phrase Timeout** : Set the timeout duration for microphone phrase detection.
     - Transcription processing is performed at intervals of the specified number of seconds.
 - **Mic Max Words**: Set the maximum number of words for microphone transcription.
@@ -24,6 +25,7 @@ Customize the transcription settings for microphone and speaker audio in the Tra
 ![config-transcription-speaker-overview.png](./img/config-transcription-speaker-overview.png)
 - **Speaker Record Timeout** : Set the timeout duration for speaker recording.
     - Detects silence and, when the specified number of seconds has passed, considers the speaker input to have ended. (Second(s))
+    - Set it to **0** to disable the recording timeout (unlimited recording). Phrase boundaries are still determined by silence detection and **Speaker Phrase Timeout**.
 - **Speaker Phrase Timeout** : Set the timeout duration for speaker phrase detection.
     - Transcription processing is performed at intervals of the specified number of seconds.
 - **Speaker Max Words**: Set the maximum number of words for speaker transcription.

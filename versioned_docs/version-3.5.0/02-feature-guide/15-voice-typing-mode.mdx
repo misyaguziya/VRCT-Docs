@@ -1,0 +1,159 @@
+---
+sidebar_position: 15
+slug: /feature-guide/voice-typing-mode
+title: Voice Typing Mode (VR)
+description: Type in VR applications using voice transcription
+sidebar_label: Voice Typing Mode
+---
+
+# Voice Typing Mode (VR)
+
+Voice Typing Mode allows you to input text into VR applications by simply speaking. Your voice is transcribed and automatically pasted into the active VR application without requiring OSC integration.
+
+## Overview
+
+Voice Typing Mode works by:
+1. **Capturing** your voice via microphone
+2. **Transcribing** speech to text
+3. **Copying** text to system clipboard
+4. **Pasting** into active VR application
+
+This enables hands-free, voice-based text input in any VR app that supports clipboard operations.
+
+## How to Enable
+
+### In VR Headset
+
+1. Put on your VR headset (SteamVR or compatible runtime must be active)
+2. Open VRCT Config Window
+3. Navigate to the **VR Tab**
+4. Check the **Enable Voice Typing Mode** checkbox
+5. Click **Save**
+
+:::warning[Important]
+Voice Typing Mode only works when actively in VR. Desktop mode will not trigger paste operations.
+:::
+
+## How to Use
+
+### Basic Usage
+
+1. **Enable Voice Typing Mode** (see above)
+2. **Enable Voice2Chatbox** - Activate microphone transcription
+3. **Focus on target text field** in your VR application
+4. **Speak** into your microphone
+5. **Text is automatically pasted** into the focused field
+
+### Example: VRChat World Search
+
+1. Open VRChat in VR
+2. Navigate to World Search
+3. Click the search field (to focus it)
+4. Open VRCT Config → VR Tab → Enable Voice Typing Mode
+5. Speak the world name (e.g., "Black Cat")
+6. Text appears in search field automatically
+7. Press Enter to search
+
+### Example: Japanese Text Input
+
+1. Open a VR application with text input
+2. Click the text field to focus it
+3. Enable Voice Typing Mode and Voice2Chatbox
+4. Set Voice2Chatbox language to **Japanese**
+5. Speak in Japanese (e.g., "こんにちは")
+6. Japanese text is automatically transcribed and pasted
+
+## Configuration
+
+### VR Tab Settings
+
+**Enable Voice Typing Mode** (checkbox)
+- Voice transcription is automatically copied to clipboard and pasted into active VR applications
+
+### Related Settings
+
+To use Voice Typing Mode, also configure:
+
+1. **Device Tab**: Select your microphone device
+2. **Transcription Tab**: Choose transcription engine and language
+3. **Main Window**: Enable Voice2Chatbox toggle
+
+See [Device Config](/docs/config-device), [Transcription Config](/docs/config-transcription), and [Voice to Text](/docs/feature-guide/voice-to-text) for details.
+
+## Features
+
+### Multi-Language Support
+
+Voice Typing Mode supports all languages supported by your transcription engine:
+
+| Engine | Supported Languages |
+|--------|-------------------|
+| **Whisper** | 99+ languages (Japanese, Chinese, Korean, Spanish, French, German, etc.) |
+| **Google** | 80+ languages |
+
+Set your language in Voice2Chatbox settings.
+
+### Works with Any VR App
+
+Unlike OSC-based input (VRChat-specific), Voice Typing Mode works with:
+- ✅ VRChat (world search, settings, any text)
+- ✅ Other social VR apps
+- ✅ VR games with chat
+- ✅ VR productivity software
+- ✅ Any VR app supporting clipboard paste
+
+### OSC-Independent
+
+Voice Typing Mode **does not require OSC** to be enabled. It works through:
+- System clipboard operations
+- Native paste commands
+- Works even if VRChat OSC integration is disabled
+
+
+## Limitations
+
+### When Voice Typing Mode Won't Work
+
+- ❌ **Desktop mode** - Only works in active VR session
+- ❌ **No clipboard support** - App must support paste operations
+- ❌ **Transcription disabled** - Voice2Chatbox must be enabled
+- ❌ **No microphone** - Microphone must be configured and available
+
+### Accuracy Notes
+
+Voice Typing Mode accuracy depends on:
+- **Transcription engine quality** (Whisper is more accurate)
+- **Microphone quality** (reduce background noise)
+- **Spoken clarity** (speak clearly and at moderate pace)
+- **Language selection** (match your actual speaking language)
+
+## Best Practices
+
+### For Best Results
+
+1. **Speak clearly** at normal pace (not too fast, not too slow)
+2. **Minimize background noise** for better transcription
+3. **Use Whisper engine** for offline reliability
+4. **Set correct language** in Voice2Chatbox settings
+5. **Focus the text field** before speaking
+6. **Pause between words** if transcription seems confused
+
+### Performance
+
+- Voice Typing Mode has minimal performance impact
+- Clipboard operations are very fast (instant paste)
+- No additional GPU/CPU load compared to normal transcription
+
+### Privacy
+
+- Transcribed text passes through system clipboard
+- No data is logged or stored locally (unless VRCT logging is enabled)
+- Text is only pasted into the active application
+
+## Related Features
+
+- [Voice to Text (Voice2Chatbox)](./voice-to-text) - Voice transcription
+- [Overlay Mode](./overlay-mode) - VR overlay display
+- [OSC Integration](./osc-integration) - VRChat-specific integration
+- [Device Config](/docs/config-device) - Microphone setup
+- [Transcription Config](/docs/config-transcription) - Engine selection

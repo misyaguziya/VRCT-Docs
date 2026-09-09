@@ -1,0 +1,9 @@
+{
+  "label": "Feature Guide",
+  "position": 2
+  ,
+  "link": {
+    "type": "doc",
+    "id": "feature-guide/index"
+  }
+}

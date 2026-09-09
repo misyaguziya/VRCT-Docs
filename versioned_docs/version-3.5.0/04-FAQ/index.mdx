@@ -1,0 +1,230 @@
+---
+sidebar_position: 0
+slug: /faq
+title: FAQ
+description: Frequently Asked Questions about VRCT.
+sidebar_label: FAQ
+---
+
+# FAQ - Frequently Asked Questions
+
+This section addresses common questions about using VRCT.
+
+## Getting Started
+
+### Q: Who is that character in the VRCT icon?
+
+![Chato](./img/chato.png)  
+This character serves as the app's icon and is named **Chato**, VRCT's official mascot.  
+We commissioned this creation from creator [Done](https://x.com/done_vrc).
+
+---
+
+### Q: Which transcription engine should I use?
+
+VRCT offers two main transcription engines:
+
+- **Whisper**: Recommended for most users
+  - Works completely offline
+  - More stable and reliable
+  - Best for unstable network connections
+  - Does not require external API access
+
+- **Google**: Alternative option
+  - Requires stable internet connection
+  - May not work in some regions with limited Google access
+  - Can be affected by network issues
+
+**Recommendation**: Start with Whisper for the most reliable experience.
+
+See the [Voice-to-Text Guide](/docs/feature-guide/voice-to-text) for more details.
+
+---
+
+### Q: Which translation engine is best?
+
+The choice depends on your needs:
+
+- **DeepL**: High-quality translations, especially for European languages
+- **Google Translate**: Wide language support, good for general use
+- **LLM APIs**: More natural and context-aware translations
+
+Each engine has different strengths. Try a few to see which works best for your language pair.
+
+See the [Translation Engine Guide](/docs/feature-guide/translation-engines) for more details.
+
+---
+
+### Q: Do I need to run VRCT as administrator?
+
+In most cases, no. However, you may need administrator privileges if:
+
+- Speaker2Log feature doesn't work properly
+- VRCT cannot access audio devices
+- You encounter permission-related errors
+
+Try running as administrator if you experience issues with audio device detection.
+
+---
+
+### Q: Why isn't my transcription working?
+
+Common solutions:
+
+1. **Check your microphone/speaker settings** in Windows
+2. **Try switching transcription engines** (Whisper is more reliable)
+3. **Verify audio device selection** in VRCT settings
+4. **Check if multiple audio devices** with the same name exist - disable unused ones
+5. **Restart VRCT** if settings changes don't take effect
+
+---
+
+## Features & Capabilities
+
+### Q: Can I translate between multiple languages?
+
+Yes! VRCT supports multi-target language translation. You can send messages in one language and have them translated to multiple target languages simultaneously.
+
+See the [Multi-Target Language Guide](/docs/feature-guide/multi-target-language) for details.
+
+---
+
+### Q: Can I use VRCT with VRChat?
+
+Yes, VRCT integrates with VRChat through OSC (Open Sound Control). This allows you to:
+- Display translated text in-game
+- Sync mute status with VRChat
+
+See the [OSC Integration Guide](/docs/feature-guide/osc-integration) for setup instructions.
+
+You can also display overlays inside VRChat.
+
+See the [Overlay Mode Guide](/docs/feature-guide/overlay-mode) for setup instructions.
+
+---
+
+### Q: What upcoming features are planned?
+
+Check the [GitHub Issues page](https://github.com/misyaguziya/VRCT/issues) for the latest updates.
+
+---
+
+## Telemetry & Privacy
+
+### Q: What is telemetry in VRCT?
+
+VRCT collects anonymous usage statistics through [Aptabase](https://aptabase.com) to help improve the application. The collected data includes:
+- When you start and close the app
+- Session duration (via heartbeat every 5 minutes)
+- Which features you use (translation, transcription, etc.)
+
+**Important**: No personally identifiable information, input content, or voice data is ever collected or transmitted.
+
+---
+
+### Q: Can I disable telemetry?
+
+Yes! You can opt out of telemetry at any time:
+1. Open the Config Window
+2. Navigate to the **Other** tab
+3. Toggle **Help improve the product** off
+4. Click Save
+
+When telemetry is disabled, **no data is collected or transmitted** at all.
+
+---
+
+### Q: What privacy guarantees does VRCT provide?
+
+VRCT guarantees:
+- ✅ No personal identification data collected
+- ✅ No message content or input data transmitted
+- ✅ No voice audio data recorded or sent
+- ✅ No UI state information tracked
+- ✅ Immediate stop of all communication when disabled
+- ✅ HTTPS-only encrypted transmission via Aptabase
+
+See the [Telemetry Guide](/docs/feature-guide/telemetry) for detailed privacy information.
+
+---
+
+## Voice Typing Mode (VR)
+
+### Q: What is Voice Typing Mode?
+
+Voice Typing Mode allows you to input text into VR applications by speaking. When enabled:
+1. Your voice is transcribed in real-time
+2. The transcribed text is automatically copied to clipboard
+3. The text is pasted into the active VR application
+
+This works **without using OSC**, so it supports any VR application that accepts clipboard input.
+
+---
+
+### Q: Which VR applications support Voice Typing Mode?
+
+Voice Typing Mode works with any VR application that supports clipboard paste input, including:
+- **VRChat**: World search, settings, any text input
+- **VR Games**: Chat, configuration menus
+- **Productivity Apps**: Text input in VR office applications
+
+---
+
+### Q: How do I enable Voice Typing Mode?
+
+1. Put on your VR headset
+2. Open VRCT Config Window
+3. Go to **VR Tab**
+4. Check the **Enable Voice Typing Mode** checkbox
+5. Click Save
+6. Ensure Voice2Chatbox transcription is enabled
+7. Speak into your microphone
+
+---
+
+### Q: Can I use Voice Typing Mode on desktop?
+
+No, Voice Typing Mode only works when you're in VR (using SteamVR or compatible runtime). In desktop mode, transcribed text will not be pasted into applications.
+
+---
+
+### Q: What languages does Voice Typing Mode support?
+
+Voice Typing Mode supports all languages supported by your selected transcription engine:
+- **Whisper**: 99+ languages including Japanese, Chinese, Korean, etc.
+- **Google**: Depends on Google's language support
+
+The language used for transcription depends on your Voice2Chatbox language settings.
+
+---
+
+### Q: Why isn't Voice Typing Mode working?
+
+Common solutions:
+1. **Verify you're in VR**: Voice Typing Mode only works in VR mode (SteamVR active)
+2. **Check Voice2Chatbox**: Enable the Voice2Chatbox toggle to start transcription
+3. **Ensure VR app is active**: The target VR application must be in focus
+4. **Verify clipboard support**: Target application must support paste operations
+5. **Check microphone settings**: Ensure your microphone is properly configured
+6. **Restart VRCT**: If settings changes don't take effect
+
+See the [Voice Typing Mode Guide](/docs/feature-guide/voice-typing-mode) for more details.
+
+---
+
+## VRCT status
+
+We are managing current issues using a Google Spreadsheet.
+- [VRCT Status (Google Sheets)](https://docs.google.com/spreadsheets/d/1_L5i-1U6PB1dnaPPTE_5uKMfqOpkLziPyRkiMLi4mqU/edit?gid=0#gid=0)
+
+---
+
+## Need More Help?
+
+If your question isn't answered here, please:
+1. Check the [Feature Guide](/docs/feature-guide) for detailed documentation
+2. Search or create a new issue on [GitHub Issues](https://github.com/misyaguziya/VRCT/issues)
+3. Make sure to include:
+   - Your VRCT version
+   - Operating System (Windows version)
+   - Error logs if applicable (see [How to Attach Logs](https://github.com/misyaguziya/VRCT/wiki/Attach-Logs-&-Settings-Data-%5BEnglish%5D))
