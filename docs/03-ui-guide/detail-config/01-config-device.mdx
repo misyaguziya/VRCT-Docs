@@ -8,8 +8,7 @@ sidebar_label: Device Tab
 
 # Device Tab
 Customize your audio input and output devices.  
-The tab is split into a **Mic** section and a **Speaker** section.  
-![config-device-overview.png](./img/config-device-overview.png)
+The tab is split into a **Mic** section and a **Speaker** section.
 
 ## Mic
 Select the microphone for your voice input.
@@ -44,11 +43,9 @@ Start with **VAD (Auto)** if your mic picks up game or music audio. Switch to **
 
 Select the speaker or headphones for receiving audio to be translated.
 
-![config-device-speaker-01.png](./img/config-device-speaker-01.png)
-- **Auto Select**: Automatically selects the default system speaker.
+- **Auto Select**: Automatically switches to the output device that is actually playing sound (since v3.5.0). You no longer need to reselect the speaker device when the output of a game or call changes.
 - **Device**: The specific speaker device available under the selected host.
     - Speaker Host/Driver is WASAPI only. Cannot be changed.
-- **Follow the playing audio endpoint** (since v3.5.0): Monitors the peak level and automatically switches to the output device that is actually playing sound. You no longer need to reselect the speaker device when the output of a game or call changes.
 
 :::note[v3.5.0]
 The audio pipeline was reworked for stability. Hangs when switching devices and false loopback detections were resolved. A stalled audio stream recovers automatically.
