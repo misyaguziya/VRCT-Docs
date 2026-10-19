@@ -21,18 +21,36 @@ The WebSocket server runs on the following default settings:
 
 - **Address**: `127.0.0.1` (localhost)
 - **Port**: `2231`
-- **Connection URL**: `ws://127.0.0.1:2231`
+- **Connection URL**: `ws://127.0.0.1:2231/?token=<token>`
 
 :::info
 VRCT acts as the WebSocket **server**, and external applications connect as **clients**.
 :::
 
+## Access Token
+
+Since **v3.6.0**, the WebSocket server requires an access token. VRCT generates the token and keeps it in the config file, so it stays the same across restarts. A client that connects without the correct `token` parameter is rejected with `403 Forbidden`.
+
+To get the full connection URL including the token:
+
+1. Open the Config Window and go to the **Advanced Settings** tab
+2. In the **WebSocket** section, click **WebSocket URL (click to copy)**
+3. Use the copied URL in your client
+
+:::caution
+Treat the token like a password. Anyone who has the URL can receive your transcription and translation data while the server is running.
+:::
+
 ## How to Enable
 
 1. Open VRCT
-2. Navigate to **Config** → **Other Settings**
-3. Enable the **WebSocket Server** option
+2. Open the Config Window and go to the **Advanced Settings** tab
+3. In the **WebSocket** section, enable the **Enable WebSocket Server** option
 4. The server will start automatically and listen for client connections
+
+:::note
+A wildcard address such as `0.0.0.0` or `::` cannot be used as the **WebSocket Host**.
+:::
 
 ## Data Format
 

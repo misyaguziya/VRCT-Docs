@@ -15,6 +15,7 @@ sidebar_label: OBSブラウザソース
 - VRCTがローカル（`127.0.0.1` 上のHTTPサーバー）で字幕ページを配信します。
 - ページは [WebSocket連携](/docs/feature-guide/websocket-integration) と同じリアルタイムデータで駆動されるため、OBSに表示される内容はVRCTが文字起こし・翻訳した結果と一致します。
 - 文字色とサーバーのポートを設定できます。
+- 字幕ページは、WebSocketサーバーのアクセストークンを自動的に使って接続するため、OBSにトークンをコピーする必要はありません。詳しくは[WebSocket連携](/docs/feature-guide/websocket-integration#アクセストークン)を参照してください。
 
 :::info
 これは、生のWebSocketストリームから自作オーバーレイを組む従来の方法を置き換えるものです。従来の方法も引き続き利用できます（[WebSocket連携](/docs/feature-guide/websocket-integration) を参照）が、OBSに表示する用途では内蔵ページが最も簡単です。
@@ -23,11 +24,10 @@ sidebar_label: OBSブラウザソース
 ## 有効化方法
 
 1. VRCTを開き、**コンフィグウィンドウ** に移動します。
-2. **詳細設定**（または **その他**）の設定内で、OBS／HTTPサーバーのセクションを見つけて有効にします。ページへのデータ供給にWebSocketサーバーを使うため、WebSocketサーバーも有効なままにしてください。
+2. **詳細設定**タブの**OBS Browser Source**セクションを見つけて有効にします。ページへのデータ供給にWebSocketサーバーを使うため、WebSocketサーバーも有効なままにしてください。OBS Browser Sourceが有効な間は、WebSocketサーバーの設定は変更できません。
 3. 設定画面に表示されるURLとポートを確認します（デフォルトのホストは `127.0.0.1`）。
 
-{/* TODO(v3.5.0): replace with ./img/obs-browser-source-config.png */}
-![Screenshot pending](/img/screenshot-pending.svg)
+![OBS Browser Source の設定（詳細設定タブ）](../03-ui-guide/detail-config/img/config-advanced-obs.png)
 
 ## OBSにブラウザソースを追加する
 
@@ -36,8 +36,6 @@ sidebar_label: OBSブラウザソース
 3. 字幕を表示したい範囲に合わせて **幅** / **高さ** を設定します。
 4. **OK** をクリックします。VRCTが文字起こし・翻訳結果を出力すると字幕が表示されます。
 
-{/* TODO(v3.5.0): replace with ./img/obs-browser-source-in-obs.png */}
-![Screenshot pending](/img/screenshot-pending.svg)
 
 ## 設定項目
 

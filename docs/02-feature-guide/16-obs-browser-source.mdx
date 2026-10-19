@@ -20,6 +20,7 @@ your stream or recording — no external overlay tool required.
   [WebSocket Integration](/docs/feature-guide/websocket-integration) feature, so
   what appears in OBS matches what VRCT transcribes and translates.
 - Text color and the server port are configurable.
+- The page connects to the WebSocket server with its access token automatically, so you do not need to copy the token into OBS. See [WebSocket Integration](/docs/feature-guide/websocket-integration#access-token).
 
 :::info
 This replaces the previous approach of building your own overlay from the raw
@@ -31,13 +32,12 @@ the built-in page is the simplest option.
 ## How to Enable
 
 1. Open VRCT and go to **Config Window**.
-2. In the **Advanced** (or **Other**) settings, find the OBS / HTTP server
-   section and enable it. The WebSocket server is used to feed the page, so keep
-   it enabled as well.
+2. In the **Advanced Settings** tab, find the **OBS Browser Source** section and
+   enable it. The WebSocket server feeds the page, so keep it enabled as well.
+   While the OBS Browser Source is enabled, the WebSocket server setting is locked.
 3. Note the URL and port shown in the settings (default host `127.0.0.1`).
 
-{/* TODO(v3.5.0): replace with ./img/obs-browser-source-config.png */}
-![Screenshot pending](/img/screenshot-pending.svg)
+![OBS Browser Source settings in the Advanced tab](../03-ui-guide/detail-config/img/config-advanced-obs.png)
 
 ## Add the Browser Source in OBS
 
@@ -48,8 +48,6 @@ the built-in page is the simplest option.
 4. Click **OK**. Subtitles appear whenever VRCT produces a transcription or
    translation result.
 
-{/* TODO(v3.5.0): replace with ./img/obs-browser-source-in-obs.png */}
-![Screenshot pending](/img/screenshot-pending.svg)
 
 ## Configuration
 
@@ -58,7 +56,7 @@ the built-in page is the simplest option.
 | Enable OBS browser source | Starts / stops the built-in HTTP server. |
 | Port | TCP port the page is served on. Change it if the default is already in use. |
 | Text color | Color of the subtitle text rendered in the browser source. |
-| WebSocket server | Must be enabled — it supplies the real-time data to the page. |
+| WebSocket server | Must be enabled — it supplies the real-time data to the page. It is locked while the OBS Browser Source is enabled. |
 
 :::note
 Exact labels and the default port are shown in the Config Window. If OBS shows a

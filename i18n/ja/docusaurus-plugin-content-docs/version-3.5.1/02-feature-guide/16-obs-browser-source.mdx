@@ -1,0 +1,65 @@
+---
+sidebar_position: 16
+slug: /feature-guide/obs-browser-source
+title: OBSブラウザソース
+description: 内蔵HTTPサーバーを使ってOBSにVRCTの字幕を表示する
+sidebar_label: OBSブラウザソース
+---
+
+# OBSブラウザソース
+
+**v3.5.0** から、VRCTはOBS用の字幕ページを配信する小さなHTTPサーバーを内蔵しています。OBSに **ブラウザソース** を1つ追加してVRCTのローカルURLを指定するだけで、文字起こし／翻訳の結果を配信・録画の画面上に表示できます。外部のオーバーレイツールは不要です。
+
+## 概要
+
+- VRCTがローカル（`127.0.0.1` 上のHTTPサーバー）で字幕ページを配信します。
+- ページは [WebSocket連携](/docs/feature-guide/websocket-integration) と同じリアルタイムデータで駆動されるため、OBSに表示される内容はVRCTが文字起こし・翻訳した結果と一致します。
+- 文字色とサーバーのポートを設定できます。
+
+:::info
+これは、生のWebSocketストリームから自作オーバーレイを組む従来の方法を置き換えるものです。従来の方法も引き続き利用できます（[WebSocket連携](/docs/feature-guide/websocket-integration) を参照）が、OBSに表示する用途では内蔵ページが最も簡単です。
+:::
+
+## 有効化方法
+
+1. VRCTを開き、**コンフィグウィンドウ** に移動します。
+2. **詳細設定**（または **その他**）の設定内で、OBS／HTTPサーバーのセクションを見つけて有効にします。ページへのデータ供給にWebSocketサーバーを使うため、WebSocketサーバーも有効なままにしてください。
+3. 設定画面に表示されるURLとポートを確認します（デフォルトのホストは `127.0.0.1`）。
+
+{/* TODO(v3.5.0): replace with ./img/obs-browser-source-config.png */}
+![Screenshot pending](/img/screenshot-pending.svg)
+
+## OBSにブラウザソースを追加する
+
+1. OBSの **ソース** で **＋** → **ブラウザ** をクリックします。
+2. **URL** にVRCTの設定画面で表示されたアドレスを設定します（例: `http://127.0.0.1:<ポート>/`）。
+3. 字幕を表示したい範囲に合わせて **幅** / **高さ** を設定します。
+4. **OK** をクリックします。VRCTが文字起こし・翻訳結果を出力すると字幕が表示されます。
+
+{/* TODO(v3.5.0): replace with ./img/obs-browser-source-in-obs.png */}
+![Screenshot pending](/img/screenshot-pending.svg)
+
+## 設定項目
+
+| 設定 | 説明 |
+|---|---|
+| OBSブラウザソースを有効化 | 内蔵HTTPサーバーを起動／停止します。 |
+| ポート | ページを配信するTCPポート。デフォルトが既に使用中の場合は変更します。 |
+| 文字色 | ブラウザソースに表示される字幕テキストの色。 |
+| WebSocketサーバー | 有効にしておく必要があります。ページへリアルタイムデータを供給します。 |
+
+:::note
+正確なラベルとデフォルトのポートはコンフィグウィンドウに表示されます。OBSのソースが真っ白になる場合は、HTTPサーバーとWebSocketサーバーの両方が有効で、ポートがOBSのURLと一致しているか確認してください。
+:::
+
+## トラブルシューティング
+
+- **ブラウザソースが真っ白**: HTTPサーバーとWebSocketサーバーの両方が有効で、設定したポートを他のアプリが使用していないか確認してください。
+- **文字が表示されない**: VRCTが文字起こし／翻訳を実行中である必要があります。Voice2ChatboxまたはSpeaker2Logを有効にして確認してください。
+- **文字が読みにくい**: VRCT側で文字色を調整するか、OBSでソースの背後にフィルターや背景を追加してください。
+
+## 関連機能
+
+- [WebSocket連携](/docs/feature-guide/websocket-integration)
+- [スピーカーからテキスト（Speaker2Log）](/docs/feature-guide/speaker-to-text)
+- [リアルタイム翻訳](/docs/feature-guide/translation)

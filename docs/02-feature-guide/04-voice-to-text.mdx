@@ -49,11 +49,24 @@ For detailed device configuration, see the [Device Config Guide](/docs/config-de
 2. Navigate to the **Transcription** Tab
 3. Configure settings such as:
    - Transcription engine
-   - AI model (if applicable)
-   - Sensitivity
-   - Noise reduction
+   - Whisper model (if Whisper is selected)
+   - Mic Record Timeout and Mic Phrase Timeout
+   - Mic Max Words and Mic Word Filter
 
 For detailed transcription settings, see the [Transcription Config Guide](/docs/config-transcription).
+
+### Choose a Mic Sensitivity Mode
+
+Mic sensitivity is set in the **Device** tab. Select one of three modes:
+
+![Mic Sensitivity Settings in the Device tab](../03-ui-guide/detail-config/img/device-mic-sensitivity.png)
+
+
+- **VAD (Auto)**: An AI voice activity detector (Silero VAD) finds your speech, and the audio is sent to transcription each time you finish speaking. This helps when background music or game sound is playing. The slider is disabled in this mode.
+- **Auto**: VRCT adjusts the input sensitivity automatically.
+- **Manual**: You set the sensitivity with the slider. Use **Check Volume** to test your voice while you adjust it.
+
+For details, see the [Device Tab](/docs/config-device) page.
 
 ## How to Use
 

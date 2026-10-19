@@ -1,0 +1,42 @@
+---
+sidebar_position: 10
+slug: /faq/attach-logs
+title: Attach Logs & Settings Data
+description: How to find and attach VRCT log files and settings data when reporting an issue on GitHub.
+sidebar_label: Attach Logs & Settings Data
+---
+
+# Attach Logs & Settings Data
+
+An error log plus your settings data will help us resolve the issue. Below is how to include those files in your GitHub issue.
+
+:::note
+There are five types of logs:
+- `config.json`
+- `error.log`
+- `process.log`
+- `freeze_trace.log`
+- `crash_trace.log`
+:::
+
+## Where to find them
+
+By default, the logs live under:
+
+```
+C:\Users\{YourUsername}\AppData\Local\VRCT
+```
+
+Copy the line below and paste it into the Explorer address bar.
+```text
+%LOCALAPPDATA%\VRCT
+```
+
+—or wherever the folder containing `VRCT.exe` is located.
+If you can launch VRCT, you can also open it from the **"Advanced Settings"** tab in the settings window — look for the **"Open Config File"** item there.
+
+
+
+## How to attach(GitHub)
+
+Simply drag & drop the log files (`config.json`, `error.log`, `process.log`, `freeze_trace.log`, `crash_trace.log`) into the GitHub issue's edit area.

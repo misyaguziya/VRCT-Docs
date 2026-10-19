@@ -18,13 +18,15 @@ When enabled, messages will be translated.
 
 ## Transcription Controls
 ![main-window-transcript-toggle-switch.png](./img/main-window-transcript-toggle-switch.png)  
-Controls the microphone and speaker transcription.
+Controls the microphone, speaker, and chat transcription.
 - **Voice2Chatbox** Toggle Switch: Toggles microphone transcription (Voice to Text).
 - **Speaker2Log** Toggle Switch: Toggles speaker transcription (System Audio to Text).
+- **Chat Transcribe** Toggle Switch: Toggles reading VRChat chat bubbles on screen. Results are translated and shown in the message log and the SteamVR overlay, but are not sent to the VRChat chatbox. See the [Chat Transcribe guide](/docs/feature-guide/chat-transcribe).
 
 ## Set To Stay On Top Toggle Switch
 ![main-window-keeptop-toggle-switch.png](./img/main-window-keeptop-toggle-switch.png)  
-Keeps the VRCT main window on top of other windows when enabled.
+Keeps the VRCT main window on top of other windows when enabled.  
+It is in the top bar, and you can switch it on or off directly with one click.
 
 ## Language Settings
 ![main-window-language-settings.png](./img/main-window-language-settings.png)  
@@ -93,17 +95,16 @@ Type your message here to send it via chat.
 Opens the Config Window where you can configure VRCT options.
 For details, refer to the [Config Window Guide](./config-window).
 
-## Plugins Button
-![main-window-plugin.png](./img/main-window-plugins.png)  
-Opens the Plugins Config Window where you can manage VRCT plugins.
-![plugin-window](./img/main-window-plugins-window.png)  
-
 ## VRC Mute Sync Button
 ![main-window-vrc-mute-sync.png](./img/main-window-vrc-mute-sync.png)  
-Opens the VRC Mute Sync Config Window.  
-![vrc-mute-sync-window](./img/main-window-vrc-mute-sync-window.png)  
+Switches VRC Mute Sync on or off directly, without a pop-up.  
 When enabled, VRCT will synchronize the mute status between VRChat and VRCT.  
+This button is unavailable while the OSC settings prevent VRCT from receiving OSC data.  
 For details, refer to the [VRC Mute Sync Guide](./config-other#general).
+
+## Update Button
+When a new version of VRCT is available, an update button appears in the top bar.  
+Select it to open the Updater screen, where you can install the latest version or choose another version and build. See the [Updater Tab](./config-updater) page for details.
 
 ## Overlay(VR) Button
 ![main-window-overlay-vr-button.png](./img/main-window-overlay.png)  

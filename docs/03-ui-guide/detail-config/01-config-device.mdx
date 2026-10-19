@@ -8,9 +8,10 @@ sidebar_label: Device Tab
 
 # Device Tab
 Customize your audio input and output devices.  
+The tab is split into a **Mic** section and a **Speaker** section.  
 ![config-device-overview.png](./img/config-device-overview.png)
 
-## Mic Device
+## Mic
 Select the microphone for your voice input.
 
 ![config-device-mic-01.png](./img/config-device-mic-01.png)
@@ -19,24 +20,45 @@ Select the microphone for your voice input.
     - **Host**: The audio host (e.g., MME, WASAPI, DirectSound).
 - **Device**: The specific microphone device available under the selected host.
 
-![config-device-mic-02.png](./img/config-device-mic-02.png)
-- **Toggle Switch**: Enable or disable automatic microphone sensitivity adjustment.
-- **Check Volume**: View the current sensitivity level of the microphone.
-    ![config-device-mic-02.png](./img/config-device-mic-03.png)
-- **Volume Slider**: Manually adjust the microphone sensitivity level.
-    - If automatic adjustment is enabled, this slider is disabled.
+### Mic Sensitivity Settings
 
-## Speaker Device
+![Mic Sensitivity Settings in the Device tab](./img/device-mic-sensitivity.png)
+
+Choose how VRCT decides when your voice is speech. Select one of the three options:
+
+- **VAD (Auto)**: Uses an AI voice activity detector (Silero VAD) to find speech. Audio is sent to transcription each time you finish speaking. This helps reduce background music and ambient noise.
+    - The sensitivity slider is disabled in this mode.
+- **Auto**: Automatically controls the mic input sensitivity.
+    - The sensitivity slider is disabled in this mode.
+- **Manual**: Set the sensitivity yourself with the slider.
+    - **Check Volume**: Click the mic icon to test your voice and watch the level while you adjust the slider.
+    - **Volume Slider**: Manually adjust the mic sensitivity level.
+
+:::tip[tip]
+Start with **VAD (Auto)** if your mic picks up game or music audio. Switch to **Manual** if speech is cut off too early or missed.
+:::
+
+## Speaker
+
+![Speaker settings in the Device tab](./img/device-speaker-section.png)
+
 Select the speaker or headphones for receiving audio to be translated.
 
 ![config-device-speaker-01.png](./img/config-device-speaker-01.png)
 - **Auto Select**: Automatically selects the default system speaker.
 - **Device**: The specific speaker device available under the selected host.
     - Speaker Host/Driver is WASAPI only. Cannot be changed.
+- **Follow the playing audio endpoint** (since v3.5.0): Monitors the peak level and automatically switches to the output device that is actually playing sound. You no longer need to reselect the speaker device when the output of a game or call changes.
 
-![config-device-speaker-02.png](./img/config-device-speaker-02.png)
-- **Toggle Switch**: Enable or disable automatic speaker volume adjustment.
-- **Check Volume**: View the current volume level of the speaker.
-    ![config-device-speaker-03.png](./img/config-device-speaker-03.png)
-- **Volume Slider**: Manually adjust the speaker volume level.
-    - If automatic adjustment is enabled, this slider is disabled.
+:::note[v3.5.0]
+The audio pipeline was reworked for stability. Hangs when switching devices and false loopback detections were resolved. A stalled audio stream recovers automatically.
+:::
+
+### Speaker Input Sensitivity Adjustment
+The same three options are available for the speaker input:
+
+- **VAD (Auto)**: Uses Silero VAD to detect speech in the speaker audio and transcribes each segment when speech ends.
+- **Auto**: Automatically controls the speaker input sensitivity.
+- **Manual**: Set the sensitivity yourself with the slider.
+    - **Check Volume**: Click the headphone icon to listen to the audio and adjust the level while checking the volume.
+    - **Volume Slider**: Manually adjust the speaker input sensitivity level.
