@@ -16,6 +16,7 @@ Customize the transcription settings for microphone and speaker audio in the Tra
     - Set it to **0** to disable the recording timeout (unlimited recording). Phrase boundaries are still determined by silence detection and **Mic Phrase Timeout**.
 - **Mic Phrase Timeout** : Set the timeout duration for microphone phrase detection.
     - Transcription processing is performed at intervals of the specified number of seconds.
+    - If you keep speaking without a pause, VRCT still splits the audio about every 15 seconds so that the transcription does not fall behind.
 - **Mic Max Words**: Set the maximum number of words for microphone transcription.
     - It is the lower limit for the number of transcribed words, and only when this number is exceeded will the transcription results be displayed logs and send to VRChat.
 - **Mic Word Filter**: Enable or disable word filtering for microphone transcription.
@@ -28,6 +29,7 @@ Customize the transcription settings for microphone and speaker audio in the Tra
     - Set it to **0** to disable the recording timeout (unlimited recording). Phrase boundaries are still determined by silence detection and **Speaker Phrase Timeout**.
 - **Speaker Phrase Timeout** : Set the timeout duration for speaker phrase detection.
     - Transcription processing is performed at intervals of the specified number of seconds.
+    - If the speaker audio does not pause, VRCT still splits it about every 15 seconds so that the transcription does not fall behind.
 - **Speaker Max Words**: Set the maximum number of words for speaker transcription.
     - It is the lower limit for the number of transcribed words, and only when this number is exceeded will the transcription results be displayed logs.
 
@@ -53,8 +55,8 @@ Customize the transcription settings for microphone and speaker audio in the Tra
         - **CPU**: Use the computer's CPU for transcription processing.
         - **GPU**: Use the computer's GPU for transcription processing (if available).
         :::tip[tip]
-        If you want to use the GPU with the CTranslate2 Model, you need to change VRCT to the CUDA version.  
-        Refer to the [Reinstall VRCT with CUDA version](./config-advanced) page for more details.
+        If you want to use the GPU for transcription, you need to install the GPU (CUDA) build of VRCT.  
+        Refer to the [Updater Tab](./config-updater) page for more details.
         :::
     - **Processing Type**:
         | Type | Accuracy | Speed | Description |
@@ -78,10 +80,12 @@ Customize the transcription settings for microphone and speaker audio in the Tra
 ## Additional Settings(Whisper Model)
 ![config-transcription-advanced-settings-overview.png](./img/config-transcription-advanced-settings-overview.png)
 
-- **Mic Avg Logprob**: Set the average log probability threshold for microphone transcription.
-- **Mic No Speech prob**: Set the no speech threshold for microphone transcription.
-- **Speaker Avg Logprob**: Set the average log probability threshold for speaker transcription.
-- **Speaker No Speech prob**: Set the no speech threshold for speaker transcription.
+These settings appear only when **Whisper** is selected as the transcription engine.
+
+- **Mic Avg Logprob**: Set the average log probability threshold for microphone transcription. Default: -0.8. Closer to 0 accepts only high-confidence speech and suppresses hallucinations.
+- **Mic No Speech prob**: Set the no speech threshold for microphone transcription. Default: 0.6. Segments above this value are treated as silence. Closer to 0 is stricter, so even faint speech is transcribed.
+- **Speaker Avg Logprob**: Set the average log probability threshold for speaker transcription. Default: -0.8.
+- **Speaker No Speech prob**: Set the no speech threshold for speaker transcription. Default: 0.6.
 
 :::tip[tip]
 Avg Logprob  

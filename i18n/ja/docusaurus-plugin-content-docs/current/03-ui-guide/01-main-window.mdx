@@ -18,13 +18,15 @@ sidebar_label: メインウィンドウ
 
 ## 文字起こしコントロール
 ![main-window-transcript-toggle-switch.png](./img/main-window-transcript-toggle-switch.png)  
-マイクおよびスピーカー文字起こしを制御します。
+マイク、スピーカー、チャットの文字起こしを制御します。
 - **Voice2Chatbox**トグルスイッチ：マイク文字起こし（音声からテキスト）を切り替えます。
 - **Speaker2Log**トグルスイッチ：スピーカー文字起こし（システムオーディオからテキスト）を切り替えます。
+- **チャット読み取り**トグルスイッチ（v3.6.0〜）：画面上のVRChatチャット吹き出しを読み取り、翻訳して表示します。結果はVRChatのチャットボックスへは送信されません。詳細は[チャット読み取りガイド](/docs/feature-guide/chat-transcribe)を参照してください。
 
 ## 常に前面に保つトグルスイッチ
 ![main-window-keeptop-toggle-switch.png](./img/main-window-keeptop-toggle-switch.png)  
-有効にすると、VRCTメインウィンドウを他のウィンドウの前に保ちます。
+有効にすると、VRCTメインウィンドウを他のウィンドウの前に保ちます。  
+上部バーにあり、ワンクリックでポップアップなしにオン/オフできます。
 
 ## 言語設定
 ![main-window-language-settings.png](./img/main-window-language-settings.png)  
@@ -93,17 +95,16 @@ sidebar_label: メインウィンドウ
 VRCTオプションを構成できるコンフィグウィンドウを開きます。
 詳細については、[コンフィグウィンドウガイド](./config-window)を参照してください。
 
-## プラグインボタン
-![main-window-plugin.png](./img/main-window-plugins.png)  
-VRCTプラグインを管理できるプラグインコンフィグウィンドウを開きます。
-![plugin-window](./img/main-window-plugins-window.png)  
-
 ## VRC ミュート同期ボタン
 ![main-window-vrc-mute-sync.png](./img/main-window-vrc-mute-sync.png)  
-VRC ミュート同期コンフィグウィンドウを開きます。  
-![vrc-mute-sync-window](./img/main-window-vrc-mute-sync-window.png)  
+ポップアップを開かずに、VRC ミュート同期をオン/オフします。  
 有効にすると、VRCTはVRChatとVRCT間のミュートステータスを同期します。  
+OSCの設定によりVRCTがOSCデータを受信できない場合は、このボタンは使用できません。  
 詳細については、[VRC ミュート同期ガイド](/docs/config-other#一般)を参照してください。
+
+## アップデートボタン（v3.6.0〜）
+新しいバージョンのVRCTが利用可能な場合、上部バーにアップデートボタンが表示されます。  
+選択すると、アップデート画面が開きます。最新版をインストールするほか、別のバージョンやデバイス構成を選ぶこともできます。詳細は[アップデートタブ](./config-updater)を参照してください。
 
 ## オーバーレイ（VR）ボタン
 ![main-window-overlay-vr-button.png](./img/main-window-overlay.png)  

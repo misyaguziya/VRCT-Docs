@@ -22,19 +22,14 @@ This ensures you don't accidentally send transcribed messages when you think you
 
 ## How to Enable
 
-### Open VRC Mute Sync Settings
-
-1. In the VRCT main window, click the **VRC Mute Sync** button
-2. The VRC Mute Sync Config Window will open
-3. Toggle the sync feature on/off
-
 ### Enable Sync
 
 #### Method 1: Main Window
 
-1. In the main window, locate the **VRC Mute Sync** toggle switch  
+1. In the top bar of the main window, locate the **VRC Mute Sync** button  
 ![VRC Mute Sync Settings](./img/vrc-mute-sync-settings-main-window.png)
-2. VRCT will now monitor VRChat's mute status
+2. Click it to switch sync on. Click it again to switch sync off. No pop-up opens.
+3. VRCT will now monitor VRChat's mute status
 
 #### Method 2: Config Window
 
@@ -90,9 +85,9 @@ Prevent accidentally sending transcribed text when you think you're muted:
 
 **Restart Applications**:
 1. Close both VRChat and VRCT
-2. Start VRCT first
-3. Then start VRChat
-4. Enable OSC in VRChat
+2. Start VRChat and VRCT in either order
+3. Enable OSC in VRChat
+4. If VRCT was started before VRChat, load an avatar in VRChat once. VRCT reads the mute state again when an avatar loads, so the two stay in sync.
 
 ### Delayed Sync
 
