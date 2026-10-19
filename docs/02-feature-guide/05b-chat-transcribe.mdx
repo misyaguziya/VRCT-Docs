@@ -12,18 +12,15 @@ Since **v3.6.0**, VRCT can read the chat bubbles that VRChat shows on screen, th
 
 ## Overview
 
-When Chat Transcribe is on, VRCT repeatedly:
-1. Captures the VRChat window (or the SteamVR view while SteamVR is running)
-2. Finds the chat bubbles in the captured frame with a bubble-detection AI model
-3. Reads the text inside each bubble with OCR
-4. Discards text below the confidence threshold or shorter than the minimum length
-5. Translates the text and shows it in the message log and the SteamVR overlay
+When Chat Transcribe is on, the chat bubbles in VRChat are read and translated. The results appear in the message log and the SteamVR overlay.
 
 :::info[Output destination]
 Recognized chat is **never sent to the VRChat chatbox**. Results appear only in VRCT's message log and the SteamVR overlay. This keeps other players' messages from being echoed back into your own chatbox.
 :::
 
 ## How to Enable
+
+![Chat Transcribe toggle in the main window](./img/chat-transcribe-main-toggle.png)
 
 1. In the main window, locate the **Chat Transcribe** toggle switch in the transcription controls.
 2. Click it to start. The toggle turns on while capture is running.
@@ -60,7 +57,6 @@ Changing the source language while Chat Transcribe is running switches the model
 Chat Transcribe runs OCR on a regular interval, so it adds CPU or GPU load while it is on.
 
 - Increase the **Capture interval** to reduce load. Decrease it if you want faster responses.
-- VRCT limits OCR to about half of your CPU cores (at most 4) so that the VR UI and other features keep running smoothly on the same PC.
 
 ## Troubleshooting
 
