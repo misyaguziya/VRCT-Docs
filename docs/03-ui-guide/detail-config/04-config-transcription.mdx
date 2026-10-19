@@ -53,8 +53,8 @@ Customize the transcription settings for microphone and speaker audio in the Tra
         - **CPU**: Use the computer's CPU for transcription processing.
         - **GPU**: Use the computer's GPU for transcription processing (if available).
         :::tip[tip]
-        If you want to use the GPU with the CTranslate2 Model, you need to change VRCT to the CUDA version.  
-        Refer to the [Reinstall VRCT with CUDA version](./config-advanced) page for more details.
+        If you want to use the GPU for transcription, you need to install the GPU (CUDA) build of VRCT.  
+        Refer to the [Updater Tab](./config-updater) page for more details.
         :::
     - **Processing Type**:
         | Type | Accuracy | Speed | Description |
@@ -78,10 +78,12 @@ Customize the transcription settings for microphone and speaker audio in the Tra
 ## Additional Settings(Whisper Model)
 ![config-transcription-advanced-settings-overview.png](./img/config-transcription-advanced-settings-overview.png)
 
-- **Mic Avg Logprob**: Set the average log probability threshold for microphone transcription.
-- **Mic No Speech prob**: Set the no speech threshold for microphone transcription.
-- **Speaker Avg Logprob**: Set the average log probability threshold for speaker transcription.
-- **Speaker No Speech prob**: Set the no speech threshold for speaker transcription.
+These settings appear only when **Whisper** is selected as the transcription engine.
+
+- **Mic Avg Logprob**: Set the average log probability threshold for microphone transcription. Default: -0.8. Closer to 0 accepts only high-confidence speech and suppresses hallucinations.
+- **Mic No Speech prob**: Set the no speech threshold for microphone transcription. Default: 0.6. Segments above this value are treated as silence. Closer to 0 is stricter, so even faint speech is transcribed.
+- **Speaker Avg Logprob**: Set the average log probability threshold for speaker transcription. Default: -0.8.
+- **Speaker No Speech prob**: Set the no speech threshold for speaker transcription. Default: 0.6.
 
 :::tip[tip]
 Avg Logprob  

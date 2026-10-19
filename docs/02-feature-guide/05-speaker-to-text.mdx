@@ -52,9 +52,22 @@ For detailed device configuration, see the [Device Config Guide](/docs/config-de
 
 1. Open the Config Window
 2. Navigate to the **Transcription** section
-3. Configure speaker transcription settings
+3. Configure speaker transcription settings, such as Speaker Record Timeout and Speaker Phrase Timeout
 
 For detailed transcription settings, see the [Transcription Config Guide](/docs/config-transcription).
+
+### Choose a Speaker Sensitivity Mode
+
+Speaker input sensitivity is set in the **Device** tab. Select one of three modes:
+
+![Mic Sensitivity Settings in the Device tab](../03-ui-guide/detail-config/img/device-mic-sensitivity.png)
+
+
+- **VAD (Auto)**: An AI voice activity detector (Silero VAD) finds speech in the speaker audio, and each segment is transcribed when the speech ends. This helps when music or sound effects are playing under the voices.
+- **Auto**: VRCT adjusts the input sensitivity automatically.
+- **Manual**: You set the sensitivity with the slider. Use **Check Volume** to listen and adjust it.
+
+For details, see the [Device Tab](/docs/config-device) page.
 
 ## How to Use
 

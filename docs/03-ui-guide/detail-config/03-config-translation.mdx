@@ -7,10 +7,17 @@ sidebar_label: Translation Tab
 ---
 
 # Translation Tab
-Customize your translation engine settings.
+Customize your translation engine settings.  
+The tab is grouped into three sections:
+- **AI Translation (Local)**: CTranslate2 models that run on your PC.
+- **External Translation API**: Cloud services that need an API key, such as DeepL, Gemini, and OpenAI.
+- **Local LLM & Compatible Server**: LM Studio, Ollama, and other OpenAI-compatible servers.
+
 ![config-translation-overview.png](./img/config-translation-overview.png)
 
-## CTranslate2 Model and Settings
+## AI Translation (Local)
+
+### CTranslate2 Model and Settings
 - **CTranslate2 Model**: Select the local model for offline transcription/translation (if available).
     | Model Name | Size | Description |
     |------------|-------------|-------------|
@@ -25,8 +32,8 @@ Customize your translation engine settings.
         - **CPU**: Uses the computer's main processor for translation tasks.
         - **GPU**: Utilizes the graphics card for potentially faster processing (if supported).
         :::tip[tip]
-        If you want to use the GPU with the CTranslate2 Model, you need to change VRCT to the CUDA version.  
-        Refer to the [Reinstall VRCT with CUDA version](./config-advanced) page for more details.
+        If you want to use the GPU with the CTranslate2 Model, you need to install the GPU (CUDA) build of VRCT.  
+        Refer to the [Updater Tab](./config-updater) page for more details.
         :::
     - **Processing Type**:
         | Type | Accuracy | Speed | Description |
@@ -48,7 +55,7 @@ Customize your translation engine settings.
 
         Reference: https://opennmt.net/CTranslate2/quantization.html
 
-## APIs
+## External Translation API
 Enter your API keys for services like DeepL or OpenAI if you are using their paid/pro features.
 
 ### DeepL API
@@ -84,6 +91,8 @@ Enter your API keys for services like DeepL or OpenAI if you are using their pai
     - Various models are available for different languages and purposes.
     - Refer to the Open Router documentation for details on each model.
 
+## Local LLM & Compatible Server
+
 ### LM Studio API
 - **Check LM Studio Connection**: Test the connection to the LM Studio server for local AI translation.
     - Ensure that the LM Studio server is running and accessible.
@@ -99,3 +108,9 @@ Enter your API keys for services like DeepL or OpenAI if you are using their pai
 - **Select Ollama Model**: Specify the Ollama model for translation.
     - Various models are available for different languages and purposes.
     - Refer to the Ollama documentation for details on each model.
+
+### OpenAI-Compatible API
+- **OpenAI-Compatible Endpoint URL**: Enter the URL of an OpenAI-compatible server.
+    - When pointing at a non-official endpoint, verify pricing, security, and model compatibility at your own risk.
+- **OpenAI-Compatible API Key**: Enter the API key for that server, if it requires one.
+- **Select OpenAI-Compatible Model**: Choose the model to use for translation.
