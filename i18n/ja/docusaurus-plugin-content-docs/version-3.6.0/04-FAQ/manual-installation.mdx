@@ -1,0 +1,143 @@
+---
+sidebar_position: 20
+slug: /faq/manual-installation
+title: AIモデルウェイトの手動インストール
+description: VRCTでAIモデルウェイトの自動ダウンロードが失敗した場合に、手動でダウンロード・配置する方法。
+sidebar_label: AIモデルウェイトの手動インストール
+---
+
+# AIモデルウェイトの手動インストール
+
+インターネット接続の制限やその他の問題により、AIモデルウェイトの自動ダウンロードが失敗した場合、手動でファイルをダウンロードしてインストールできます。このガイドでは、ファイルの配置場所と、必要なディレクトリが存在しない場合の作成方法について説明します。
+
+:::tip
+ファイルをダウンロードする前に、`config.json` を開いて現在設定されているモデルを確認してください。
+下記の [config.jsonを確認する](#configjsonを確認する) セクションを参照してください。
+:::
+
+---
+
+## AIモデルのディレクトリ構成
+
+VRCTのディレクトリ構成は以下の通りです：
+
+```
+C:\Users\{YourUsername}\AppData\Local\VRCT
+  （またはVRCT.exeが含まれるフォルダ）
+├── VRCT.exe
+...
+└── weights
+    ├── ctranslate2
+    │   └── {CTRANSLATE2_WEIGHT_TYPE}   ← config.jsonの値と完全一致させること
+    │       ├── config.json
+    │       ├── model.bin
+    │       └── ...
+    └── whisper
+        ├── tiny
+        ├── base              （デフォルトで必要）
+        │   ├── config.json
+        │   ├── model.bin
+        │   ├── tokenizer.json
+        │   └── vocabulary.txt
+        ├── small
+        ├── medium
+        ├── large-v1
+        ├── large-v2
+        └── large-v3
+```
+
+:::important
+**CTranslate2のフォルダ名は、`config.json` の `CTRANSLATE2_WEIGHT_TYPE` の値と完全に一致させる必要があります。**
+例えば `config.json` に `"CTRANSLATE2_WEIGHT_TYPE": "nllb-200-distilled-600M-ct2-int8"` と記載されている場合、フォルダ名は `nllb-200-distilled-600M-ct2-int8` でなければなりません。
+:::
+
+---
+
+## config.jsonを確認する
+
+ダウンロードする前に、`config.json` を開いて以下の2つの値を確認してください：
+
+```json
+"CTRANSLATE2_WEIGHT_TYPE": "nllb-200-distilled-600M-ct2-int8",
+"WHISPER_WEIGHT_TYPE": "base",
+```
+
+- **`CTRANSLATE2_WEIGHT_TYPE`** — 使用するCTranslate2（翻訳）モデルを決定します。**`weights\ctranslate2\` 以下のフォルダ名と一致させる必要があります。**
+- **`WHISPER_WEIGHT_TYPE`** — 使用するWhisper（音声認識）モデルを決定します。`weights\whisper\` 以下のフォルダ名と一致させる必要があります。
+
+これらの値に合ったファイルをダウンロードして配置してください。
+
+---
+
+## モデルのダウンロードURL
+
+VRCTには **CTranslate2（翻訳）モデル** と **Whisper（音声認識）モデル** が必要です。
+
+### CTranslate2（翻訳）
+
+**デフォルト**の翻訳モデルは `nllb-200-distilled-600M-ct2-int8` です。
+ダウンロードしたファイルはすべて `weights\ctranslate2\{CTRANSLATE2_WEIGHT_TYPE}\` に配置してください。
+
+:::warning
+以下のダウンロードリンクをクリックすると、すぐにダウンロードが開始されます。
+:::
+
+**NLLB-200 Distilled 600M（デフォルト）** — `weights\ctranslate2\nllb-200-distilled-600M-ct2-int8\` に配置
+
+- [config.json](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/config.json)
+- [model.bin](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/model.bin)
+- [sentencepiece.bpe.model](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/sentencepiece.bpe.model)
+- [shared_vocabulary.txt](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/shared_vocabulary.txt)
+- [special_tokens_map.json](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/special_tokens_map.json)
+- [tokenizer.json](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/tokenizer.json)
+- [tokenizer_config.json](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/tokenizer_config.json)
+
+または、Hugging Faceの [JustFrederik/nllb-200-distilled-600M-ct2-int8](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/tree/main) モデルページからダウンロードすることもできます。
+
+---
+
+### Whisper（音声認識）
+
+`WHISPER_WEIGHT_TYPE` の設定に合ったWhisperモデルをダウンロードしてください。デフォルトでは **base** モデルが必要です。
+
+ダウンロードしたファイルはすべて `weights\whisper\{WHISPER_WEIGHT_TYPE}\` に配置してください。
+
+| モデル | リンク | 備考 |
+|---|---|---|
+| tiny | [Hugging Face](https://huggingface.co/Systran/faster-whisper-tiny/tree/main) | |
+| base | [Hugging Face](https://huggingface.co/Systran/faster-whisper-base/tree/main) | *（デフォルトで必要）* |
+| small | [Hugging Face](https://huggingface.co/Systran/faster-whisper-small/tree/main) | |
+| medium | [Hugging Face](https://huggingface.co/Systran/faster-whisper-medium/tree/main) | |
+| large-v1 | [Hugging Face](https://huggingface.co/Systran/faster-whisper-large-v1/tree/main) | |
+| large-v2 | [Hugging Face](https://huggingface.co/Systran/faster-whisper-large-v2/tree/main) | |
+| large-v3 | [Hugging Face](https://huggingface.co/Systran/faster-whisper-large-v3/tree/main) | |
+
+各Whisperモデルについて、以下の **4ファイル** をダウンロードしてください：
+- `config.json`
+- `model.bin`
+- `tokenizer.json`
+- `vocabulary.txt`
+
+:::note
+Systranシリーズのwhisperモデルに必要なファイルは上記の4つのみです。
+`preprocessor_config.json` や `vocabulary.json` は **不要** です。
+:::
+
+**`base` モデルの直接ダウンロードリンク：**
+
+- [config.json](https://huggingface.co/Systran/faster-whisper-base/resolve/main/config.json)
+- [model.bin](https://huggingface.co/Systran/faster-whisper-base/resolve/main/model.bin)
+- [tokenizer.json](https://huggingface.co/Systran/faster-whisper-base/resolve/main/tokenizer.json)
+- [vocabulary.txt](https://huggingface.co/Systran/faster-whisper-base/resolve/main/vocabulary.txt)
+
+---
+
+## それでも解決しない場合
+
+1. **フォルダ名を確認する** — `weights\ctranslate2\` 以下のCTranslate2フォルダ名が、`config.json` の `CTRANSLATE2_WEIGHT_TYPE` と完全に一致しているか確認してください。名前の不一致が最も多い原因です。
+
+2. **VPN・プロキシ・ウイルス対策ソフトを確認する** — 自動ダウンロードが失敗する場合、VPN・プロキシ・ウイルス対策ソフトが `huggingface.co` への接続をブロックしていないか確認してください。
+
+3. **削除して再ダウンロードする** — `weights\whisper` と `weights\ctranslate2` フォルダを削除し、次回VRCTを起動した際に自動で再ダウンロードさせてください。
+
+4. **問題が続く場合はログを添付する** — 改善しない場合は、GitHubのIssueを作成する際に[ログと設定データを添付](/docs/faq/attach-logs)してください。
