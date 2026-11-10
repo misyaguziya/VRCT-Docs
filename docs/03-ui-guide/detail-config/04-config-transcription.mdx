@@ -16,8 +16,8 @@ Customize the transcription settings for microphone and speaker audio in the Tra
     - Set it to **0** to disable the recording timeout (unlimited recording). Phrase boundaries are still determined by silence detection and **Mic Phrase Timeout**.
 - **Mic Phrase Timeout** : Set the timeout duration for microphone phrase detection.
     - Transcription processing is performed at intervals of the specified number of seconds.
-- **Mic Max Words**: Set the maximum number of words for microphone transcription.
-    - It is the lower limit for the number of transcribed words, and only when this number is exceeded will the transcription results be displayed logs and send to VRChat.
+- **Mic Max Queued Messages**: Set the maximum number of transcribed messages that can pile up before being sent.
+    - If more messages pile up than this number, the oldest ones are discarded without being sent to VRChat. This setting does not change how many words a message contains.
 - **Mic Word Filter**: Enable or disable word filtering for microphone transcription.
     - If a registered word is detected, the message will not be sent. To add multiple words at once, separate them with ',' (comma).\n*Duplicate words will not be registered.
 
@@ -28,8 +28,8 @@ Customize the transcription settings for microphone and speaker audio in the Tra
     - Set it to **0** to disable the recording timeout (unlimited recording). Phrase boundaries are still determined by silence detection and **Speaker Phrase Timeout**.
 - **Speaker Phrase Timeout** : Set the timeout duration for speaker phrase detection.
     - Transcription processing is performed at intervals of the specified number of seconds.
-- **Speaker Max Words**: Set the maximum number of words for speaker transcription.
-    - It is the lower limit for the number of transcribed words, and only when this number is exceeded will the transcription results be displayed logs.
+- **Speaker Max Queued Messages**: Set the maximum number of transcribed messages that can pile up before being shown in the log.
+    - If more messages pile up than this number, the oldest ones are discarded without being shown. This setting does not change how many words a message contains.
 
 ## Transcription Engines
 ![config-transcription-engines-overview.png](./img/config-transcription-engines-overview.png)

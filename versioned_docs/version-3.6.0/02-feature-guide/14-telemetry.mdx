@@ -1,0 +1,67 @@
+---
+sidebar_position: 14
+slug: /feature-guide/telemetry
+title: Telemetry
+description: Understand VRCT's telemetry and privacy practices
+sidebar_label: Telemetry
+---
+
+# Telemetry
+
+VRCT collects anonymous usage statistics to help improve the application. This page explains what data is collected, how you can control it, and the privacy guarantees we provide.
+
+## Overview
+
+Telemetry helps us understand how VRCT is used and identify areas for improvement. All data collection is:
+- **Anonymous**: No personal identification information
+- **Privacy-focused**: No sensitive data is ever collected
+- **User-controlled**: You can disable it at any time
+- **Transparent**: See exactly what's collected below
+
+## What Data is Collected?
+
+### Event Data
+
+VRCT tracks the following **events only**:
+
+| Event | Description | Data Sent |
+|-------|-------------|-----------|
+| `app_started` | App launch | None |
+| `app_closed` | App shutdown | None |
+| `session_heartbeat` | Active session (every 5 min) | None |
+| `core_feature` | Feature usage | Feature name only: `"translation"`, `"mic_speech_to_text"`, `"speaker_speech_to_text"`, `"text_input"` |
+
+### What Data is NOT Collected
+
+We **never** collect:
+- ❌ Personal identification data (usernames, IDs, device serials)
+- ❌ Message content or input text
+- ❌ Voice audio data
+- ❌ UI state (window position, minimized status)
+- ❌ System information (hardware specs, OS details)
+- ❌ File paths or document names
+
+## How to Control Telemetry
+
+For detailed instructions on enabling or disabling telemetry, please refer to the [Other Tab configuration guide](/docs/config-other#telemetry).
+
+## Privacy & Security
+
+### Data Transmission
+
+- **Service**: [Aptabase](https://aptabase.com)
+- **Protocol**: HTTPS (encrypted)
+- **Retention**: Limited by Aptabase policy
+- **Access**: Only VRCT developers can view analytics dashboard
+
+### Your Privacy Rights
+
+- You control whether telemetry is enabled
+- You can disable it at any time without penalty
+- No data is sold or shared with third parties
+- Data is stored securely by Aptabase
+
+### Privacy Policy
+
+For detailed information about how Aptabase handles data, see:
+- [Aptabase Privacy Policy](https://aptabase.com/legal/privacy)

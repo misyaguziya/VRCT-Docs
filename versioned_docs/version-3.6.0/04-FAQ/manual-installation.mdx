@@ -1,0 +1,143 @@
+---
+sidebar_position: 20
+slug: /faq/manual-installation
+title: Manual Installation of AI Model Weights
+description: How to manually download and install AI model weight files when automatic download fails in VRCT.
+sidebar_label: Manual Installation of AI Model Weights
+---
+
+# Manual Installation of AI Model Weights
+
+If the automatic download of AI model weights fails—due to internet restrictions or other issues—you can manually download and install the necessary files. This guide explains where to place the files and how to create the required directories if they do not already exist.
+
+:::tip
+First, check `config.json` to confirm which models are currently configured before downloading files.
+See the [Check `config.json`](#check-configjson) section below.
+:::
+
+---
+
+## AI Models Directory Structure
+
+Below is the directory structure of VRCT:
+
+```
+C:\Users\{YourUsername}\AppData\Local\VRCT
+  (or wherever the folder containing VRCT.exe is located)
+├── VRCT.exe
+...
+└── weights
+    ├── ctranslate2
+    │   └── {CTRANSLATE2_WEIGHT_TYPE}   ← folder name must match config.json exactly
+    │       ├── config.json
+    │       ├── model.bin
+    │       └── ...
+    └── whisper
+        ├── tiny
+        ├── base              (Required by default)
+        │   ├── config.json
+        │   ├── model.bin
+        │   ├── tokenizer.json
+        │   └── vocabulary.txt
+        ├── small
+        ├── medium
+        ├── large-v1
+        ├── large-v2
+        └── large-v3
+```
+
+:::important
+**The CTranslate2 folder name must exactly match the value of `CTRANSLATE2_WEIGHT_TYPE` in your `config.json`.**
+For example, if `config.json` contains `"CTRANSLATE2_WEIGHT_TYPE": "nllb-200-distilled-600M-ct2-int8"`, the folder must be named `nllb-200-distilled-600M-ct2-int8`.
+:::
+
+---
+
+## Check `config.json`
+
+Before downloading anything, open your `config.json` and confirm these two values:
+
+```json
+"CTRANSLATE2_WEIGHT_TYPE": "nllb-200-distilled-600M-ct2-int8",
+"WHISPER_WEIGHT_TYPE": "base",
+```
+
+- **`CTRANSLATE2_WEIGHT_TYPE`** — determines the CTranslate2 (translation) model to use and **must match the folder name** under `weights\ctranslate2\`.
+- **`WHISPER_WEIGHT_TYPE`** — determines the Whisper (transcription) model to use and must match the folder name under `weights\whisper\`.
+
+Make sure you download and place the files that match these values.
+
+---
+
+## Model Download URLs
+
+VRCT needs a **CTranslate2 (translation) model** and a **Whisper (transcription) model**.
+
+### CTranslate2 (Translation)
+
+The **default** translation model is `nllb-200-distilled-600M-ct2-int8`.
+Place all downloaded files into `weights\ctranslate2\{CTRANSLATE2_WEIGHT_TYPE}\`.
+
+:::warning
+Clicking the direct download links below will immediately start a download.
+:::
+
+**NLLB-200 Distilled 600M (default)** — place in `weights\ctranslate2\nllb-200-distilled-600M-ct2-int8\`
+
+- [config.json](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/config.json)
+- [model.bin](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/model.bin)
+- [sentencepiece.bpe.model](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/sentencepiece.bpe.model)
+- [shared_vocabulary.txt](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/shared_vocabulary.txt)
+- [special_tokens_map.json](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/special_tokens_map.json)
+- [tokenizer.json](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/tokenizer.json)
+- [tokenizer_config.json](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/resolve/main/tokenizer_config.json)
+
+Alternatively, browse the [JustFrederik/nllb-200-distilled-600M-ct2-int8](https://huggingface.co/JustFrederik/nllb-200-distilled-600M-ct2-int8/tree/main) model page on Hugging Face.
+
+---
+
+### Whisper (Transcription)
+
+Download the specific Whisper model that matches your `WHISPER_WEIGHT_TYPE` setting. The **base** model is required by default.
+
+Place all downloaded files into `weights\whisper\{WHISPER_WEIGHT_TYPE}\`.
+
+| Model | Link | Notes |
+|---|---|---|
+| tiny | [Hugging Face](https://huggingface.co/Systran/faster-whisper-tiny/tree/main) | |
+| base | [Hugging Face](https://huggingface.co/Systran/faster-whisper-base/tree/main) | *(Required by default)* |
+| small | [Hugging Face](https://huggingface.co/Systran/faster-whisper-small/tree/main) | |
+| medium | [Hugging Face](https://huggingface.co/Systran/faster-whisper-medium/tree/main) | |
+| large-v1 | [Hugging Face](https://huggingface.co/Systran/faster-whisper-large-v1/tree/main) | |
+| large-v2 | [Hugging Face](https://huggingface.co/Systran/faster-whisper-large-v2/tree/main) | |
+| large-v3 | [Hugging Face](https://huggingface.co/Systran/faster-whisper-large-v3/tree/main) | |
+
+For each Whisper model, download these **4 files**:
+- `config.json`
+- `model.bin`
+- `tokenizer.json`
+- `vocabulary.txt`
+
+:::note
+For Whisper models from the Systran series, only the above 4 files are needed.
+`preprocessor_config.json` and `vocabulary.json` are **not required**.
+:::
+
+**Direct download links for the `base` model:**
+
+- [config.json](https://huggingface.co/Systran/faster-whisper-base/resolve/main/config.json)
+- [model.bin](https://huggingface.co/Systran/faster-whisper-base/resolve/main/model.bin)
+- [tokenizer.json](https://huggingface.co/Systran/faster-whisper-base/resolve/main/tokenizer.json)
+- [vocabulary.txt](https://huggingface.co/Systran/faster-whisper-base/resolve/main/vocabulary.txt)
+
+---
+
+## Still having issues?
+
+1. **Check the folder name** — Make sure the CTranslate2 folder name under `weights\ctranslate2\` exactly matches `CTRANSLATE2_WEIGHT_TYPE` in `config.json`. A mismatch is the most common cause of failure.
+
+2. **Check VPN / Proxy / Antivirus** — If automatic download is failing, verify that your VPN, proxy, or antivirus software is not blocking connections to `huggingface.co`.
+
+3. **Delete and re-download** — Delete the `weights\whisper` and `weights\ctranslate2` folders and let VRCT re-download them on the next launch.
+
+4. **Attach logs when reporting** — If the issue persists, [attach your logs and settings data](/docs/faq/attach-logs) when filing a GitHub issue.
